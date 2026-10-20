@@ -3,10 +3,15 @@ Reddit Collector.
 Fetches organic community discussions, complaints, and trending gift advice
 from subreddits (e.g. r/giftideas, r/gifts, r/BuyItForLife) using Reddit's JSON API.
 """
+import os
+import sys
 import urllib.parse
 import random
 import requests
 from typing import Dict, Any, List
+
+# Cho phép chạy file trực tiếp bằng: python src/collectors/reddit.py
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from src.collectors.base import BaseCollector
 from src.models.schemas import DiscussionItem

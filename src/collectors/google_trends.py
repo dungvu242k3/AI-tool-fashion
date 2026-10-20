@@ -2,9 +2,15 @@
 Google Trends Collector.
 Fetches search interest over time and breakout / rising related queries using pytrends.
 """
+import os
+import sys
 import time
 import random
 from typing import Dict, Any, List
+
+# Cho phép chạy file trực tiếp bằng: python src/collectors/google_trends.py
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from pytrends.request import TrendReq
 
 from src.collectors.base import BaseCollector

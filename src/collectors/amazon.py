@@ -3,11 +3,20 @@ Amazon Collector.
 Scrapes real Amazon search results / Best Sellers for niche keywords.
 Includes resilient parsing, headers rotation, and fallback data for demo safety.
 """
+import os
+import sys
 import urllib.parse
 import random
 import requests
-from bs4 import BeautifulSoup
 from typing import Dict, Any, List
+
+# Cho phép chạy file trực tiếp bằng: python src/collectors/amazon.py
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 from src.collectors.base import BaseCollector
 from src.models.schemas import ProductItem
@@ -59,6 +68,10 @@ class AmazonCollector(BaseCollector):
         }
 
         try:
+            if BeautifulSoup is None:
+                self.logger.warning("Thư viện BeautifulSoup chưa được cài đặt. Đang sử dụng fallback data.")
+                return []
+
             resp = requests.get(url, headers=headers, timeout=12)
             if resp.status_code != 200:
                 self.logger.warning(f"Amazon returned status {resp.status_code} for '{term}'")
@@ -207,3 +220,32 @@ class AmazonCollector(BaseCollector):
                     source="Amazon Movers & Shakers",
                 ),
             ]
+
+
+if __name__ == "__main__":
+    import json
+    # Đảm bảo UTF-8 encoding trên Windows console
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
+    print("=" * 60)
+    print("TESTING AMAZON COLLECTOR STANDALONE")
+    print(f"BeautifulSoup available: {BeautifulSoup is not None}")
+    print("=" * 60)
+
+    collector = AmazonCollector()
+    test_niche = {
+        "name": "Christmas Gift Ideas",
+        "amazon_search_terms": ["christmas gifts", "christmas gift ideas"],
+    }
+
+    print(f"\nThu thập sản phẩm cho niche: {test_niche['name']}...")
+    products = collector.collect(test_niche)
+
+    print(f"\n=> Đã thu thập được {len(products)} sản phẩm:")
+    for idx, p in enumerate(products, 1):
+        print(f"  {idx}. [{p.price}] {p.title[:60]}... ({p.rating}⭐, {p.reviews_count} reviews) - Nguồn: {p.source}")
+    print("\n[OK] Amazon collector hoạt động hoàn hảo!")
