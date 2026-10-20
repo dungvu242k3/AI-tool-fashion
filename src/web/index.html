@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Trend Intelligence | Product Research System</title>
+  
+  <!-- International Standard Typography (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheet -->
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <h1>Product Trend Intelligence</h1>
+          <p>Hệ thống nghiên cứu xu hướng và cơ hội sản phẩm thương mại</p>
+        </div>
+      </div>
+      <div class="header-pills">
+        <span class="pill">Danh mục: Quà tặng theo mùa</span>
+        <span class="pill pill-success">API Cost: $0.00 / Báo cáo</span>
+      </div>
+    </header>
+
+    <!-- Control Panel -->
+    <section class="control-panel">
+      <div class="control-desc">
+        <h2>Phân tích dữ liệu đa nguồn End-to-End</h2>
+        <p>Thu thập và đối chiếu dữ liệu tìm kiếm Google Trends, danh mục bán chạy Amazon, và thảo luận người dùng Reddit để đề xuất sản phẩm mục tiêu.</p>
+      </div>
+      <div class="control-actions">
+        <button id="btnRun" class="btn-primary" onclick="runAnalysis()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Chạy phân tích xu hướng</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Progress Tracker (Chỉ hiện khi đang chạy) -->
+    <div id="progressBox" class="progress-panel">
+      <div class="progress-steps">
+        <div id="step1" class="step-badge active">1. Thu thập dữ liệu</div>
+        <div id="step2" class="step-badge">2. Chuẩn hóa &amp; Lọc</div>
+        <div id="step3" class="step-badge">3. Phân tích thị trường</div>
+        <div id="step4" class="step-badge">4. Xếp hạng Niche</div>
+        <div id="step5" class="step-badge">5. Xuất bản báo cáo</div>
+      </div>
+      <div id="statusText" class="progress-message">Đang thiết lập kết nối và truy xuất dữ liệu...</div>
+    </div>
+
+    <!-- Metrics Ribbon -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Phân khúc (Niches)</div>
+        <div id="metricNiches" class="metric-value">3</div>
+        <div class="metric-detail">Christmas, Gift for Him, Gift for Her</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Tín hiệu từ khóa</div>
+        <div id="metricKeywords" class="metric-value">--</div>
+        <div class="metric-detail">Google Trends &amp; Live Autocomplete</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Sản phẩm đối thủ</div>
+        <div id="metricProducts" class="metric-value">--</div>
+        <div class="metric-detail">Amazon Best Sellers &amp; Movers</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Thời gian thực thi</div>
+        <div id="metricElapsed" class="metric-value">--</div>
+        <div class="metric-detail">Chạy trực tiếp trên máy</div>
+      </div>
+    </section>
+
+    <!-- Tab Bar -->
+    <nav class="tab-bar">
+      <button class="tab-btn active" onclick="selectTab('summary')">Tổng quan &amp; Cơ hội</button>
+      <button class="tab-btn" onclick="selectTab('niche0')">Christmas Gift Ideas</button>
+      <button class="tab-btn" onclick="selectTab('niche1')">Gift for Him</button>
+      <button class="tab-btn" onclick="selectTab('niche2')">Gift for Her</button>
+      <button class="tab-btn" onclick="selectTab('report')">Báo cáo chuẩn (.md)</button>
+    </nav>
+
+    <!-- TAB 1: SUMMARY -->
+    <div id="tab-summary" class="tab-pane active">
+      <!-- Ranking Table -->
+      <div class="content-card">
+        <div class="card-title">
+          <span>Xếp hạng tiềm năng phân khúc (Niche Ranking)</span>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 100px;">Thứ hạng</th>
+                <th style="width: 220px;">Phân khúc</th>
+                <th style="width: 160px;">Tiềm năng</th>
+                <th>Phân tích &amp; Khuyến nghị</th>
+              </tr>
+            </thead>
+            <tbody id="rankingBody">
+              <tr>
+                <td colspan="4" class="empty-state">Chưa có dữ liệu phân tích. Nhấn <strong>"Chạy phân tích xu hướng"</strong> để bắt đầu.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Ideas -->
+      <div class="content-card">
+        <div class="card-title">
+          <span>Ý tưởng sản phẩm mục tiêu (Top Opportunities)</span>
+        </div>
+        <div id="topIdeasGrid" class="grid-3">
+          <div class="empty-state" style="grid-column: 1 / -1;">Chưa có dữ liệu sản phẩm. Dữ liệu sẽ hiển thị ngay sau khi phân tích.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: NICHE 0 (Christmas) -->
+    <div id="tab-niche0" class="tab-pane">
+      <div class="content-card">
+        <div class="card-title">1. Tín hiệu từ khóa tìm kiếm (Keyword)</div>
+        <p class="section-desc">Các keyword chính và liên quan đang hot / đang tăng, kèm tín hiệu và nguồn link.</p>
+        <div id="niche0Keywords" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">2. Phân tích xu hướng &amp; thị trường</div>
+        <p class="section-desc">Xu hướng tăng/giảm, chân dung khách hàng, nỗi đau, mức cạnh tranh và khoảng giá.</p>
+        <div id="niche0Analysis" class="analysis-box" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Sản phẩm đối thủ (Amazon)</div>
+        <div id="niche0Products" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Thảo luận cộng đồng (Reddit)</div>
+        <div id="niche0Discussions" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">3. Ý tưởng sản phẩm đề xuất</div>
+        <p class="section-desc">2–3 idea cụ thể: bán cái gì, cho ai, vì sao nên bán bây giờ.</p>
+        <div id="niche0Ideas" class="grid-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: NICHE 1 (Gift for Him) -->
+    <div id="tab-niche1" class="tab-pane">
+      <div class="content-card">
+        <div class="card-title">1. Tín hiệu từ khóa tìm kiếm (Keyword)</div>
+        <p class="section-desc">Các keyword chính và liên quan đang hot / đang tăng, kèm tín hiệu và nguồn link.</p>
+        <div id="niche1Keywords" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">2. Phân tích xu hướng &amp; thị trường</div>
+        <p class="section-desc">Xu hướng tăng/giảm, chân dung khách hàng, nỗi đau, mức cạnh tranh và khoảng giá.</p>
+        <div id="niche1Analysis" class="analysis-box" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Sản phẩm đối thủ (Amazon)</div>
+        <div id="niche1Products" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Thảo luận cộng đồng (Reddit)</div>
+        <div id="niche1Discussions" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">3. Ý tưởng sản phẩm đề xuất</div>
+        <p class="section-desc">2–3 idea cụ thể: bán cái gì, cho ai, vì sao nên bán bây giờ.</p>
+        <div id="niche1Ideas" class="grid-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 4: NICHE 2 (Gift for Her) -->
+    <div id="tab-niche2" class="tab-pane">
+      <div class="content-card">
+        <div class="card-title">1. Tín hiệu từ khóa tìm kiếm (Keyword)</div>
+        <p class="section-desc">Các keyword chính và liên quan đang hot / đang tăng, kèm tín hiệu và nguồn link.</p>
+        <div id="niche2Keywords" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">2. Phân tích xu hướng &amp; thị trường</div>
+        <p class="section-desc">Xu hướng tăng/giảm, chân dung khách hàng, nỗi đau, mức cạnh tranh và khoảng giá.</p>
+        <div id="niche2Analysis" class="analysis-box" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Sản phẩm đối thủ (Amazon)</div>
+        <div id="niche2Products" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">Thảo luận cộng đồng (Reddit)</div>
+        <div id="niche2Discussions" class="grid-3" style="margin-bottom: 28px;"></div>
+
+        <div class="card-title">3. Ý tưởng sản phẩm đề xuất</div>
+        <p class="section-desc">2–3 idea cụ thể: bán cái gì, cho ai, vì sao nên bán bây giờ.</p>
+        <div id="niche2Ideas" class="grid-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 5: REPORT MARKDOWN -->
+    <div id="tab-report" class="tab-pane">
+      <div class="content-card">
+        <div class="card-title">
+          <span>Toàn văn báo cáo xuất bản (TASK-1 Markdown)</span>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-secondary" onclick="copyReport()">Sao chép văn bản</button>
+            <button class="btn-secondary" onclick="downloadReport()">Tải về .md</button>
+          </div>
+        </div>
+        <pre id="rawReportText" class="code-view">Chưa có báo cáo được nạp.</pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modular Frontend Scripts -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -27,9 +27,9 @@ class AmazonCollector(BaseCollector):
     """Scrapes Amazon search results for product signals, prices, and reviews."""
 
     USER_AGENTS = [
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0",
     ]
 
     def __init__(self):
@@ -59,11 +59,9 @@ class AmazonCollector(BaseCollector):
 
         headers = {
             "User-Agent": random.choice(self.USER_AGENTS),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
-            "Accept-Encoding": "gzip, deflate, br",
             "DNT": "1",
-            "Connection": "keep-alive",
             "Upgrade-Insecure-Requests": "1",
         }
 
@@ -82,13 +80,16 @@ class AmazonCollector(BaseCollector):
             cards = soup.select('div[data-component-type="s-search-result"]')
 
             for rank, card in enumerate(cards[:8], start=1):
-                title_elem = card.select_one("h2 a span, h2 span")
+                title_elem = card.select_one("h2 a span, h2 span, h2")
                 if not title_elem:
                     continue
                 title = title_elem.get_text(strip=True)
+                if not title or len(title) < 5 or title.lower() == "results":
+                    continue
 
-                link_elem = card.select_one("h2 a")
-                product_url = "https://www.amazon.com" + link_elem.get("href", "") if link_elem else url
+                link_elem = card.select_one("h2 a, a.a-link-normal[href*='/dp/']")
+                href_attr = link_elem.get("href", "") if link_elem else ""
+                product_url = f"https://www.amazon.com{href_attr}" if href_attr.startswith("/") else url
 
                 price_whole = card.select_one(".a-price-whole")
                 price_fraction = card.select_one(".a-price-fraction")

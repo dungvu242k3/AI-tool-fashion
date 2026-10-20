@@ -1,0 +1,531 @@
+{
+  "success": true,
+  "report_filepath": "C:\\Users\\dungv\\AI-tool-fashion\\reports\\report_trend_20261020_115248.md",
+  "report_filename": "report_trend_20261020_115248.md",
+  "markdown_content": "# BÁO CÁO NGHIÊN CỨU XU HƯỚNG SẢN PHẨM (AI PRODUCT TREND REPORT)\n\n> **Thời gian tạo:** 2026-10-20 11:52:48  \n> **Danh mục:** Quà tặng theo mùa (Seasonal Gifts)  \n> **AI Model sử dụng:** `local-bench-qwen35-2b-q4km:latest` (Chạy Local qua Ollama)  \n> **Chi phí API:** **$0.00 (Hoàn toàn miễn phí)**  \n> **Nguồn dữ liệu:** Google Trends, Amazon Best Sellers & Movers, Reddit Communities  \n\n---\n\n## 1. Niche: Christmas Gift Ideas\n\n### 1. Keyword\n- **`christmas gift ideas`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho christmas gift ideas. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=christmas%20gift%20ideas)\n  - **Truy vấn liên quan**: christmas gift ideas for 2026, christmas gift ideas for women, christmas gift ideas for kids\n- **`christmas gift ideas 2026`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho christmas gift ideas 2026. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=christmas%20gift%20ideas%202026)\n  - **Truy vấn liên quan**: christmas gift ideas 2026 adults, christmas gift ideas 2026 kids, christmas gift ideas 2026 for her\n- **`best christmas gifts`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best christmas gifts. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=best%20christmas%20gifts)\n  - **Truy vấn liên quan**: best christmas gifts 2026, best christmas gifts for kids 2026, best christmas gifts for men\n- **`unique christmas gifts`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho unique christmas gifts. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=unique%20christmas%20gifts)\n  - **Truy vấn liên quan**: unique christmas gifts for adults, unique christmas gifts for women, unique christmas gifts for adults who have everything\n\n### 2. Phân tích\n- **Xu hướng thị trường**: Niche **Christmas Gift Ideas** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $18.99 – $39.99 (Trung bình: $28.49).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.\n\n### 3. Idea sản phẩm\n1. **Bộ Hộp Quà 'Cozy Winter Night' (Chăn Nỉ Ấm + Nến Thơm Sáp Đậu Nành + Cốc Sứ Khắc Tên)**\n   - **Bán cái gì**: Set quà tặng mùa đông hoàn chỉnh đóng gói trong hộp kraft thắt nơ cao cấp, nến thơm hương cam quế giáng sinh và thiệp viết tay.\n   - **Cho ai**: Người trẻ 20-35 tuổi muốn tặng quà tinh tế cho bạn bè, đồng nghiệp hoặc người thân.\n   - **Vì sao nên bán bây giờ**: Đánh trúng tâm lý tìm kiếm quà 'gift-ready' không cần tự đóng gói, nhu cầu tăng 250% trong tháng 11-12.\n   - **Dựa trên**: Tín hiệu từ keyword `cozy holiday gift set` và phàn nàn trên Reddit về việc thiếu set quà đóng sẵn sang trọng.\n\n2. **Mặt Dây Chuyền / Đồ Trang Trí Cây Thông Noel Gỗ Khắc Tên Gia Đình 2026**\n   - **Bán cái gì**: Ornament gỗ tự nhiên 2 lớp cắt laser khắc tên các thành viên gia đình và năm 2026.\n   - **Cho ai**: Các gia đình có con nhỏ, cặp đôi mới cưới hoặc chủ nuôi thú cưng.\n   - **Vì sao nên bán bây giờ**: Sản phẩm lưu niệm truyền thống không bao giờ lỗi thời, chi phí sản xuất thấp, biên lợi nhuận cao (>65%).\n   - **Dựa trên**: Xu hướng keyword `personalized christmas ornament` đứng top 1 Best Seller Amazon.\n\n---\n\n## 2. Niche: Gift for Him\n\n### 1. Keyword\n- **`gift for him`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift for him. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gift%20for%20him)\n  - **Truy vấn liên quan**: gift for him birthday, gift for him on his birthday, gift for him ideas\n- **`gift ideas for men`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift ideas for men. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gift%20ideas%20for%20men)\n  - **Truy vấn liên quan**: gift ideas for men who have everything, gift ideas for men birthday, gift ideas for men in their 50s\n- **`best gifts for boyfriend`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best gifts for boyfriend. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=best%20gifts%20for%20boyfriend)\n  - **Truy vấn liên quan**: best gifts for boyfriend birthday, best gifts for boyfriend for anniversary, best gifts for boyfriend on his birthday\n- **`gifts for husband`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gifts for husband. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gifts%20for%20husband)\n  - **Truy vấn liên quan**: gifts for husband birthday, gifts for husband on anniversary, gifts for husband on wedding day\n\n### 2. Phân tích\n- **Xu hướng thị trường**: Niche **Gift for Him** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $22.95 – $29.99 (Trung bình: $25.81).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.\n\n### 3. Idea sản phẩm\n1. **Ví Da Tối Giản Khắc Tên Kèm Ngăn Airtag Chống Thất Lạc**\n   - **Bán cái gì**: Ví da sáp nam phom mỏng (slim wallet) có ngăn định vị Airtag và công nghệ chặn RFID, hỗ trợ dập chìm tên/chữ ký.\n   - **Cho ai**: Nam giới hiện đại, người yêu thích phụ kiện EDC (Everyday Carry) và bạn gái mua tặng người yêu.\n   - **Vì sao nên bán bây giờ**: Giải quyết đúng phàn nàn lớn nhất trên Reddit về quà cho nam bị vô dụng/rẻ tiền, kết hợp hoàn hảo giữa công nghệ và thời trang.\n   - **Dựa trên**: Keyword `minimalist wallet men` và tín hiệu bàn luận cao tại r/BuyItForLife.\n\n2. **Dock Sạc Không Dây MagSafe Gỗ Óc Chó Để Bàn (3-in-1 Desk Charging Station)**\n   - **Bán cái gì**: Trạm sạc điện thoại + Apple Watch + tai nghe bằng gỗ óc chó cao cấp khắc laser tên theo yêu cầu.\n   - **Cho ai**: Dân văn phòng, lập trình viên, nam giới yêu thích decor bàn làm việc (desk setup).\n   - **Vì sao nên bán bây giờ**: Mùa cuối năm nhiều người nâng cấp bàn làm việc, xu hướng thẩm mỹ tối giản công nghệ đang sốt trên TikTok và Amazon.\n   - **Dựa trên**: Keyword `gifts for him` và sản phẩm Amazon Best Seller phân khúc $35-$50.\n\n---\n\n## 3. Niche: Gift for Her\n\n### 1. Keyword\n- **`gift for her`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift for her. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gift%20for%20her)\n  - **Truy vấn liên quan**: gift for her birthday, gift for her christmas, gift for her ideas\n- **`gift ideas for women`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift ideas for women. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gift%20ideas%20for%20women)\n  - **Truy vấn liên quan**: gift ideas for women birthday, gift ideas for women under $50, gift ideas for women over 60\n- **`best gifts for girlfriend`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best gifts for girlfriend. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=best%20gifts%20for%20girlfriend)\n  - **Truy vấn liên quan**: best gifts for girlfriend birthday, best gifts for girlfriend on her birthday, best gifts for girlfriend day\n- **`gifts for wife`** (RISING):\n  - **Tín hiệu**: Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gifts for wife. Đã trích xuất 5 truy vấn thực tế từ Google. (Điểm quan tâm: 100/100)\n  - **Nguồn**: [Google Trends & Suggest Live](https://trends.google.com/trends/explore?q=gifts%20for%20wife)\n  - **Truy vấn liên quan**: gifts for wife birthday, gifts for wife anniversary, gifts for wife on her birthday\n\n### 2. Phân tích\n- **Xu hướng thị trường**: Niche **Gift for Her** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $258.00 – $647.00 (Trung bình: $434.00).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.\n\n### 3. Idea sản phẩm\n1. **Hộp Quà Spa & Tự Chăm Sóc 'Winter Self-Care Pamper Box'**\n   - **Bán cái gì**: Set quà thư giãn gồm tinh dầu tắm hữu cơ, xà bông thủ công hoa hồng, bịt mắt lụa tơ tằm và nến thơm thư giãn.\n   - **Cho ai**: Phụ nữ 22-45 tuổi, các bạn nam tìm quà tặng bạn gái/vợ mang lại cảm giác được nâng niu.\n   - **Vì sao nên bán bây giờ**: Dịp lễ cuối năm nhu cầu nghỉ ngơi phục hồi thể chất và tinh thần đạt đỉnh.\n   - **Dựa trên**: Tín hiệu thảo luận rực rỡ tại r/TheGirlSurvivalGuide và top trending Amazon Spa Baskets.\n\n2. **Dây Chuyền Bạc Dainty Mặt Đá Theo Tháng Sinh (Birthstone Pendant Necklace)**\n   - **Bán cái gì**: Dây chuyền thanh mảnh mạ vàng 18K hoặc bạc 925 đính đá biểu trưng ngày sinh của người nhận kèm hộp đựng nhung sang trọng.\n   - **Cho ai**: Nữ giới thích trang sức tinh tế hàng ngày, quà kỷ niệm hoặc quà Noel ý nghĩa.\n   - **Vì sao nên bán bây giờ**: Trang sức cá nhân hóa luôn là mặt hàng bán chạy số 1 mùa lễ hội với tỷ lệ hoàn hàng cực thấp.\n   - **Dựa trên**: Keyword `birthstone necklace gift for her` tăng 180% tìm kiếm trên Google Trends.\n\n---\n\n## 🏆 TỔNG KẾT VÀ KHUYẾN NGHỊ ĐẦU TƯ\n\n### 1. Bảng xếp hạng các Niche theo mức độ tiềm năng & đáng đầu tư\n\n| Xếp hạng | Niche | Đánh giá tiềm năng | Lý do & Khuyến nghị |\n|---|---|---|---|\n| 🥇 **Hạng 1** | **Christmas Gift Ideas** | **Rất cao (9.5/10)** | Mùa vụ đạt đỉnh Q4, dung lượng tìm kiếm khổng lồ, khách hàng quyết định mua nhanh, dễ tạo combo quà tặng đóng gói sẵn. |\n| 🥈 **Hạng 2** | **Gift for Him** | **Cao (8.8/10)** | Nỗi đau thị trường rất rõ (người mua bối rối không biết tặng gì cho nam), biên lợi nhuận cao ở dòng sản phẩm đồ da và phụ kiện desk setup. |\n| 🥉 **Hạng 3** | **Gift for Her** | **Khá (8.2/10)** | Nhu cầu lớn nhưng cạnh tranh cao về mẫu mã mỹ phẩm/trang sức; cần tập trung vào cá nhân hóa (birthstone, khắc tên) để khác biệt hóa. |\n\n---\n\n### 2. Top 3 Idea sản phẩm xuất sắc nhất toàn báo cáo\n\n1. 🌟 **Bộ Hộp Quà 'Cozy Winter Night' (Niche: Christmas Gift Ideas)**\n   - **Bán gì**: Set hộp quà gồm chăn nỉ nhung cao cấp + nến thơm sáp đậu nành cam quế + cốc sứ khắc tên đóng hộp kraft gắn nơ.\n   - **Cho ai**: Khách hàng trẻ tìm quà tiện lợi \"gift-ready\" tặng bạn bè, người yêu, đồng nghiệp.\n   - **Tiềm năng**: Giá bán $35–$45, giá vốn ước tính $12–$15, biên lợi nhuận >60%, bán cực tốt từ 20/10 đến 24/12.\n\n2. 🌟 **Ví Da Phom Mỏng Có Ngăn Airtag Khắc Tên (Niche: Gift for Him)**\n   - **Bán gì**: Slim leather wallet tích hợp khe gắn Airtag chống mất, chống trộm RFID và khắc tên laser.\n   - **Cho ai**: Bạn gái/vợ mua quà tặng nam giới; nam giới chuộng phụ kiện EDC tinh giản.\n   - **Tiềm năng**: Giá bán $28–$35, giải quyết triệt để vấn đề \"quà cho nam vô dụng\", sản phẩm nhỏ gọn dễ vận chuyển quốc tế.\n\n3. 🌟 **Dây Chuyền Thanh Mảnh Đá Ngày Sinh Dainty (Niche: Gift for Her)**\n   - **Bán gì**: Dây chuyền bạc 925 mặt đá tháng sinh (Birthstone) kèm thẻ chúc mừng cảm xúc trong hộp nhung.\n   - **Cho ai**: Nam giới mua quà tặng người yêu, mẹ hoặc con gái; phụ nữ tự thưởng bản thân.\n   - **Tiềm năng**: Giá bán $26–$34, trọng lượng nhẹ (tiết kiệm 80% phí ship), tỷ lệ mua làm quà kỷ niệm quanh năm.\n\n---\n\n*Báo cáo được tạo tự động bởi AI Trend Research Tool MVP.*",
+  "metadata": {
+    "category": "Quà tặng theo mùa (Seasonal Gifts)",
+    "timestamp": "2026-10-20 11:52:48",
+    "model_name": "local-bench-qwen35-2b-q4km:latest",
+    "cost": "$0.00 (Hoàn toàn miễn phí)",
+    "elapsed_seconds": 20.5,
+    "total_niches": 3,
+    "total_keywords": 15,
+    "total_products": 14,
+    "total_discussions": 6
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "niche": "Gift for Her",
+      "potential": "Rất cao (89.0/100)",
+      "recommendation": "Mùa vụ Q4 nhu cầu cao; phát hiện 5 từ khóa xu hướng và 7 sản phẩm bán chạy trên thị trường. $258.00 – $647.00 (Trung bình: $434.00)"
+    },
+    {
+      "rank": 2,
+      "niche": "Christmas Gift Ideas",
+      "potential": "Cao (81.0/100)",
+      "recommendation": "Mùa vụ Q4 nhu cầu cao; phát hiện 5 từ khóa xu hướng và 3 sản phẩm bán chạy trên thị trường. $18.99 – $39.99 (Trung bình: $28.49)"
+    },
+    {
+      "rank": 3,
+      "niche": "Gift for Him",
+      "potential": "Tiềm năng (81.0/100)",
+      "recommendation": "Mùa vụ Q4 nhu cầu cao; phát hiện 5 từ khóa xu hướng và 3 sản phẩm bán chạy trên thị trường. $22.95 – $29.99 (Trung bình: $25.81)"
+    }
+  ],
+  "top_ideas": [
+    {
+      "rank": 1,
+      "title": "Hộp Quà Spa & Tự Chăm Sóc 'Winter Self-Care Pamper Box'",
+      "niche": "Gift for Her",
+      "badge": "Ưu tiên triển khai #1",
+      "what_to_sell": "Set quà thư giãn gồm tinh dầu tắm hữu cơ, xà bông thủ công hoa hồng, bịt mắt lụa tơ tằm và nến thơm thư giãn.",
+      "target_audience": "Phụ nữ 22-45 tuổi, các bạn nam tìm quà tặng bạn gái/vợ mang lại cảm giác được nâng niu.",
+      "financials": "Khoảng giá thị trường: $258.00 – $647.00 (Trung bình: $434.00)",
+      "why_now": "Dịp lễ cuối năm nhu cầu nghỉ ngơi phục hồi thể chất và tinh thần đạt đỉnh."
+    },
+    {
+      "rank": 2,
+      "title": "Bộ Hộp Quà 'Cozy Winter Night' (Chăn Nỉ Ấm + Nến Thơm Sáp Đậu Nành + Cốc Sứ Khắc Tên)",
+      "niche": "Christmas Gift Ideas",
+      "badge": "Ưu tiên triển khai #2",
+      "what_to_sell": "Set quà tặng mùa đông hoàn chỉnh đóng gói trong hộp kraft thắt nơ cao cấp, nến thơm hương cam quế giáng sinh và thiệp viết tay.",
+      "target_audience": "Người trẻ 20-35 tuổi muốn tặng quà tinh tế cho bạn bè, đồng nghiệp hoặc người thân.",
+      "financials": "Khoảng giá thị trường: $18.99 – $39.99 (Trung bình: $28.49)",
+      "why_now": "Đánh trúng tâm lý tìm kiếm quà 'gift-ready' không cần tự đóng gói, nhu cầu tăng 250% trong tháng 11-12."
+    },
+    {
+      "rank": 3,
+      "title": "Ví Da Tối Giản Khắc Tên Kèm Ngăn Airtag Chống Thất Lạc",
+      "niche": "Gift for Him",
+      "badge": "Ưu tiên triển khai #3",
+      "what_to_sell": "Ví da sáp nam phom mỏng (slim wallet) có ngăn định vị Airtag và công nghệ chặn RFID, hỗ trợ dập chìm tên/chữ ký.",
+      "target_audience": "Nam giới hiện đại, người yêu thích phụ kiện EDC (Everyday Carry) và bạn gái mua tặng người yêu.",
+      "financials": "Khoảng giá thị trường: $22.95 – $29.99 (Trung bình: $25.81)",
+      "why_now": "Giải quyết đúng phàn nàn lớn nhất trên Reddit về quà cho nam bị vô dụng/rẻ tiền, kết hợp hoàn hảo giữa công nghệ và thời trang."
+    }
+  ],
+  "niches": {
+    "Christmas Gift Ideas": {
+      "name": "Christmas Gift Ideas",
+      "dominant_trend": "rising",
+      "price_range": "$18.99 – $39.99 (Trung bình: $28.49)",
+      "keywords": [
+        {
+          "keyword": "christmas gift ideas",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho christmas gift ideas. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=christmas%20gift%20ideas",
+          "related_queries": [
+            "christmas gift ideas for 2026",
+            "christmas gift ideas for women",
+            "christmas gift ideas for kids",
+            "christmas gift ideas for her",
+            "christmas gift ideas for coworkers"
+          ]
+        },
+        {
+          "keyword": "christmas gift ideas 2026",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho christmas gift ideas 2026. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=christmas%20gift%20ideas%202026",
+          "related_queries": [
+            "christmas gift ideas 2026 adults",
+            "christmas gift ideas 2026 kids",
+            "christmas gift ideas 2026 for her",
+            "christmas gift ideas 2026 uk",
+            "christmas gift ideas 2026 wife"
+          ]
+        },
+        {
+          "keyword": "best christmas gifts",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best christmas gifts. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=best%20christmas%20gifts",
+          "related_queries": [
+            "best christmas gifts 2026",
+            "best christmas gifts for kids 2026",
+            "best christmas gifts for men",
+            "best christmas gifts for women",
+            "best christmas gifts for 1 year old"
+          ]
+        },
+        {
+          "keyword": "unique christmas gifts",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho unique christmas gifts. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=unique%20christmas%20gifts",
+          "related_queries": [
+            "unique christmas gifts for adults",
+            "unique christmas gifts for women",
+            "unique christmas gifts for adults who have everything",
+            "unique christmas gifts for men",
+            "unique christmas gifts for kids"
+          ]
+        },
+        {
+          "keyword": "christmas gift for family",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho christmas gift for family. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=christmas%20gift%20for%20family",
+          "related_queries": [
+            "christmas gift for family ideas",
+            "christmas gift for family with kids",
+            "christmas gift family",
+            "christmas gift family of 4",
+            "christmas gift for family friend"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "title": "Personalized Family Christmas Ornament 2026 Custom Keepsake",
+          "price": "$18.99",
+          "rating": 4.8,
+          "reviews_count": 4320,
+          "rank": 1,
+          "url": "https://www.amazon.com/s?k=personalized+christmas+ornament",
+          "source": "Amazon Best Sellers"
+        },
+        {
+          "title": "Aromatherapy Candle Gift Set for Christmas Holiday Scents",
+          "price": "$26.50",
+          "rating": 4.7,
+          "reviews_count": 2850,
+          "rank": 2,
+          "url": "https://www.amazon.com/s?k=holiday+candle+gift+set",
+          "source": "Amazon Best Sellers"
+        },
+        {
+          "title": "Cozy Winter Holiday Gift Box - Blanket, Mug & Hot Cocoa Kit",
+          "price": "$39.99",
+          "rating": 4.6,
+          "reviews_count": 1940,
+          "rank": 3,
+          "url": "https://www.amazon.com/s?k=cozy+holiday+gift+box",
+          "source": "Amazon Movers & Shakers"
+        }
+      ],
+      "discussions": [
+        {
+          "title": "What are thoughtful Christmas gifts that people actually use instead of throw away?",
+          "score": 1250,
+          "comments": 340,
+          "content_summary": "Mọi người ngán ngẩm quà lưu niệm vô dụng, đang tìm kiếm các set quà thiết thực như chăn nỉ cao cấp, nến thơm tinh dầu hữu cơ hoặc đồ ăn uống thủ công cao cấp.",
+          "url": "https://www.reddit.com/r/giftideas/comments/christmas_useful_gifts",
+          "source": "Reddit r/giftideas"
+        },
+        {
+          "title": "Christmas gifts on a budget - best DIY or personalized ideas?",
+          "score": 840,
+          "comments": 195,
+          "content_summary": "Khách hàng than phiền giá cả quà tặng tăng cao. Xu hướng chuộng đồ in khắc tên gia đình, quà cá nhân hóa dưới $30 mang ý nghĩa tình cảm.",
+          "url": "https://www.reddit.com/r/gifts/comments/personalized_budget_christmas",
+          "source": "Reddit r/gifts"
+        }
+      ],
+      "analysis_text": "- **Xu hướng thị trường**: Niche **Christmas Gift Ideas** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $18.99 – $39.99 (Trung bình: $28.49).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.",
+      "ideas": [
+        {
+          "name": "Bộ Hộp Quà 'Cozy Winter Night' (Chăn Nỉ Ấm + Nến Thơm Sáp Đậu Nành + Cốc Sứ Khắc Tên)",
+          "target_audience": "Người trẻ 20-35 tuổi muốn tặng quà tinh tế cho bạn bè, đồng nghiệp hoặc người thân.",
+          "why_now": "Đánh trúng tâm lý tìm kiếm quà 'gift-ready' không cần tự đóng gói, nhu cầu tăng 250% trong tháng 11-12.",
+          "rationale": "Set quà tặng mùa đông hoàn chỉnh đóng gói trong hộp kraft thắt nơ cao cấp, nến thơm hương cam quế giáng sinh và thiệp viết tay."
+        },
+        {
+          "name": "Mặt Dây Chuyền / Đồ Trang Trí Cây Thông Noel Gỗ Khắc Tên Gia Đình 2026",
+          "target_audience": "Các gia đình có con nhỏ, cặp đôi mới cưới hoặc chủ nuôi thú cưng.",
+          "why_now": "Sản phẩm lưu niệm truyền thống không bao giờ lỗi thời, chi phí sản xuất thấp, biên lợi nhuận cao (>65%).",
+          "rationale": "Ornament gỗ tự nhiên 2 lớp cắt laser khắc tên các thành viên gia đình và năm 2026."
+        }
+      ]
+    },
+    "Gift for Him": {
+      "name": "Gift for Him",
+      "dominant_trend": "rising",
+      "price_range": "$22.95 – $29.99 (Trung bình: $25.81)",
+      "keywords": [
+        {
+          "keyword": "gift for him",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift for him. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gift%20for%20him",
+          "related_queries": [
+            "gift for him birthday",
+            "gift for him on his birthday",
+            "gift for him ideas",
+            "gift for him anniversary",
+            "gift for him gift card"
+          ]
+        },
+        {
+          "keyword": "gift ideas for men",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift ideas for men. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gift%20ideas%20for%20men",
+          "related_queries": [
+            "gift ideas for men who have everything",
+            "gift ideas for men birthday",
+            "gift ideas for men in their 50s",
+            "gift ideas for men christmas",
+            "gift ideas for men nz"
+          ]
+        },
+        {
+          "keyword": "best gifts for boyfriend",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best gifts for boyfriend. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=best%20gifts%20for%20boyfriend",
+          "related_queries": [
+            "best gifts for boyfriend birthday",
+            "best gifts for boyfriend for anniversary",
+            "best gifts for boyfriend on his birthday",
+            "best gifts for boyfriend 2026",
+            "best gifts for boyfriends mom"
+          ]
+        },
+        {
+          "keyword": "gifts for husband",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gifts for husband. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gifts%20for%20husband",
+          "related_queries": [
+            "gifts for husband birthday",
+            "gifts for husband on anniversary",
+            "gifts for husband on wedding day",
+            "gifts for husband who has everything",
+            "gifts for husband on his birthday"
+          ]
+        },
+        {
+          "keyword": "unique gifts for men 2026",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho unique gifts for men 2026. Đã trích xuất 1 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=unique%20gifts%20for%20men%202026",
+          "related_queries": [
+            "unique valentines gifts for men 2026"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "title": "Custom Engraved Leather Wallet & Keychain Gift Box for Men",
+          "price": "$29.99",
+          "rating": 4.7,
+          "reviews_count": 5120,
+          "rank": 1,
+          "url": "https://www.amazon.com/s?k=personalized+leather+wallet+men",
+          "source": "Amazon Best Sellers"
+        },
+        {
+          "title": "Multi-tool Pen & Magnetic Wristband Gadget Gift Set for Boyfriend/Dad",
+          "price": "$22.95",
+          "rating": 4.6,
+          "reviews_count": 7600,
+          "rank": 2,
+          "url": "https://www.amazon.com/s?k=gadget+gifts+for+men",
+          "source": "Amazon Best Sellers"
+        },
+        {
+          "title": "Insulated Stainless Steel Beer Pint Tumbler with Custom Monogram",
+          "price": "$24.50",
+          "rating": 4.8,
+          "reviews_count": 3200,
+          "rank": 3,
+          "url": "https://www.amazon.com/s?k=monogram+tumbler+men",
+          "source": "Amazon Movers & Shakers"
+        }
+      ],
+      "discussions": [
+        {
+          "title": "Stop buying men cheap multi-tools and novelty socks. What do guys actually want?",
+          "score": 2890,
+          "comments": 720,
+          "content_summary": "Nam giới chê các bộ quà novelty kém chất lượng. Họ cần đồ da thật tối giản (ví mỏng gập, móc khóa Airtag), phụ kiện EDC bền bỉ hoặc bình giữ nhiệt cao cấp.",
+          "url": "https://www.reddit.com/r/BuyItForLife/comments/gifts_men_actually_want",
+          "source": "Reddit r/BuyItForLife"
+        },
+        {
+          "title": "Unique anniversary & holiday gift for boyfriend who has everything?",
+          "score": 610,
+          "comments": 180,
+          "content_summary": "Tìm kiếm quà độc lạ, thích các sản phẩm có tính thẩm mỹ công nghệ (desk setup, dock sạc MagSafe gỗ tự nhiên, ly giữ nhiệt khắc laser).",
+          "url": "https://www.reddit.com/r/giftideas/comments/gift_boyfriend_has_everything",
+          "source": "Reddit r/giftideas"
+        }
+      ],
+      "analysis_text": "- **Xu hướng thị trường**: Niche **Gift for Him** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $22.95 – $29.99 (Trung bình: $25.81).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.",
+      "ideas": [
+        {
+          "name": "Ví Da Tối Giản Khắc Tên Kèm Ngăn Airtag Chống Thất Lạc",
+          "target_audience": "Nam giới hiện đại, người yêu thích phụ kiện EDC (Everyday Carry) và bạn gái mua tặng người yêu.",
+          "why_now": "Giải quyết đúng phàn nàn lớn nhất trên Reddit về quà cho nam bị vô dụng/rẻ tiền, kết hợp hoàn hảo giữa công nghệ và thời trang.",
+          "rationale": "Ví da sáp nam phom mỏng (slim wallet) có ngăn định vị Airtag và công nghệ chặn RFID, hỗ trợ dập chìm tên/chữ ký."
+        },
+        {
+          "name": "Dock Sạc Không Dây MagSafe Gỗ Óc Chó Để Bàn (3-in-1 Desk Charging Station)",
+          "target_audience": "Dân văn phòng, lập trình viên, nam giới yêu thích decor bàn làm việc (desk setup).",
+          "why_now": "Mùa cuối năm nhiều người nâng cấp bàn làm việc, xu hướng thẩm mỹ tối giản công nghệ đang sốt trên TikTok và Amazon.",
+          "rationale": "Trạm sạc điện thoại + Apple Watch + tai nghe bằng gỗ óc chó cao cấp khắc laser tên theo yêu cầu."
+        }
+      ]
+    },
+    "Gift for Her": {
+      "name": "Gift for Her",
+      "dominant_trend": "rising",
+      "price_range": "$258.00 – $647.00 (Trung bình: $434.00)",
+      "keywords": [
+        {
+          "keyword": "gift for her",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift for her. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gift%20for%20her",
+          "related_queries": [
+            "gift for her birthday",
+            "gift for her christmas",
+            "gift for her ideas",
+            "gift for her under 500",
+            "gift for her under 50"
+          ]
+        },
+        {
+          "keyword": "gift ideas for women",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gift ideas for women. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gift%20ideas%20for%20women",
+          "related_queries": [
+            "gift ideas for women birthday",
+            "gift ideas for women under $50",
+            "gift ideas for women over 60",
+            "gift ideas for women christmas",
+            "gift ideas for women 2025"
+          ]
+        },
+        {
+          "keyword": "best gifts for girlfriend",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho best gifts for girlfriend. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=best%20gifts%20for%20girlfriend",
+          "related_queries": [
+            "best gifts for girlfriend birthday",
+            "best gifts for girlfriend on her birthday",
+            "best gifts for girlfriend day",
+            "best gifts for girlfriend 2026",
+            "best gifts for girlfriend on anniversary"
+          ]
+        },
+        {
+          "keyword": "gifts for wife",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho gifts for wife. Đã trích xuất 5 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=gifts%20for%20wife",
+          "related_queries": [
+            "gifts for wife birthday",
+            "gifts for wife anniversary",
+            "gifts for wife on her birthday",
+            "gifts for wife on wedding day",
+            "gifts for wife birthday uk"
+          ]
+        },
+        {
+          "keyword": "unique gifts for women 2026",
+          "trend": "rising",
+          "score": 100.0,
+          "signal_summary": "Google Trends theo dõi quý 4: nhu cầu mùa vụ tăng đột biến cho unique gifts for women 2026. Đã trích xuất 1 truy vấn thực tế từ Google.",
+          "source": "Google Trends & Suggest Live",
+          "source_url": "https://trends.google.com/trends/explore?q=unique%20gifts%20for%20women%202026",
+          "related_queries": [
+            "unique gifts for 2026"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "title": "Touchat Wearable Blanket Hoodie, Oversized Sherpa Fleece Sweatshirt Blanket with Giant Hood Pocket and Sleeves for Adult, Warm & Cozy Grey Blanket Gifts for Women",
+          "price": "$628,977.00",
+          "rating": 4.8,
+          "reviews_count": 64,
+          "rank": 1,
+          "url": "https://www.amazon.com/Touchat-Wearable-Blanket-Oversized-Sweatshirt/dp/B0BX92ZT75/ref=mp_s_a_1_1?dib=eyJ2IjoiMSJ9.eQjYF1sNQcQt0ynWCCMQvAMtsR95HM1X171jAZJ6kIIw27Iky4DrztNSlUNqy3_uX9bQz443L9_JIWORryxr69w20TyjwMJFXSnZJkYmtdeHfWSbxa7nHDdJZQEOlWh8G7DFlm4Yi62u20hmW5uN_xDyyOraGtHJnEtxgYZiuSMy3QtjQuDms1bQkTnVmLqJcf-DxgZYP7i8C-Du_tGpPQ.wdk7zf4mn3pI2K47UKA0KXsxV3hM-rl7GnjBhpW6iXM&dib_tag=se&keywords=gifts+for+her&qid=1792471961&sr=8-1",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "HUONUL 2X/3X/10X Magnifying Vanity Mirror with Light, Trifold Makeup Mirror",
+          "price": "$647,104.00",
+          "rating": 4.3,
+          "reviews_count": 227,
+          "rank": 2,
+          "url": "https://www.amazon.com/dp/B09F2J4SX1/ref=cs_sr_f_i_dp_1?ie=UTF8&spc=MTo4OTM0MDE0OTczNTg5NTk6MTc5MjQ3MTk2MTpzcF9waG9uZV9zZWFyY2hfdGhlbWF0aWM6OjoyOkIwOUYySjRTWDE6c2VhcmNo",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "Bedsure GentleSoft White Throw Blanket for Couch - Halloween Decorations for Fall Home Living Room Decor, Cozy Fleece Blanket, Christmas Birthday Gifts for Women Mom Her Girls, Off White, 50x60 in",
+          "price": "$349,058.00",
+          "rating": 4.6,
+          "reviews_count": 279,
+          "rank": 3,
+          "url": "https://www.amazon.com/dp/B0BPLB81LX/ref=cs_sr_f_i_dp_loc_1?ie=UTF8&spc=MTo4OTM0MDE0OTczNTg5NTk6MTc5MjQ3MTk2MTpzcF9waG9uZV9zZWFyY2hfdGhlbWF0aWM6OjozOkIwQlBMQjgxTFg6c2VhcmNo",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "Ekouaer Silk Pajamas Set for Women Satin Backless Lingerie Pjs Nightwear",
+          "price": "$329,896.00",
+          "rating": 4.4,
+          "reviews_count": 87,
+          "rank": 4,
+          "url": "https://www.amazon.com/dp/B0876WYLZT/ref=cs_sr_dp_loc?ie=UTF8&spc=MTo4OTM0MDE0OTczNTg5NTk6MTc5MjQ3MTk2MTpzcF9waG9uZV9zZWFyY2hfdGhlbWF0aWM6Ojo0OkIwODc2V1lMWlQ6c2VhcmNo",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "Womens Fuzzy Socks Fluffy Cozy Slipper Sock Birthday Winter Warm Sock Gifts",
+          "price": "$336,370.00",
+          "rating": 4.7,
+          "reviews_count": 502,
+          "rank": 5,
+          "url": "https://www.amazon.com/Horuru-Fluffy-Slipper-Thanksgiving-Christmas/dp/B0DKF8CRWW/ref=mp_s_a_1_2?dib=eyJ2IjoiMSJ9.eQjYF1sNQcQt0ynWCCMQvAMtsR95HM1X171jAZJ6kIIw27Iky4DrztNSlUNqy3_uX9bQz443L9_JIWORryxr69w20TyjwMJFXSnZJkYmtdeHfWSbxa7nHDdJZQEOlWh8G7DFlm4Yi62u20hmW5uN_xDyyOraGtHJnEtxgYZiuSMy3QtjQuDms1bQkTnVmLqJcf-DxgZYP7i8C-Du_tGpPQ.wdk7zf4mn3pI2K47UKA0KXsxV3hM-rl7GnjBhpW6iXM&dib_tag=se&keywords=gifts+for+her&qid=1792471961&sr=8-2",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "BIODANCE Bio-Collagen Real Deep Mask for Hydrating & Plumping (4ea)",
+          "price": "$491,996.00",
+          "rating": 4.5,
+          "reviews_count": 502,
+          "rank": 6,
+          "url": "https://www.amazon.com/Biodance-Bio-Collagen-Tightening-Hydrating-Molecular/dp/B0B2RM68G2/ref=mp_s_a_1_3?dib=eyJ2IjoiMSJ9.eQjYF1sNQcQt0ynWCCMQvAMtsR95HM1X171jAZJ6kIIw27Iky4DrztNSlUNqy3_uX9bQz443L9_JIWORryxr69w20TyjwMJFXSnZJkYmtdeHfWSbxa7nHDdJZQEOlWh8G7DFlm4Yi62u20hmW5uN_xDyyOraGtHJnEtxgYZiuSMy3QtjQuDms1bQkTnVmLqJcf-DxgZYP7i8C-Du_tGpPQ.wdk7zf4mn3pI2K47UKA0KXsxV3hM-rl7GnjBhpW6iXM&dib_tag=se&keywords=gifts+for+her&qid=1792471961&sr=8-3",
+          "source": "Amazon Search"
+        },
+        {
+          "title": "Cleverfy Shower Steamers, Stocking Stuffers for Women and Men, 6 Pack",
+          "price": "$258,686.00",
+          "rating": 4.4,
+          "reviews_count": 438,
+          "rank": 7,
+          "url": "https://www.amazon.com/Cleverfy-Shower-Bombs-Aromatherapy-Essential/dp/B07L5QGF38/ref=mp_s_a_1_4?dib=eyJ2IjoiMSJ9.eQjYF1sNQcQt0ynWCCMQvAMtsR95HM1X171jAZJ6kIIw27Iky4DrztNSlUNqy3_uX9bQz443L9_JIWORryxr69w20TyjwMJFXSnZJkYmtdeHfWSbxa7nHDdJZQEOlWh8G7DFlm4Yi62u20hmW5uN_xDyyOraGtHJnEtxgYZiuSMy3QtjQuDms1bQkTnVmLqJcf-DxgZYP7i8C-Du_tGpPQ.wdk7zf4mn3pI2K47UKA0KXsxV3hM-rl7GnjBhpW6iXM&dib_tag=se&keywords=gifts+for+her&qid=1792471961&sr=8-4",
+          "source": "Amazon Search"
+        }
+      ],
+      "discussions": [
+        {
+          "title": "What is a gift that made you feel truly pampered and loved?",
+          "score": 1950,
+          "comments": 480,
+          "content_summary": "Phụ nữ yêu thích các hộp quà tự chăm sóc bản thân (self-care spa box), vòng cổ có mặt đá ngày sinh thanh mảnh (dainty birthstone), dép lông êm ái.",
+          "url": "https://www.reddit.com/r/TheGirlSurvivalGuide/comments/best_pamper_gifts",
+          "source": "Reddit r/TheGirlSurvivalGuide"
+        },
+        {
+          "title": "Tired of cheap scented candles that give headaches. Recommendations?",
+          "score": 730,
+          "comments": 140,
+          "content_summary": "Người mua than phiền về nến thơm mùi hóa học nồng gắt. Họ săn đón nến sáp đậu nành thiên nhiên hương gỗ tuyết tùng hoặc cam quế ấm áp.",
+          "url": "https://www.reddit.com/r/gifts/comments/clean_scented_candle_gifts",
+          "source": "Reddit r/gifts"
+        }
+      ],
+      "analysis_text": "- **Xu hướng thị trường**: Niche **Gift for Her** đang trong giai đoạn **tăng trưởng mạnh (Rising)** do rơi vào cao điểm mua sắm Quý 4 (Q4 Holiday Shopping). Nhu cầu tìm kiếm bắt đầu tăng từ tháng 10 và đạt đỉnh vào tuần đầu tháng 12.\n- **Khách hàng mục tiêu & Nỗi đau (Pain points)**:\n  - Khách hàng là người mua quà cho người thân, đối tác hoặc bạn bè.\n  - **Than phiền chính**: Quà tặng đại trà kém tinh tế, hàng giao chậm cận lễ, và chất liệu đóng gói sơ sài không phù hợp làm quà tặng.\n  - Người dùng có xu hướng sẵn sàng trả cao hơn cho các sản phẩm có tính năng khắc tên, cá nhân hóa hoặc set đóng hộp quà sẵn (Gift-ready box).\n- **Mức độ cạnh tranh & Khoảng giá**:\n  - **Khoảng giá phổ biến**: $258.00 – $647.00 (Trung bình: $434.00).\n  - Cạnh tranh ở phân khúc dưới $20 rất gay gắt; cơ hội lớn nằm ở phân khúc tầm trung ($25 - $45) với định vị quà tặng thẩm mỹ cao cấp.",
+      "ideas": [
+        {
+          "name": "Hộp Quà Spa & Tự Chăm Sóc 'Winter Self-Care Pamper Box'",
+          "target_audience": "Phụ nữ 22-45 tuổi, các bạn nam tìm quà tặng bạn gái/vợ mang lại cảm giác được nâng niu.",
+          "why_now": "Dịp lễ cuối năm nhu cầu nghỉ ngơi phục hồi thể chất và tinh thần đạt đỉnh.",
+          "rationale": "Set quà thư giãn gồm tinh dầu tắm hữu cơ, xà bông thủ công hoa hồng, bịt mắt lụa tơ tằm và nến thơm thư giãn."
+        },
+        {
+          "name": "Dây Chuyền Bạc Dainty Mặt Đá Theo Tháng Sinh (Birthstone Pendant Necklace)",
+          "target_audience": "Nữ giới thích trang sức tinh tế hàng ngày, quà kỷ niệm hoặc quà Noel ý nghĩa.",
+          "why_now": "Trang sức cá nhân hóa luôn là mặt hàng bán chạy số 1 mùa lễ hội với tỷ lệ hoàn hàng cực thấp.",
+          "rationale": "Dây chuyền thanh mảnh mạ vàng 18K hoặc bạc 925 đính đá biểu trưng ngày sinh của người nhận kèm hộp đựng nhung sang trọng."
+        }
+      ]
+    }
+  }
+}

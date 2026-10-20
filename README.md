@@ -104,8 +104,19 @@ python -m pytest -v
 *(Kết quả: 19/19 tests PASSED)*
 
 ### Bước 4: Chạy Tool tạo báo cáo
+
+#### 🌟 Cách 1: Chạy Giao diện Web UI Trực quan (Khuyến nghị cho Demo 1-Click)
 ```bash
-# Chạy mặc định theo config (3 niches Giáng sinh, Quà cho nam, Quà cho nữ):
+python app.py
+```
+> Hệ thống sẽ khởi động máy chủ Web UI tại **`http://localhost:5000`**. Giao diện tích hợp nút bấm **"🚀 BẮT ĐẦU NGHIÊN CỨU (1-CLICK RUN)"**, hiển thị tiến trình mượt mà (ẩn hoàn toàn các cảnh báo kỹ thuật không cần thiết) và xuất ngay Dashboard trực quan với bảng xếp hạng, Top 3 ý tưởng, thẻ sản phẩm Amazon, từ khóa Google Trends và trình xem/tải Markdown.
+
+#### 💻 Cách 2: Chạy trực tiếp qua Dòng lệnh Terminal (CLI)
+```bash
+# Chạy chế độ nhanh (~15 giây):
+python src/main.py --fast
+
+# Chạy mặc định với mô hình AI Local (Ollama):
 python src/main.py
 
 # Hoặc chỉ định model cụ thể:
@@ -115,7 +126,7 @@ python src/main.py --model local-bench-qwen35-2b-q4km:latest
 python src/main.py --niches "Christmas Gift Ideas,Gift for Him,Gift for Her"
 ```
 
-Báo cáo sau khi tạo sẽ được lưu tự động tại thư mục `reports/` dưới dạng file Markdown UTF-8 (ví dụ: `reports/report_trend_20261020_101500.md`).
+Báo cáo sau khi tạo sẽ được lưu tự động tại thư mục `reports/` dưới dạng file Markdown UTF-8 (ví dụ: `reports/report_trend_20261020_111053.md`).
 
 ---
 

@@ -111,15 +111,52 @@ Báo cáo BẮT BUỘC có đủ 3 phần sau với tiêu đề markdown chuẩn
                 keywords_content=kw_part.strip(),
                 analysis_content=analysis_part.strip(),
                 ideas_content=ideas_part.strip(),
+                ideas=self._parse_ideas_from_text(ideas_part.strip()),
             )
         else:
             # Robust fallback ensuring 100% guaranteed delivery
+            fallback_ideas = self._fallback_ideas_section(niche_name)
             return NicheReportSection(
                 niche_name=niche_name,
                 keywords_content=self._fallback_keywords_section(niche_name, data),
                 analysis_content=self._fallback_analysis_section(niche_name, data, price_info),
-                ideas_content=self._fallback_ideas_section(niche_name),
+                ideas_content=fallback_ideas,
+                ideas=self._parse_ideas_from_text(fallback_ideas),
             )
+
+    def _parse_ideas_from_text(self, text: str) -> List[Any]:
+        """Tách các ý tưởng sản phẩm từ văn bản markdown."""
+        from src.models.schemas import ProductIdea
+        import re
+        ideas: List[ProductIdea] = []
+        if not text:
+            return ideas
+        blocks = re.split(r'\n(?=\d+\.\s+\*\*)', text)
+        for block in blocks:
+            block = block.strip()
+            if not block:
+                continue
+            name_match = re.search(r'^\d+\.\s+\*\*(.*?)\*\*', block)
+            name = name_match.group(1).strip() if name_match else ""
+            if not name:
+                continue
+
+            target_match = re.search(r'-\s+\*\*Cho ai\*\*:\s*(.*)', block, re.IGNORECASE)
+            target = target_match.group(1).strip() if target_match else "Khách hàng mục tiêu"
+
+            why_match = re.search(r'-\s+\*\*Vì sao nên bán bây giờ\*\*:\s*(.*)', block, re.IGNORECASE)
+            why = why_match.group(1).strip() if why_match else "Nhu cầu thị trường tăng trưởng"
+
+            what_match = re.search(r'-\s+\*\*Bán cái gì\*\*:\s*(.*)', block, re.IGNORECASE)
+            what = what_match.group(1).strip() if what_match else name
+
+            ideas.append(ProductIdea(
+                name=name,
+                target_audience=target,
+                why_now=why,
+                rationale=what,
+            ))
+        return ideas
 
     def _split_section(self, text: str, start_header: str, next_header: str) -> tuple:
         """Safely splits markdown by headers."""
