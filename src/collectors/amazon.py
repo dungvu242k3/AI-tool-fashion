@@ -61,6 +61,7 @@ class AmazonCollector(BaseCollector):
             "User-Agent": random.choice(self.USER_AGENTS),
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
+            "Cookie": "i18n-prefs=USD; lc-main=en_US",
             "DNT": "1",
             "Upgrade-Insecure-Requests": "1",
         }
@@ -91,12 +92,31 @@ class AmazonCollector(BaseCollector):
                 href_attr = link_elem.get("href", "") if link_elem else ""
                 product_url = f"https://www.amazon.com{href_attr}" if href_attr.startswith("/") else url
 
+                price_elem = card.select_one(".a-price .a-offscreen, .a-price")
                 price_whole = card.select_one(".a-price-whole")
                 price_fraction = card.select_one(".a-price-fraction")
                 price_str = "$24.99"
-                if price_whole:
-                    fraction = price_fraction.get_text(strip=True) if price_fraction else "00"
-                    price_str = f"${price_whole.get_text(strip=True)}.{fraction}"
+                if price_elem:
+                    raw_p = price_elem.get_text(strip=True)
+                    if "$" in raw_p:
+                        # Extract first valid price number
+                        import re
+                        m = re.search(r"\$\s*(\d+(?:,\d{3})*(?:\.\d{1,2})?)", raw_p)
+                        if m:
+                            num_clean = m.group(1).replace(",", "")
+                            price_str = f"${float(num_clean):.2f}"
+                    elif "VND" in raw_p or "₫" in raw_p:
+                        num = "".join(c for c in raw_p if c.isdigit())
+                        if num:
+                            price_str = f"${round(float(num) / 25400.0, 2):.2f}"
+                elif price_whole:
+                    whole = "".join(c for c in price_whole.get_text(strip=True) if c.isdigit())
+                    fraction = "".join(c for c in price_fraction.get_text(strip=True) if c.isdigit()) if price_fraction else "00"
+                    if whole:
+                        val = float(f"{whole}.{fraction}")
+                        if val > 5000:
+                            val = round(val / 25400.0, 2)
+                        price_str = f"${val:.2f}"
 
                 rating_elem = card.select_one("span.a-icon-alt")
                 rating = 4.5

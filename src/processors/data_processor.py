@@ -138,9 +138,14 @@ class DataProcessor:
         """Extracts minimum, maximum, and average price from product list."""
         prices = []
         for p in products:
-            match = re.search(r"[\$]?(\d+(?:\.\d{1,2})?)", p.price)
+            clean_str = p.price.replace(",", "")
+            match = re.search(r"[\$]?\s*(\d+(?:\.\d{1,2})?)", clean_str)
             if match:
-                prices.append(float(match.group(1)))
+                val = float(match.group(1))
+                if 1.0 <= val <= 300.0:
+                    prices.append(val)
+                elif val > 5000:
+                    prices.append(round(val / 25400.0, 2))
 
         if not prices:
             return {"min": 15.0, "max": 45.0, "avg": 28.0, "formatted": "$15.00 – $45.00"}
