@@ -1,78 +1,92 @@
-"""
-Unit tests for LLMAnalyzer fallbacks and ReportGenerator Markdown output formatting.
-"""
-import os
+"""Verify truthful execution metadata and safe handling of unavailable AI."""
 import pytest
+
 from src.analyzers.llm_analyzer import LLMAnalyzer
+from src.models.schemas import KeywordSignal, NicheData, ProductItem
 from src.reporters.report_generator import ReportGenerator
-from src.models.schemas import NicheData, KeywordSignal, ProductItem, DiscussionItem, NicheReportSection
 
 
-def test_analyzer_fallback_sections():
-    analyzer = LLMAnalyzer(model="test-model")
-    niche_data = NicheData(
-        niche_name="Christmas Gift Ideas",
-        collected_at="2026-10-20",
-        keywords=[KeywordSignal(keyword="personalized ornament", trend="rising", score=90.0, source_url="https://trends.google.com")],
-        products=[ProductItem(title="Family Ornament 2026", price="$18.99")],
-        discussions=[DiscussionItem(title="Best gifts?", score=300)],
-    )
-
-    sec = analyzer.analyze("Christmas Gift Ideas", niche_data)
-    assert sec.niche_name == "Christmas Gift Ideas"
-    assert "personalized ornament" in sec.keywords_content
-    assert "Xu hướng thị trường" in sec.analysis_content
-    assert "Bán cái gì" in sec.ideas_content
+@pytest.fixture
+def evidence(qualified_data_factory):
+    return qualified_data_factory(NicheData(
+        niche_name="Fixture niche", collected_at="2026-10-21T00:00:00+07:00",
+        keywords=[
+            KeywordSignal("fixture one", score=50, trend="stable", source_url="https://trends.google.com/trends/explore?q=one"),
+            KeywordSignal("fixture two", score=60, trend="rising", source_url="https://trends.google.com/trends/explore?q=two"),
+        ],
+        products=[ProductItem("Fixture product", price="$18.00", url="https://www.amazon.com/dp/B000000001")],
+    ))
 
 
-def test_analyzer_summarize():
-    analyzer = LLMAnalyzer(model="test-model")
-    niche_results = {
-        "Christmas Gift Ideas": NicheReportSection(
-            niche_name="Christmas Gift Ideas",
-            keywords_content="Keywords test",
-            analysis_content="Analysis test",
-            ideas_content="Ideas test",
-        )
-    }
-    summary = analyzer.summarize(niche_results)
+def test_no_llm_mode_renders_observations_only(evidence):
+    section = LLMAnalyzer(fast_mode=True).analyze(evidence.niche_name, evidence)
+    assert section.analysis_status == "not_requested"
+    assert section.generation_mode == "deterministic"
+    assert "fixture one" in section.keywords_content
+    assert "$18.00" in section.analysis_content
+    assert section.ideas == []
+
+
+def test_ollama_failure_preserves_evidence_without_inventing_ideas(monkeypatch, evidence):
+    from src.analyzers.ollama_client import GenerationError
+    analyzer = LLMAnalyzer()
+    def unavailable(*args, **kwargs):
+        raise GenerationError("ollama_connection_error")
+    monkeypatch.setattr(analyzer, "_call_ollama", unavailable)
+    section = analyzer.analyze(evidence.niche_name, evidence)
+    assert section.analysis_status == "failed"
+    assert section.ideas == []
+    assert "fixture one" in section.keywords_content
+    assert section.warnings
+
+
+@pytest.mark.parametrize("output", [
+    "### 1. Keyword\nSome text\n### 2. Phân tích\nMissing ideas",
+    "### 1. Keyword\nSome text\n### 2. Phân tích\nText\n### 3. Idea sản phẩm\n1. **Incomplete idea**",
+])
+def test_incomplete_llm_response_is_rejected(monkeypatch, evidence, output):
+    analyzer = LLMAnalyzer()
+    monkeypatch.setattr(analyzer, "_call_ollama", lambda *a, **kw: output)
+    section = analyzer.analyze(evidence.niche_name, evidence)
+    assert section.analysis_status == "invalid_output"
+    assert section.generation_mode == "deterministic"
+    assert not section.ideas
+
+
+def test_valid_llm_output_records_actual_mode(monkeypatch, evidence, grounded_payload_factory):
+    import json
+    output = json.dumps(grounded_payload_factory(evidence))
+    analyzer = LLMAnalyzer()
+    monkeypatch.setattr(analyzer, "_call_ollama", lambda *a, **kw: output)
+    section = analyzer.analyze(evidence.niche_name, evidence)
+    assert section.generation_mode == "ollama"
+    assert section.analysis_status == "success"
+    assert len(section.ideas) == 2
+    assert "50/100" in section.keywords_content
+
+
+def test_summary_is_not_a_fixed_ranking():
+    summary = LLMAnalyzer(fast_mode=True).summarize({})
     assert "Bảng xếp hạng" in summary
     assert "Top 3 Idea" in summary
+    assert "9.5/10" not in summary
 
 
-def test_report_generator(tmp_path):
-    reporter = ReportGenerator(output_dir=str(tmp_path))
-    category = "Quà tặng theo mùa (Seasonal Gifts)"
-    niches = [{"name": "Christmas Gift Ideas"}]
+def test_report_generator_records_failure_and_actual_mode(research_result_factory):
+    result = research_result_factory(state="partial")
+    text = ReportGenerator().render(result)
+    assert "### 1. Keyword\n" in text
+    assert "### 2. Phân tích\n" in text
+    assert "### 3. Idea sản phẩm\n" in text
+    assert "| reddit | failed | 0 |" in text
+    assert "BÁO CÁO CHƯA ĐẦY ĐỦ" in text
+    assert "Chạy Local qua Ollama" not in text
+    assert "Amazon Best Sellers" not in text
 
-    analysis_results = {
-        "Christmas Gift Ideas": NicheReportSection(
-            niche_name="Christmas Gift Ideas",
-            keywords_content="- `christmas gift ideas`: Score 95/100 [Link](https://trends.google.com)",
-            analysis_content="Niche đang tăng mạnh mùa Q4.",
-            ideas_content="1. **Hộp Quà Cozy Winter**\n- Bán cái gì: Combo chăn và nến\n- Cho ai: Người thân\n- Vì sao: Đang mùa đông\n- Dựa trên: Trends",
-        )
-    }
-    summary = "### 1. Bảng xếp hạng\nTop 1: Christmas\n### 2. Top 3 ideas\n1. Cozy Winter"
 
-    file_path = reporter.generate(
-        category=category,
-        niches=niches,
-        analysis_results=analysis_results,
-        summary=summary,
-        model_name="local-bench-qwen35-2b-q4km:latest",
-    )
-
-    assert os.path.exists(file_path)
-
-    # Check contents strictly meet TASK-1.md requirements
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    assert "BÁO CÁO NGHIÊN CỨU XU HƯỚNG SẢN PHẨM" in content
-    assert "1. Niche: Christmas Gift Ideas" in content
-    assert "### 1. Keyword" in content
-    assert "### 2. Phân tích" in content
-    assert "### 3. Idea sản phẩm" in content
-    assert "TỔNG KẾT VÀ KHUYẾN NGHỊ ĐẦU TƯ" in content
-    assert "$0.00" in content
+def test_report_names_do_not_collide(tmp_path, research_result_factory):
+    from src.reporters.report_repository import ReportRepository
+    repository = ReportRepository(tmp_path)
+    first = repository.publish(research_result_factory())
+    second = repository.publish(research_result_factory())
+    assert first["report_filename"] != second["report_filename"]

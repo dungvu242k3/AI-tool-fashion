@@ -1,139 +1,84 @@
-"""
-Reddit Collector.
-Fetches organic community discussions, complaints, and trending gift advice
-from subreddits (e.g. r/giftideas, r/gifts, r/BuyItForLife) using Reddit's JSON API.
-"""
-import os
-import sys
-import urllib.parse
-import random
-import requests
-from typing import Dict, Any, List
-
-# Cho phép chạy file trực tiếp bằng: python src/collectors/reddit.py
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+"""Deterministic, bounded Reddit collection; source failures never become fake posts."""
+from datetime import datetime, timezone
+from typing import Any, Callable, Dict
 
 from src.collectors.base import BaseCollector
+from src.collectors.context import CollectionContext
+from src.collectors.reddit_parser import parse_reddit_listing
+from src.collectors.reddit_provider import RedditProvider, create_reddit_provider
+from src.collectors.reddit_settings import TIME_WINDOWS, RedditSettings, build_reddit_searches
 from src.models.schemas import DiscussionItem
-from src.utils.helpers import truncate_text
+
+STOP_ERRORS = frozenset({
+    "http_401", "http_403", "http_429", "source_cooldown", "retry_after_deferred",
+    "retry_budget_exhausted", "connect_timeout", "read_timeout", "timeout", "connection_error",
+    "tls_error", "request_error", "redirect_rejected", "invalid_oauth_response",
+    "invalid_content_type", "response_too_large", "invalid_retry_after",
+    "http_500", "http_502", "http_503", "http_504",
+})
 
 
-class RedditCollector(BaseCollector):
-    """Fetches consumer discussions and sentiment from Reddit."""
-
-    HEADERS = {
-        "User-Agent": "python:trend.research.mvp:v1.0.0 (by /u/fashion_researcher)",
-        "Accept": "application/json",
-    }
-
-    def __init__(self):
-        super().__init__("reddit")
-
-    def collect(self, niche: Dict[str, Any]) -> List[DiscussionItem]:
-        """Collects top community discussions for the niche."""
-        niche_name = niche["name"]
-        subreddits = niche.get("subreddits", ["giftideas", "gifts"])
-        search_terms = niche.get("seed_keywords", [niche_name])
-        discussions: List[DiscussionItem] = []
-
-        sub = random.choice(subreddits)
-        query = search_terms[0] if search_terms else niche_name
-
+class RedditCollector(BaseCollector[DiscussionItem]):
+    def __init__(self, http_client=None, *, settings: RedditSettings | None = None,
+                 provider: RedditProvider | None = None,
+                 utcnow: Callable[[], datetime] = lambda: datetime.now(timezone.utc)):
         try:
-            encoded_query = urllib.parse.quote_plus(query)
-            url = f"https://www.reddit.com/r/{sub}/search.json?q={encoded_query}&restrict_sr=1&sort=top&t=month&limit=6"
+            self.settings = settings if settings is not None else RedditSettings.from_env()
+            self.provider = provider if provider is not None else create_reddit_provider(self.settings)
+        except ValueError:
+            # Bad/partial credentials affect Reddit only, not other pipeline sources.
+            self.settings, self.provider = None, None
+        self._utcnow = utcnow
+        super().__init__("reddit", http_client)
 
-            resp = requests.get(url, headers=self.HEADERS, timeout=10)
-            if resp.status_code == 200:
-                data = resp.json()
-                children = data.get("data", {}).get("children", [])
-                for child in children:
-                    post = child.get("data", {})
-                    title = post.get("title", "")
-                    score = post.get("score", 0)
-                    num_comments = post.get("num_comments", 0)
-                    selftext = post.get("selftext", "")
-                    permalink = post.get("permalink", "")
-                    post_url = f"https://reddit.com{permalink}" if permalink else f"https://reddit.com/r/{sub}"
-
-                    discussions.append(
-                        DiscussionItem(
-                            title=title,
-                            score=score,
-                            comments=num_comments,
-                            content_summary=truncate_text(selftext, 200) if selftext else "Thảo luận về gợi ý quà tặng và phản hồi thực tế từ người dùng.",
-                            url=post_url,
-                            source=f"Reddit r/{sub}",
-                        )
-                    )
-
-        except Exception as e:
-            self.logger.warning(f"Reddit API search failed for {sub}/{query}: {e}")
-
-        # Fallback to realistic curated discussions if Reddit blocked/empty
-        if not discussions:
-            self.logger.info(f"Using fallback curated discussions for: {niche_name}")
-            discussions = self._get_fallback_discussions(niche_name)
-
-        return discussions
-
-    def _get_fallback_discussions(self, niche_name: str) -> List[DiscussionItem]:
-        """Realistic user feedback and complaints on Reddit for each niche."""
-        niche_lower = niche_name.lower()
-        if "christmas" in niche_lower:
-            return [
-                DiscussionItem(
-                    title="What are thoughtful Christmas gifts that people actually use instead of throw away?",
-                    score=1250,
-                    comments=340,
-                    content_summary="Mọi người ngán ngẩm quà lưu niệm vô dụng, đang tìm kiếm các set quà thiết thực như chăn nỉ cao cấp, nến thơm tinh dầu hữu cơ hoặc đồ ăn uống thủ công cao cấp.",
-                    url="https://www.reddit.com/r/giftideas/comments/christmas_useful_gifts",
-                    source="Reddit r/giftideas",
-                ),
-                DiscussionItem(
-                    title="Christmas gifts on a budget - best DIY or personalized ideas?",
-                    score=840,
-                    comments=195,
-                    content_summary="Khách hàng than phiền giá cả quà tặng tăng cao. Xu hướng chuộng đồ in khắc tên gia đình, quà cá nhân hóa dưới $30 mang ý nghĩa tình cảm.",
-                    url="https://www.reddit.com/r/gifts/comments/personalized_budget_christmas",
-                    source="Reddit r/gifts",
-                ),
-            ]
-        elif "him" in niche_lower:
-            return [
-                DiscussionItem(
-                    title="Stop buying men cheap multi-tools and novelty socks. What do guys actually want?",
-                    score=2890,
-                    comments=720,
-                    content_summary="Nam giới chê các bộ quà novelty kém chất lượng. Họ cần đồ da thật tối giản (ví mỏng gập, móc khóa Airtag), phụ kiện EDC bền bỉ hoặc bình giữ nhiệt cao cấp.",
-                    url="https://www.reddit.com/r/BuyItForLife/comments/gifts_men_actually_want",
-                    source="Reddit r/BuyItForLife",
-                ),
-                DiscussionItem(
-                    title="Unique anniversary & holiday gift for boyfriend who has everything?",
-                    score=610,
-                    comments=180,
-                    content_summary="Tìm kiếm quà độc lạ, thích các sản phẩm có tính thẩm mỹ công nghệ (desk setup, dock sạc MagSafe gỗ tự nhiên, ly giữ nhiệt khắc laser).",
-                    url="https://www.reddit.com/r/giftideas/comments/gift_boyfriend_has_everything",
-                    source="Reddit r/giftideas",
-                ),
-            ]
-        else:  # Gift for Her
-            return [
-                DiscussionItem(
-                    title="What is a gift that made you feel truly pampered and loved?",
-                    score=1950,
-                    comments=480,
-                    content_summary="Phụ nữ yêu thích các hộp quà tự chăm sóc bản thân (self-care spa box), vòng cổ có mặt đá ngày sinh thanh mảnh (dainty birthstone), dép lông êm ái.",
-                    url="https://www.reddit.com/r/TheGirlSurvivalGuide/comments/best_pamper_gifts",
-                    source="Reddit r/TheGirlSurvivalGuide",
-                ),
-                DiscussionItem(
-                    title="Tired of cheap scented candles that give headaches. Recommendations?",
-                    score=730,
-                    comments=140,
-                    content_summary="Người mua than phiền về nến thơm mùi hóa học nồng gắt. Họ săn đón nến sáp đậu nành thiên nhiên hương gỗ tuyết tùng hoặc cam quế ấm áp.",
-                    url="https://www.reddit.com/r/gifts/comments/clean_scented_candle_gifts",
-                    source="Reddit r/gifts",
-                ),
-            ]
+    def _collect(self, niche: Dict[str, Any], context: CollectionContext[DiscussionItem]) -> None:
+        if self.settings is None:
+            context.warn("invalid_configuration", "Cấu hình Reddit/credential không hợp lệ; kiểm tra biến môi trường, chưa gửi request.")
+            return
+        if self.provider is None:
+            context.not_configured = True
+            context.warn("not_configured", "Reddit đã được tắt trong cấu hình.")
+            return
+        try:
+            searches = build_reddit_searches(niche, self.settings)
+        except ValueError:
+            context.warn("invalid_configuration", "Cấu hình truy vấn Reddit sai hoặc vượt giới hạn; chưa gửi request.")
+            return
+        if not searches:
+            context.not_configured = True
+            context.warn("not_configured", "Chưa cấu hình subreddit cho niche.")
+            return
+        now = self._utcnow()
+        if now.tzinfo is None or now.utcoffset() is None:
+            raise ValueError("Reddit clock must be timezone aware")
+        window_end = now.timestamp()
+        seconds = TIME_WINDOWS[self.settings.time_filter]
+        window_start = window_end - seconds if seconds is not None else None
+        seen, limit_warned = set(), False
+        for search in searches:
+            query = {"provider": self.provider.name, "subreddit": search.subreddit,
+                     "search_term": search.search_term, "time_filter": self.settings.time_filter,
+                     "sort": self.settings.sort, "window_start_utc": window_start, "window_end_utc": window_end}
+            warning_start = len(context.warnings)
+            with context.capture("search"):
+                response = self.provider.search(search, context, query)
+                posts = parse_reddit_listing(response, search, self.settings, self.provider.name,
+                                             window_start, window_end, context.warn)
+                accepted = []
+                for post in posts:
+                    if post.post_id in seen:
+                        continue
+                    if len(context.records) + len(accepted) >= self.settings.max_posts:
+                        if not limit_warned:
+                            context.warn("record_limit", "Đã đạt giới hạn post; giữ snapshot đầu tiên theo thứ tự query, không phải ranking.",
+                                         request_id=response.request_id, operation="search")
+                            limit_warned = True
+                        continue
+                    seen.add(post.post_id)
+                    accepted.append(post)
+                context.add_records(accepted, response, query)
+            if any(warning.code in STOP_ERRORS or warning.operation == "oauth_token"
+                   for warning in context.warnings[warning_start:]):
+                break
+        if not context.records and not context.warnings:
+            context.warn("no_discussions", "Reddit không trả post hợp lệ trong cửa sổ thời gian đã chọn.", operation="search")

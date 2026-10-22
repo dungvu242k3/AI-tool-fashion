@@ -68,9 +68,10 @@ AMAZON_MAX_PRODUCTS = 20  # Số sản phẩm tối đa mỗi niche
 
 # Reddit
 REDDIT_MAX_POSTS = 15  # Số posts tối đa mỗi niche
-REDDIT_TIME_FILTER = "month"  # hot posts trong 1 tháng gần nhất
+REDDIT_TIME_FILTER = "month"  # Search top; local rolling 30-day window, verified by created_utc.
 
 # ============================================================
 # Output
 # ============================================================
 REPORTS_DIR = "reports"
+DATA_POLICY_VERSION = "live-only-v9"

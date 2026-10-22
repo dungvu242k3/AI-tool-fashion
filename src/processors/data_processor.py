@@ -1,161 +1,112 @@
-"""
-Data Processor.
-Cleans, deduplicates, cross-analyzes signals across Google Trends, Amazon, and Reddit,
-and calculates price ranges and pain points.
-"""
+"""Normalize records without changing observed measurements."""
 import re
-from typing import Dict, Any, List
-from src.models.schemas import NicheData, KeywordSignal, ProductItem, DiscussionItem
-from src.utils.helpers import safe_float
+from decimal import Decimal, localcontext
+from dataclasses import fields
+from copy import deepcopy
+from typing import Any, Dict, List
+
+from src.models.schemas import DiscussionItem, KeywordSignal, NicheData, ProductItem
+from src.models.identities import keyword_identity, record_identity
+from src.processors.amazon_values import parse_observed_price
+from src.utils.helpers import optional_float  # Legacy USD helper only; no coercion in the evidence pipeline.
 
 
 class DataProcessor:
-    """Processes, filters, and calculates summary metrics from raw collector data."""
-
     def process(self, raw_data: Dict[str, Any]) -> NicheData:
-        """
-        Processes raw collected data into structured NicheData.
-
-        Args:
-            raw_data: Dictionary containing raw lists of keywords, products, discussions.
-
-        Returns:
-            Structured NicheData object with ranked keywords and clean metrics.
-        """
-        niche_name = raw_data.get("niche", "Unknown Niche")
-        collected_at = raw_data.get("collected_at", "")
-
-        # 1. Process and rank keywords
-        raw_keywords = raw_data.get("keywords_data", [])
-        keywords = self._process_keywords(raw_keywords)
-
-        # 2. Process products
-        raw_products = raw_data.get("products_data", [])
-        products = self._process_products(raw_products)
-
-        # 3. Process discussions
-        raw_discussions = raw_data.get("discussions_data", [])
-        discussions = self._process_discussions(raw_discussions)
-
         return NicheData(
-            niche_name=niche_name,
-            collected_at=collected_at,
-            keywords=keywords,
-            products=products,
-            discussions=discussions,
+            niche_name=raw_data.get("niche", ""),
+            collected_at=raw_data.get("collected_at", ""),
+            keywords=self._process_keywords(raw_data.get("keywords_data", [])),
+            products=self._process_products(raw_data.get("products_data", [])),
+            discussions=self._process_discussions(raw_data.get("discussions_data", [])),
         )
 
-    def _process_keywords(self, raw_keywords: List[Any]) -> List[KeywordSignal]:
-        """Deduplicates and sorts keywords by score."""
+    @staticmethod
+    def _records(items, model, title_field, identity):
+        """Own independent copies; identity normalization never changes source values."""
         seen = set()
-        cleaned: List[KeywordSignal] = []
-
-        for item in raw_keywords:
-            if isinstance(item, KeywordSignal):
-                kw_obj = item
+        accepted = {item.name for item in fields(model)}
+        for item in items:
+            if isinstance(item, model):
+                record = item
             elif isinstance(item, dict):
-                kw_obj = KeywordSignal(
-                    keyword=item.get("keyword", ""),
-                    trend=item.get("trend", "stable"),
-                    score=float(item.get("score") or item.get("current_score") or 50.0),
-                    signal_summary=item.get("signal_summary", ""),
-                    source=item.get("source", "Google Trends"),
-                    source_url=item.get("source_url", ""),
-                    related_queries=item.get("related_queries", []),
-                )
+                values = {key: value for key, value in item.items() if key in accepted}
+                if title_field not in values:
+                    continue
+                record = model(**values)
             else:
                 continue
+            title = getattr(record, title_field)
+            if not isinstance(title, str) or not title.strip():
+                continue
+            try:
+                key = identity(record)
+                if any(value is None for value in key):
+                    continue
+                hash(key)
+            except (AttributeError, TypeError):
+                continue
+            if key not in seen:
+                seen.add(key)
+                yield deepcopy(record)
 
-            clean_term = kw_obj.keyword.strip().lower()
-            if clean_term and clean_term not in seen:
-                seen.add(clean_term)
-                # Boost score if trend is rising
-                if kw_obj.trend == "rising":
-                    kw_obj.score = min(100.0, kw_obj.score + 15.0)
-                cleaned.append(kw_obj)
-
-        # Sort descending by score
-        cleaned.sort(key=lambda x: x.score, reverse=True)
-        return cleaned
+    def _process_keywords(self, raw_keywords: List[Any]) -> List[KeywordSignal]:
+        return list(self._records(raw_keywords, KeywordSignal, "keyword", identity=keyword_identity))
 
     def _process_products(self, raw_products: List[Any]) -> List[ProductItem]:
-        """Cleans and deduplicates product items."""
-        seen = set()
-        cleaned: List[ProductItem] = []
+        return list(self._records(raw_products, ProductItem, "title", identity=lambda record: record_identity("amazon", record)))
 
-        for item in raw_products:
-            if isinstance(item, ProductItem):
-                p_obj = item
-            elif isinstance(item, dict):
-                p_obj = ProductItem(
-                    title=item.get("title", ""),
-                    price=item.get("price", "N/A"),
-                    rating=safe_float(item.get("rating"), 4.5),
-                    reviews_count=int(item.get("reviews_count", 0)),
-                    rank=int(item.get("rank", 0)),
-                    url=item.get("url", ""),
-                    source=item.get("source", "Amazon"),
-                )
-            else:
-                continue
+    @staticmethod
+    def extract_price_ranges(products: List[ProductItem]) -> List[Dict[str, Any]]:
+        """Summarize each observed currency separately, never guessing '$' is USD."""
+        groups = {}
+        for product in products:
+            price = parse_observed_price(product.price)
+            if price:
+                groups.setdefault(price.currency, []).append(Decimal(price.amount))
+        ranges = []
+        for currency, amounts in sorted(groups.items()):
+            with localcontext() as context:
+                context.prec = 128  # Price strings are capped at 100 characters.
+                low, high, average = min(amounts), max(amounts), sum(amounts) / len(amounts)
+            ranges.append({
+                "currency": currency, "min": format(low, "f"), "max": format(high, "f"),
+                "avg": format(average, ".2f"), "sample_size": len(amounts),
+                "formatted": f"{currency} {low:f} – {high:f} (trung bình mẫu: {average:.2f}; n={len(amounts)})",
+            })
+        return ranges
 
-            clean_title = p_obj.title.strip().lower()
-            if clean_title and clean_title not in seen:
-                seen.add(clean_title)
-                cleaned.append(p_obj)
-
-        return cleaned
+    @staticmethod
+    def format_price_ranges(products: List[ProductItem]) -> str:
+        return "; ".join(item["formatted"] for item in DataProcessor.extract_price_ranges(products)) or "Chưa có mẫu giá kèm currency hợp lệ."
 
     def _process_discussions(self, raw_discussions: List[Any]) -> List[DiscussionItem]:
-        """Cleans discussion posts."""
-        seen = set()
-        cleaned: List[DiscussionItem] = []
-
-        for item in raw_discussions:
-            if isinstance(item, DiscussionItem):
-                d_obj = item
-            elif isinstance(item, dict):
-                d_obj = DiscussionItem(
-                    title=item.get("title", ""),
-                    score=int(item.get("score", 0)),
-                    comments=int(item.get("comments", 0)),
-                    content_summary=item.get("content_summary", ""),
-                    url=item.get("url", ""),
-                    source=item.get("source", "Reddit"),
-                )
-            else:
-                continue
-
-            clean_title = d_obj.title.strip().lower()
-            if clean_title and clean_title not in seen:
-                seen.add(clean_title)
-                cleaned.append(d_obj)
-
-        return cleaned
+        return list(self._records(raw_discussions, DiscussionItem, "title", identity=lambda record: record_identity("reddit", record)))
 
     @staticmethod
     def extract_price_range(products: List[ProductItem]) -> Dict[str, Any]:
-        """Extracts minimum, maximum, and average price from product list."""
+        """Summarize explicit USD prices only; do not guess currencies or rates."""
         prices = []
-        for p in products:
-            clean_str = p.price.replace(",", "")
-            match = re.search(r"[\$]?\s*(\d+(?:\.\d{1,2})?)", clean_str)
+        for product in products:
+            if product.price_currency not in {None, "USD", "US$"}:
+                continue
+            if not isinstance(product.price, str):
+                continue
+            match = re.fullmatch(
+                r"\s*(?:US\s*)?\$\s*(\d+(?:,\d{3})*(?:\.\d{1,2})?)\s*",
+                product.price,
+            )
             if match:
-                val = float(match.group(1))
-                if 1.0 <= val <= 300.0:
-                    prices.append(val)
-                elif val > 5000:
-                    prices.append(round(val / 25400.0, 2))
-
+                value = optional_float(match.group(1).replace(",", ""))
+                if value is not None and value >= 0:
+                    prices.append(value)
         if not prices:
-            return {"min": 15.0, "max": 45.0, "avg": 28.0, "formatted": "$15.00 – $45.00"}
-
-        min_p = min(prices)
-        max_p = max(prices)
-        avg_p = sum(prices) / len(prices)
+            return {
+                "min": None, "max": None, "avg": None, "sample_size": 0,
+                "formatted": "Chưa có mẫu giá USD hợp lệ.",
+            }
+        low, high, average = min(prices), max(prices), sum(prices) / len(prices)
         return {
-            "min": min_p,
-            "max": max_p,
-            "avg": avg_p,
-            "formatted": f"${min_p:.2f} – ${max_p:.2f} (Trung bình: ${avg_p:.2f})",
+            "min": low, "max": high, "avg": average, "sample_size": len(prices),
+            "formatted": "$" + f"{low:.2f} – $" + f"{high:.2f} (Trung bình mẫu: $" + f"{average:.2f})",
         }

@@ -1,266 +1,176 @@
-"""
-Pipeline Execution Engine for AI Product Trend Research.
-Provides a clean, programmatic interface for CLI, Web UI, and automated runners.
-Hides raw internal warning traces and delivers polished, business-ready structured data.
-"""
-import os
-import sys
+"""Orchestrate live collection, evidence gating, analysis and report persistence."""
 import time
-import logging
-from datetime import datetime
-from typing import Dict, Any, List, Optional, Callable
+from threading import Lock
+from dataclasses import asdict
+from datetime import datetime, timedelta, timezone
+from typing import Any, Dict, Optional
+from uuid import uuid4
 
-from src.config import NICHES, CATEGORY, OLLAMA_MODEL, REPORTS_DIR
-from src.collectors.google_trends import GoogleTrendsCollector
-from src.collectors.amazon import AmazonCollector
-from src.collectors.reddit import RedditCollector
-from src.processors.data_processor import DataProcessor
 from src.analyzers.llm_analyzer import LLMAnalyzer
-from src.reporters.report_generator import ReportGenerator
+from src.analyzers.grounded_summary import GroundedSummaryService
+from src.collectors.collection_runtime import collect_sources
+from src.collectors.http_policy import HTTPPolicy
+from src.collectors.performance_settings import PerformanceSettings
+from src.collectors.validation import Collector
+from src.config import CATEGORY, DATA_POLICY_VERSION, NICHES, OLLAMA_MODEL, REPORTS_DIR
+from src.models.research_request import ResearchRequest
+from src.processors.data_processor import DataProcessor
+from src.processors.data_quality import assess_data_quality
+from src.collectors.evidence_validation import valid_text
+from src.processors.source_health import aggregate_source_health
+from src.processors.research_result_builder import RunContext, build_research_result
+from src.reporters.report_repository import ReportRepository
+from src.reporters.collection_snapshots import CollectionSnapshotWriter
+from src.ranking.policy import MAX_NICHES
+from src.ranking.service import RankingService
+
+SOURCE_FIELDS = {
+    "google_trends": "keywords_data", "amazon": "products_data", "reddit": "discussions_data",
+}
+
+
+def _record_provenances(record):
+    seen = set()
+    for provenance in [record.provenance, *(listing.provenance for listing in getattr(record, "listings", []))]:
+        if provenance.evidence_id not in seen:
+            seen.add(provenance.evidence_id)
+            yield provenance
 
 
 def execute_pipeline(
-    fast_mode: bool = True,
+    fast_mode: bool = False,
     model_name: Optional[str] = None,
-    niche_list: Optional[List[Dict[str, Any]]] = None,
+    niche_list=None,
     output_dir: str = REPORTS_DIR,
-    progress_callback: Optional[Callable[[int, int, str, str], None]] = None,
+    progress_callback=None,
+    *,
+    collectors: Optional[Dict[str, Collector]] = None,
+    ranking_service: Optional[RankingService] = None,
+    request: Optional[ResearchRequest] = None,
 ) -> Dict[str, Any]:
-    """
-    Executes the full end-to-end research workflow and returns structured results.
+    """Return a diagnostic report even when upstream data is insufficient.
 
-    Args:
-        fast_mode: Use standardized high-speed templates ($0 API cost, instant result).
-        model_name: Name of Ollama model if not fast_mode.
-        niche_list: Optional list of niche dicts. Defaults to NICHES in config.
-        output_dir: Destination directory for reports.
-        progress_callback: Function receiving (current_step, total_steps, step_name, detail_log).
-
-    Returns:
-        Structured dictionary containing metadata, ranking, top_ideas, niche_details, and markdown.
+    success means all configured sources and the requested analysis completed.
+    Partial/failed runs retain collected records, warnings and their report path.
+    fast_mode explicitly disables LLM; it never supplies sample data.
     """
-    start_time = time.time()
-    niche_list = niche_list or NICHES
+    started = time.monotonic()
+    run_id = uuid4().hex
+    if request is not None and not isinstance(request, ResearchRequest):
+        raise ValueError("ResearchRequest required")
+    if request is not None:
+        if niche_list is not None:
+            raise ValueError("ResearchRequest and niche_list cannot be combined")
+        niches = request.collector_niches()
+        fast_mode = request.mode == "deterministic"
+    else:
+        niches = NICHES if niche_list is None else niche_list
+    if not isinstance(niches, (list, tuple)) or not 0 < len(niches) <= MAX_NICHES or any(
+        not isinstance(n, dict) or not valid_text(n.get("name"), 200)
+        for n in niches
+    ):
+        raise ValueError("Danh sách niche phải có tên hợp lệ.")
+    if len({n["name"].strip().casefold() for n in niches}) != len(niches):
+        raise ValueError("Tên niche không được trùng nhau.")
     selected_model = model_name or OLLAMA_MODEL
-    total_steps = 5
+    ranking_service = ranking_service if ranking_service is not None else RankingService()
+    if collectors is not None and set(collectors) != set(SOURCE_FIELDS):
+        raise ValueError("Cần cấu hình đủ Google Trends, Amazon và Reddit collector.")
 
-    def report_step(step_idx: int, step_name: str, detail: str = ""):
-        if progress_callback:
-            try:
-                progress_callback(step_idx, total_steps, step_name, detail)
-            except Exception:
-                pass
+    progress_lock = Lock()
 
-    # Tạm thời giảm level logging của các thư viện bên thứ 3 để UI sạch sẽ
-    logging.getLogger("collector.google_trends").setLevel(logging.ERROR)
-    logging.getLogger("collector.amazon").setLevel(logging.ERROR)
-    logging.getLogger("collector.reddit").setLevel(logging.ERROR)
-    logging.getLogger("httpx").setLevel(logging.ERROR)
-    logging.getLogger("urllib3").setLevel(logging.ERROR)
+    def progress(step, title, detail=""):
+        if progress_callback is not None:
+            with progress_lock:
+                progress_callback(step, 5, title, detail)
 
-    # -------------------------------------------------------------------------
-    # BƯỚC 1: THU THẬP DỮ LIỆU ĐA NGUỒN
-    # -------------------------------------------------------------------------
-    report_step(1, "Thu thập dữ liệu đa nguồn", "Đang kết nối Google Trends, Amazon & Reddit...")
+    warnings = []
+    source_statuses = {}
+    settings = PerformanceSettings.from_env()
+    http_policy = HTTPPolicy.from_env()
+    snapshots = CollectionSnapshotWriter(output_dir, run_id, [n["name"] for n in niches], settings)
+    progress(1, "Thu thập dữ liệu live")
 
-    gt_collector = GoogleTrendsCollector()
-    amz_collector = AmazonCollector()
-    reddit_collector = RedditCollector()
+    def collection_progress(name, source, result):
+        detail = "bắt đầu" if result is None else f"{result.status}; {len(result.records)} bản ghi"
+        progress(1, "Thu thập dữ liệu live", f"{name} / {source}: {detail}")
 
-    raw_data_by_niche: Dict[str, Any] = {}
-    total_keywords_count = 0
-    total_products_count = 0
-    total_discussions_count = 0
-
-    for idx, niche in enumerate(niche_list, 1):
-        niche_name = niche["name"]
-        report_step(
-            1,
-            "Thu thập dữ liệu đa nguồn",
-            f"[{idx}/{len(niche_list)}] Đang trích xuất tín hiệu cho: {niche_name}...",
-        )
-
-        try:
-            gt_data = gt_collector.collect(niche)
-        except Exception:
-            gt_data = []
-
-        try:
-            amz_data = amz_collector.collect(niche)
-        except Exception:
-            amz_data = []
-
-        try:
-            reddit_data = reddit_collector.collect(niche)
-        except Exception:
-            reddit_data = []
-
-        total_keywords_count += len(gt_data)
-        total_products_count += len(amz_data)
-        total_discussions_count += len(reddit_data)
-
-        raw_data_by_niche[niche_name] = {
-            "niche": niche_name,
-            "collected_at": datetime.now().isoformat(),
-            "keywords_data": gt_data,
-            "products_data": amz_data,
-            "discussions_data": reddit_data,
-        }
-
-    # -------------------------------------------------------------------------
-    # BƯỚC 2: XỬ LÝ & LỌC TÍN HIỆU
-    # -------------------------------------------------------------------------
-    report_step(2, "Lọc nhiễu & Chuẩn hóa tín hiệu", "Tính toán điểm tăng trưởng và khoảng giá thị trường...")
-    processor = DataProcessor()
-    processed_niches: Dict[str, Any] = {}
-
-    for niche_name, raw_dict in raw_data_by_niche.items():
-        niche_obj = processor.process(raw_dict)
-        processed_niches[niche_name] = niche_obj
-
-    # -------------------------------------------------------------------------
-    # BƯỚC 3: PHÂN TÍCH VÀ ĐỀ XUẤT Ý TƯỞNG BẰNG AI
-    # -------------------------------------------------------------------------
-    report_step(3, "AI phân tích thị trường & ý tưởng", f"Mô hình AI đang phân tích {len(processed_niches)} niches...")
-    analyzer = LLMAnalyzer(model=selected_model, fast_mode=fast_mode)
-    analysis_sections: Dict[str, Any] = {}
-
-    for idx, (niche_name, niche_data) in enumerate(processed_niches.items(), 1):
-        report_step(
-            3,
-            "AI phân tích thị trường & ý tưởng",
-            f"[{idx}/{len(processed_niches)}] AI hoàn thiện phân tích: {niche_name}...",
-        )
-        section_report = analyzer.analyze(niche_name, niche_data)
-        analysis_sections[niche_name] = section_report
-
-    # -------------------------------------------------------------------------
-    # BƯỚC 4: TỔNG KẾT & XẾP HẠNG TIỀM NĂNG
-    # -------------------------------------------------------------------------
-    report_step(4, "Xếp hạng Niche & Top 3 Ý tưởng", "Tổng hợp bảng xếp hạng đầu tư và chọn lọc ý tưởng xuất sắc nhất...")
-    overall_summary = analyzer.summarize(analysis_sections)
-
-    # -------------------------------------------------------------------------
-    # BƯỚC 5: XUẤT BÁO CÁO MARKDOWN
-    # -------------------------------------------------------------------------
-    report_step(5, "Xuất bản báo cáo chuẩn chỉ", "Tạo file Markdown định dạng chuẩn...")
-    reporter = ReportGenerator(output_dir=output_dir)
-    report_file = reporter.generate(
-        category=CATEGORY,
-        niches=niche_list,
-        analysis_results=analysis_sections,
-        summary=overall_summary,
-        model_name=selected_model,
-        processed_data=processed_niches,
-    )
-
-    elapsed_seconds = round(time.time() - start_time, 1)
-
-    # Đọc nội dung Markdown hoàn chỉnh
-    markdown_content = ""
-    try:
-        with open(report_file, "r", encoding="utf-8") as f:
-            markdown_content = f.read()
-    except Exception:
-        markdown_content = ""
-
-    # Cấu trúc hóa dữ liệu chi tiết cho UI
-    niches_structured: Dict[str, Any] = {}
-    for n_name, p_data in processed_niches.items():
-        section = analysis_sections.get(n_name)
-        ideas_list = []
-        if section and hasattr(section, "ideas"):
-            for idea in section.ideas:
-                ideas_list.append({
-                    "name": idea.name,
-                    "target_audience": idea.target_audience,
-                    "why_now": idea.why_now,
-                    "rationale": getattr(idea, "rationale", ""),
-                })
-
-        price_info = DataProcessor.extract_price_range(getattr(p_data, "products", []))
-        price_str = price_info.get("formatted", "$15.00 – $45.00")
-
-        niches_structured[n_name] = {
-            "name": n_name,
-            "dominant_trend": getattr(p_data, "dominant_trend", "rising"),
-            "price_range": price_str,
-            "keywords": [k.to_dict() for k in getattr(p_data, "keywords", [])],
-            "products": [p.to_dict() for p in getattr(p_data, "products", [])],
-            "discussions": [d.to_dict() for d in getattr(p_data, "discussions", [])],
-            "analysis_text": section.analysis_content if section else "",
-            "ideas": ideas_list,
-        }
-
-    # Bảng xếp hạng tính toán động dựa trên dữ liệu thực tế thu thập được
-    scored_niches = []
-    for n_name, n_info in niches_structured.items():
-        kw_count = len(n_info.get("keywords", []))
-        prod_count = len(n_info.get("products", []))
-        avg_score = 75.0
-        if kw_count > 0:
-            avg_score = sum(k.get("score", 70) for k in n_info["keywords"]) / kw_count
-        composite_score = round(min(98.0, (avg_score * 0.7) + (min(prod_count, 10) * 2.0) + (min(kw_count, 10) * 1.0)), 1)
-        scored_niches.append((n_name, composite_score, kw_count, prod_count, n_info))
-
-    scored_niches.sort(key=lambda x: x[1], reverse=True)
-
-    ranking_data = []
-    for r_idx, (n_name, c_score, kw_c, prd_c, n_info) in enumerate(scored_niches, 1):
-        rating_text = "Rất cao" if r_idx == 1 else ("Cao" if r_idx == 2 else "Tiềm năng")
-        rec_text = f"Mùa vụ Q4 nhu cầu cao; phát hiện {kw_c} từ khóa xu hướng và {prd_c} sản phẩm bán chạy trên thị trường. {n_info.get('price_range', '')}"
-        ranking_data.append({
-            "rank": r_idx,
-            "niche": n_name,
-            "potential": f"{rating_text} ({c_score}/100)",
-            "recommendation": rec_text,
-        })
-
-    # Ý tưởng sản phẩm xuất sắc nhất được trích xuất động từ từng niche
-    top_ideas_data = []
-    for r_idx, (n_name, c_score, kw_c, prd_c, n_info) in enumerate(scored_niches, 1):
-        if n_info.get("ideas") and len(n_info["ideas"]) > 0:
-            best_idea = n_info["ideas"][0]
-            top_ideas_data.append({
-                "rank": r_idx,
-                "title": best_idea["name"],
-                "niche": n_name,
-                "badge": f"Ưu tiên triển khai #{r_idx}",
-                "what_to_sell": best_idea.get("rationale") or best_idea["name"],
-                "target_audience": best_idea.get("target_audience", "Khách hàng mục tiêu"),
-                "financials": f"Khoảng giá thị trường: {n_info.get('price_range', 'Đang cập nhật')}",
-                "why_now": best_idea.get("why_now", "Nhu cầu thị trường đang trong chu kỳ tăng trưởng mạnh."),
-            })
-
-    report_step(5, "Hoàn tất!", f"Đã xuất file báo cáo {os.path.basename(report_file)}")
-
-    result_payload = {
-        "success": True,
-        "report_filepath": report_file,
-        "report_filename": os.path.basename(report_file),
-        "markdown_content": markdown_content,
-        "metadata": {
-            "category": CATEGORY,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "model_name": selected_model,
-            "cost": "$0.00 (Hoàn toàn miễn phí)",
-            "elapsed_seconds": elapsed_seconds,
-            "total_niches": len(niche_list),
-            "total_keywords": total_keywords_count,
-            "total_products": total_products_count,
-            "total_discussions": total_discussions_count,
-        },
-        "ranking": ranking_data,
-        "top_ideas": top_ideas_data,
-        "niches": niches_structured,
+    collected = collect_sources(niches, settings=settings, http_policy=http_policy, collectors=collectors,
+                                progress=collection_progress, on_result=snapshots.capture)
+    snapshot_manifest = snapshots.commit()
+    for name, sources in collected.items():
+        source_statuses[name] = {source: result.status_dict() for source, result in sources.items()}
+        for source, result in sources.items():
+            warnings.extend(f"{name} / {source}: [{warning.code}] {warning}" for warning in result.warnings)
+    source_health = aggregate_source_health(collected)
+    request_metadata = {}
+    for sources in collected.values():
+        for result in sources.values():
+            for trace in result.request_metadata:
+                previous = request_metadata.get(trace.request_id)
+                if previous is None or (previous["cache_reused"] and not trace.cache_reused):
+                    request_metadata[trace.request_id] = asdict(trace)
+    repository = ReportRepository(output_dir)
+    diagnostics = {
+        "run_id": run_id, "data_policy": DATA_POLICY_VERSION,
+        "snapshot_manifest": snapshot_manifest, "collection_policy": asdict(settings),
+        "transport_policy": asdict(http_policy),
+        "source_statuses": source_statuses, "source_health": source_health,
+        "request_metadata": request_metadata,
+        "evidence": [
+            {"niche": name, **asdict(provenance)}
+            for name, sources in collected.items() for result in sources.values()
+            for record in result.records
+            for provenance in _record_provenances(record)
+        ],
     }
+    diagnostics_file = repository.save_diagnostics(run_id, diagnostics)
 
-    try:
-        import json
-        cache_path = os.path.join(output_dir, "latest_data.json")
-        with open(cache_path, "w", encoding="utf-8") as f:
-            json.dump(result_payload, f, ensure_ascii=False, indent=2)
-    except Exception:
-        pass
+    progress(2, "Chuẩn hóa dữ liệu và kiểm tra điều kiện tối thiểu")
+    processor = DataProcessor()
+    processed = {}
+    quality_assessments = {}
+    timestamp = datetime.now(timezone(timedelta(hours=7))).isoformat(timespec="seconds")
+    for name, sources in collected.items():
+        raw = {"niche": name, "collected_at": timestamp}
+        raw.update({SOURCE_FIELDS[source]: result.records for source, result in sources.items()})
+        data = processor.process(raw)
+        assessment = assess_data_quality(data, sources)
+        data.quality_assessment = assessment
+        processed[name] = data
+        quality_assessments[name] = assessment.to_dict()
+        warnings.extend(f"{name}: [{issue.code}] {issue.message}" for issue in assessment.issues)
+    # Exactly one scoring call. Persist the same canonical breakdown before AI.
+    ranking_assessment = ranking_service.rank(processed.values()).to_dict()
+    warnings.extend(ranking_assessment["warnings"])
+    repository.save_diagnostics(run_id, {**diagnostics, "quality_assessments": quality_assessments,
+                                         "ranking_assessment": ranking_assessment})
 
-    return result_payload
+    progress(3, "Tổng hợp dữ liệu" if fast_mode else "Phân tích với Ollama")
+    sections = {}
+    with LLMAnalyzer(model=selected_model, fast_mode=fast_mode) as analyzer:
+        for name, data in processed.items():
+            section = analyzer.analyze(name, data)
+            sections[name] = section
+            warnings.extend(f"{name}: {warning}" for warning in section.warnings)
+
+    progress(4, "Tổng kết kết quả và giới hạn dữ liệu")
+    analysis_summary = GroundedSummaryService().build(processed, sections, ranking_assessment)
+    warnings.extend(analysis_summary["warnings"])
+    ai_validation = {name: section.ai_validation for name, section in sections.items()}
+    repository.save_diagnostics(run_id, {**diagnostics, "quality_assessments": quality_assessments,
+        "ranking_assessment": ranking_assessment, "ai_validation": ai_validation,
+        "grounded_analysis": {name: section.grounded_analysis.to_dict() if section.grounded_analysis else None
+                              for name, section in sections.items()}, "analysis_summary": analysis_summary})
+    progress(5, "Xuất báo cáo")
+    research = build_research_result(
+        context=RunContext(run_id=run_id, category=request.category if request else CATEGORY, timestamp=timestamp,
+                           requested_mode="deterministic" if fast_mode else "ollama", requested_model=selected_model,
+                           model_attempted=analyzer.attempted, elapsed_seconds=round(time.monotonic() - started, 2),
+                           diagnostics_file=diagnostics_file, research_input=request.to_dict() if request else None),
+        processed=processed, sections=sections, source_statuses=source_statuses,
+        source_health=source_health, request_metadata=request_metadata, ranking_assessment=ranking_assessment,
+        analysis_summary=analysis_summary, warnings=warnings)
+    result = repository.publish(research)
+    progress(5, "Hoàn tất" if result["success"] else "Báo cáo chưa đầy đủ", result["report_filename"])
+    return result

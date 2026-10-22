@@ -1,239 +1,237 @@
-"""
-Web Server for AI Product Trend Research Tool UI.
-Built with Python's built-in http.server (zero external web framework dependencies).
-Provides clean REST API endpoints for 1-Click execution and visual report rendering.
-"""
-import os
-import sys
+"""Local-only Web transport: validated intent → bounded job → canonical result."""
+import hmac
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+import ipaddress
 import json
-import glob
-from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
-import webbrowser
+import logging
+from pathlib import Path
+import secrets
 import threading
+from urllib.parse import urlsplit
+import webbrowser
 
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-        sys.stderr.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
-
-# Add project root to sys.path
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
-
+from src.config import REPORTS_DIR, OLLAMA_MODEL
+from src.models.research_request import ResearchRequest, decode_request, MAX_BODY_BYTES, MAX_KEYWORDS, MAX_SUBREDDITS
 from src.pipeline import execute_pipeline
-from src.config import REPORTS_DIR, CATEGORY, OLLAMA_MODEL
+from src.reporters.report_repository import ReportRepository
+from src.web.jobs import ResearchJobs, JobBusy, IdempotencyConflict
 
-HTML_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
+logger = logging.getLogger(__name__)
+WEB_ROOT = Path(__file__).resolve().parent
+_SERVICES_LOCK = threading.Lock()
+ASSETS = {"/static/css/styles.css": "text/css", **{
+    f"/static/js/{name}.js": "text/javascript" for name in ("api", "ui", "form", "app")}}
 
 
-RUN_LOCK = threading.Lock()
-IS_PIPELINE_RUNNING = False
+def services(server):
+    """One job store/token per server instance, never process-global running flags."""
+    with _SERVICES_LOCK:
+        if not hasattr(server, "research_jobs"):
+            directory = str(Path(REPORTS_DIR).resolve())
+            server.research_jobs = ResearchJobs(lambda request, progress: execute_pipeline(
+                request=request, output_dir=directory, progress_callback=progress))
+            server.csrf_token = secrets.token_urlsafe(32)
+        return server.research_jobs, server.csrf_token
 
 
 class TrendToolServer(BaseHTTPRequestHandler):
-    """Handles static files and API requests cleanly and securely."""
+    server_version = "TrendResearch"
+    sys_version = ""
+
+    def setup(self):
+        super().setup()
+        self.connection.settimeout(10)
 
     def log_message(self, format, *args):
-        # Mute standard noisy HTTP log lines for clean terminal
         pass
 
-    def _set_security_headers(self):
-        """Adds defensive HTTP security headers to all responses."""
+    def _headers(self):
         self.send_header("X-Content-Type-Options", "nosniff")
-        self.send_header("X-Frame-Options", "SAMEORIGIN")
-        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
-        self.send_header("Access-Control-Allow-Origin", "http://127.0.0.1:5000")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("X-Frame-Options", "DENY")
+        self.send_header("Referrer-Policy", "no-referrer")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Security-Policy", "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
+                         "connect-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'")
+        self.send_header("Connection", "close")
+        self.close_connection = True
 
-    def _send_json(self, data: dict, status_code: int = 200):
-        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
-        self.send_response(status_code)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
+    def _send_bytes(self, body, status=200, mime="application/json; charset=utf-8"):
+        self.send_response(status)
+        self.send_header("Content-Type", mime)
         self.send_header("Content-Length", str(len(body)))
-        self._set_security_headers()
+        self._headers()
         self.end_headers()
-        self.wfile.write(body)
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionResetError, TimeoutError):
+            pass  # A disconnected browser does not cancel/restart the worker.
+
+    def _send_json(self, data, status=200):
+        self._send_bytes(json.dumps(data, ensure_ascii=False, allow_nan=False).encode("utf-8"), status)
+
+    def _error(self, status, message):
+        self._send_json({"success": False, "error": message}, status)
+
+    def _trusted(self):
+        hosts = self.headers.get_all("Host", [])
+        port = self.server.server_address[1]
+        allowed = {f"127.0.0.1:{port}", f"localhost:{port}", f"[::1]:{port}"}
+        if len(hosts) != 1 or hosts[0] not in allowed or not ipaddress.ip_address(self.client_address[0]).is_loopback:
+            self._error(403, "Chỉ hỗ trợ truy cập loopback bằng Host hợp lệ.")
+            return False
+        origins = self.headers.get_all("Origin", [])
+        sites = self.headers.get_all("Sec-Fetch-Site", [])
+        if len(origins) > 1 or len(sites) > 1 or (origins and origins[0] != f"http://{hosts[0]}") or (sites and sites[0] not in {"same-origin", "none"}):
+            self._error(403, "Request khác nguồn gốc bị từ chối.")
+            return False
+        return True
 
     def do_OPTIONS(self):
-        self.send_response(200)
-        self._set_security_headers()
-        self.end_headers()
+        self._error(403, "Cross-origin API không được hỗ trợ.")
 
     def do_GET(self):
-        parsed = urlparse(self.path)
-        path = parsed.path
+        if not self._trusted():
+            return
+        try:
+            self._get()
+        except Exception:
+            logger.exception("web_read_failed")
+            self._error(500, "Không đọc được dữ liệu server; xem log server.")
 
-        if path in ["/", "/index.html"]:
+    def _get(self):
+        path = urlsplit(self.path).path
+        if path in {"/", "/index.html"}:
+            return self._asset(WEB_ROOT / "index.html", "text/html")
+        if path in ASSETS:
+            return self._asset(WEB_ROOT / path.lstrip("/"), ASSETS[path])
+        if path == "/api/config":
             try:
-                with open(HTML_FILE_PATH, "r", encoding="utf-8") as f:
-                    content = f.read().encode("utf-8")
-                self.send_response(200)
-                self.send_header("Content-Type", "text/html; charset=utf-8")
-                self.send_header("Content-Length", str(len(content)))
-                self._set_security_headers()
-                self.end_headers()
-                self.wfile.write(content)
-            except Exception:
-                self.send_error(500, "Internal Server Error")
+                jobs, token = services(self.server)
+                self._send_json({"defaults": ResearchRequest.defaults().to_dict(), "model_name": OLLAMA_MODEL,
+                    "csrf_token": token, "limits": {"min_niches": 3, "max_niches": 5,
+                    "max_keywords": MAX_KEYWORDS, "max_subreddits": MAX_SUBREDDITS}, "poll_interval_ms": 1000})
+            except ValueError:
+                logger.exception("web_configuration_invalid")
+                self._error(500, "Cấu hình server không hợp lệ; xem log server.")
             return
-
-        elif path.startswith("/static/"):
-            rel_path = path[len("/static/"):].lstrip("/\\")
-            static_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "static"))
-            file_path = os.path.abspath(os.path.join(static_dir, rel_path))
-
-            # Defensive path traversal check using commonpath
-            try:
-                is_safe = os.path.commonpath([static_dir, file_path]) == static_dir
-            except (ValueError, Exception):
-                is_safe = False
-
-            if is_safe and os.path.isfile(file_path):
-                content_type = "text/plain"
-                if file_path.endswith(".css"):
-                    content_type = "text/css; charset=utf-8"
-                elif file_path.endswith(".js"):
-                    content_type = "application/javascript; charset=utf-8"
-                elif file_path.endswith(".svg"):
-                    content_type = "image/svg+xml"
-                elif file_path.endswith(".png"):
-                    content_type = "image/png"
-
-                try:
-                    with open(file_path, "rb") as f:
-                        data = f.read()
-                    self.send_response(200)
-                    self.send_header("Content-Type", content_type)
-                    self.send_header("Content-Length", str(len(data)))
-                    self._set_security_headers()
-                    self.end_headers()
-                    self.wfile.write(data)
-                    return
-                except Exception:
-                    self.send_error(500, "Internal Server Error")
-                    return
-
-            self.send_error(404, "Static file not found")
+        if path == "/api/latest":
+            self._send_json(ReportRepository(REPORTS_DIR).load_latest())
             return
-
-        elif path == "/api/latest":
-            cache_file = os.path.join(REPORTS_DIR, "latest_data.json")
-            if os.path.exists(cache_file):
-                try:
-                    with open(cache_file, "r", encoding="utf-8") as f:
-                        cached_data = json.load(f)
-                    self._send_json(cached_data)
-                    return
-                except Exception:
-                    pass
-
-            # Fallback: Load the most recent report from reports/
-            report_files = sorted(glob.glob(os.path.join(REPORTS_DIR, "report_trend_*.md")), reverse=True)
-            if not report_files:
-                self._send_json({"success": False, "message": "Chưa có báo cáo nào."})
-                return
-
-            latest_file = report_files[0]
-            try:
-                with open(latest_file, "r", encoding="utf-8") as f:
-                    md_text = f.read()
-
-                # Basic parse to populate UI instantly
-                self._send_json({
-                    "success": True,
-                    "report_filename": os.path.basename(latest_file),
-                    "markdown_content": md_text,
-                    "metadata": {
-                        "category": CATEGORY,
-                        "model_name": OLLAMA_MODEL,
-                        "cost": "$0.00",
-                        "elapsed_seconds": 16.5,
-                        "total_niches": 3,
-                        "total_keywords": 15,
-                        "total_products": 24,
-                    }
-                })
-            except Exception:
-                self._send_json({"success": False, "error": "Không thể tải báo cáo gần nhất."}, 500)
+        if path == "/api/reports":
+            self._send_json(ReportRepository(REPORTS_DIR).list_reports())
             return
-
-        elif path == "/api/reports":
-            files = sorted(glob.glob(os.path.join(REPORTS_DIR, "report_trend_*.md")), reverse=True)
-            names = [os.path.basename(f) for f in files]
-            self._send_json({"success": True, "reports": names})
+        if path == "/api/jobs/active":
+            self._send_json({"job": services(self.server)[0].active()})
             return
+        parts = path.split("/")
+        if len(parts) in {4, 5} and parts[:3] == ["", "api", "jobs"]:
+            jobs = services(self.server)[0]
+            job = jobs.get(parts[3])
+            if job is None:
+                self._error(404, "Job không tồn tại hoặc đã hết hạn; xem báo cáo gần nhất.")
+            elif len(parts) == 4:
+                self._send_json(job)
+            elif parts[4] == "result":
+                body = jobs.result(parts[3])
+                if body is not None:
+                    self._send_bytes(body)
+                elif job["status"] == "failed":
+                    self._error(500, job["error"])
+                elif job["status"] == "completed":
+                    self._error(404, "Kết quả job đã hết hạn; xem báo cáo gần nhất.")
+                else:
+                    self._send_json({"job_id": parts[3], "status": job["status"], "result_available": False}, 202)
+            else:
+                self._error(404, "Endpoint không tồn tại.")
+            return
+        self._error(404, "Endpoint không tồn tại.")
 
-        self.send_error(404, "Not Found")
+    def _asset(self, path, mime):
+        try:
+            resolved = path.resolve()
+            if not resolved.is_relative_to(WEB_ROOT):
+                raise ValueError("Unsafe asset path")
+            with resolved.open("rb") as stream:
+                body = stream.read(2 * 1024 * 1024 + 1)
+            if len(body) > 2 * 1024 * 1024:
+                raise ValueError("Asset exceeds budget")
+            self._send_bytes(body, mime=f"{mime}; charset=utf-8")
+        except (OSError, ValueError):
+            self._error(404, "Không đọc được tài nguyên.")
 
     def do_POST(self):
-        global IS_PIPELINE_RUNNING
-        parsed = urlparse(self.path)
-        if parsed.path == "/api/run":
-            # Concurrency control & DoS prevention
-            with RUN_LOCK:
-                if IS_PIPELINE_RUNNING:
-                    self._send_json({
-                        "success": False,
-                        "error": "Một tiến trình phân tích đang chạy. Vui lòng chờ tiến trình này hoàn tất."
-                    }, 429)
-                    return
-                IS_PIPELINE_RUNNING = True
-
-            try:
-                content_length = int(self.headers.get("Content-Length", 0))
-                # Protect against oversized payloads (max 10KB)
-                if content_length > 10240:
-                    self._send_json({"success": False, "error": "Request body too large."}, 413)
-                    return
-
-                post_data = self.rfile.read(content_length).decode("utf-8") if content_length > 0 else "{}"
-                try:
-                    body = json.loads(post_data)
-                except Exception:
-                    body = {}
-
-                fast_mode = bool(body.get("fast_mode", True))
-                result = execute_pipeline(fast_mode=fast_mode)
-                self._send_json(result)
-            except Exception as e:
-                # Mask internal system details from client
-                self._send_json({
-                    "success": False,
-                    "error": "Đã xảy ra lỗi trong quá trình thực thi phân tích. Vui lòng thử lại sau."
-                }, 500)
-            finally:
-                with RUN_LOCK:
-                    IS_PIPELINE_RUNNING = False
+        if not self._trusted():
             return
+        if urlsplit(self.path).path != "/api/run":
+            self._error(404, "Endpoint không tồn tại.")
+            return
+        jobs, token = services(self.server)
+        tokens = self.headers.get_all("X-CSRF-Token", [])
+        supplied = tokens[0] if len(tokens) == 1 else ""
+        if not supplied.isascii() or not hmac.compare_digest(token, supplied):
+            self._error(403, "Thiếu hoặc sai CSRF token; tải lại cấu hình trước khi gửi.")
+            return
+        payload = self._body()
+        if payload is None:
+            return
+        try:
+            request = decode_request(payload)
+            if len(self.headers.get_all("Idempotency-Key", [])) != 1:
+                raise ValueError("Cần một Idempotency-Key duy nhất.")
+            job = jobs.submit(request, self.headers.get("Idempotency-Key", ""))
+        except IdempotencyConflict as exc:
+            self._error(409, str(exc))
+        except JobBusy as exc:
+            self._error(429, str(exc))
+        except ValueError as exc:
+            self._error(400, str(exc))
+        except Exception:
+            logger.exception("research_job_submission_failed")
+            self._error(500, "Không khởi tạo được job; xem log server.")
+        else:
+            self._send_json(job, 202)
 
-        self.send_error(404, "Not Found")
+    def _body(self):
+        lengths = self.headers.get_all("Content-Length", [])
+        if self.headers.get_all("Transfer-Encoding") or self.headers.get_all("Expect") or len(lengths) != 1 or not lengths[0].isascii() or not lengths[0].isdigit() or len(lengths[0]) > 8:
+            self._error(400, "Cần một Content-Length hợp lệ; không hỗ trợ chunked/Expect.")
+            return None
+        length = int(lengths[0])
+        if length > MAX_BODY_BYTES:
+            self._error(413, "Payload vượt giới hạn 32 KiB.")
+            return None
+        if len(self.headers.get_all("Content-Type", [])) != 1 or self.headers.get_content_type() != "application/json" or self.headers.get_content_charset("utf-8") != "utf-8" or self.headers.get_all("Content-Encoding"):
+            self._error(415, "Chỉ nhận application/json.")
+            return None
+        try:
+            body = self.rfile.read(length)
+            if len(body) != length:
+                raise ValueError("Incomplete body")
+            return body
+        except (TimeoutError, OSError, ValueError):
+            self._error(408, "Không nhận đủ request trong thời hạn.")
+            return None
 
 
-def run_web_server(host: str = "127.0.0.1", port: int = 5000, auto_open: bool = True):
-    """Starts the HTTP server bound to localhost only for security."""
-    server_address = (host, port)
-    httpd = ThreadingHTTPServer(server_address, TrendToolServer)
-    url = f"http://{host}:{port}"
-
-    print("=" * 65)
-    print("[WEB UI] AI PRODUCT TREND RESEARCH TOOL - GIAO DIEN WEB")
-    print(f"[LINK] Mo trinh duyet tai: {url}")
-    print("[SECURITY] Server duoc gioi han tai localhost (127.0.0.1) an toan.")
-    print("=" * 65)
-
+def run_web_server(host="127.0.0.1", port=5000, auto_open=True):
+    if host not in {"127.0.0.1", "localhost"}:
+        raise ValueError("Web server chỉ được bind loopback IPv4; không dùng public host.")
+    httpd = ThreadingHTTPServer((host, port), TrendToolServer)
+    httpd.daemon_threads = True
+    jobs, _ = services(httpd)
+    url = f"http://{host}:{httpd.server_address[1]}"
+    print(f"Product Trend Intelligence — local only: {url}")
     if auto_open:
-        threading.Timer(1.0, lambda: webbrowser.open(url)).start()
-
+        timer = threading.Timer(1, lambda: webbrowser.open(url))
+        timer.daemon = True
+        timer.start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\n[INFO] Đã dừng server.")
+        pass
+    finally:
         httpd.server_close()
+        jobs.close()
 
 
 if __name__ == "__main__":

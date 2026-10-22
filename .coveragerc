@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = src
+relative_files = True
+concurrency = thread
+
+[report]
+show_missing = True
+precision = 2

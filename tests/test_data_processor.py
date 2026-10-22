@@ -17,12 +17,12 @@ def test_process_deduplication():
             {"keyword": "family ornaments", "score": 85, "trend": "rising"},
         ],
         "products_data": [
-            {"title": "Cozy Blanket Set", "price": "$35.00"},
-            {"title": "Cozy Blanket Set", "price": "$35.00"},  # duplicate
+            {"title": "Cozy Blanket Set", "price": "$35.00", "asin": "B000000001"},
+            {"title": "Cozy Blanket Set", "price": "$35.00", "asin": "B000000001"},  # duplicate
         ],
         "discussions_data": [
-            {"title": "Best Christmas gifts?", "score": 300},
-            {"title": "Best Christmas gifts?", "score": 250},  # duplicate
+            {"title": "Best Christmas gifts?", "score": 300, "post_id": "abc123"},
+            {"title": "Best Christmas gifts?", "score": 250, "post_id": "abc123"},  # duplicate
         ],
     }
 
@@ -32,11 +32,11 @@ def test_process_deduplication():
     assert len(niche_obj.discussions) == 1
 
 
-def test_score_boosting_for_rising_trend():
+def test_rising_score_is_preserved():
     processor = DataProcessor()
     raw_kw = [{"keyword": "rising gift item", "score": 50, "trend": "rising"}]
     processed_kws = processor._process_keywords(raw_kw)
-    assert processed_kws[0].score == 65.0  # boosted by 15
+    assert processed_kws[0].score == 50.0
 
 
 def test_extract_price_range():
@@ -56,4 +56,17 @@ def test_extract_price_range_empty():
     price_info = DataProcessor.extract_price_range([])
     assert "min" in price_info
     assert "max" in price_info
-    assert price_info["min"] < price_info["max"]
+    assert price_info["min"] is None
+    assert price_info["max"] is None
+    assert price_info["avg"] is None
+    assert price_info["sample_size"] == 0
+
+
+def test_prices_are_not_converted_or_discarded_by_arbitrary_threshold():
+    info = DataProcessor.extract_price_range([
+        ProductItem("VND fixture", price="254,000 VND"),
+        ProductItem("USD fixture", price="$1,299.99"),
+        ProductItem("Missing fixture"),
+    ])
+    assert info["sample_size"] == 1
+    assert info["min"] == 1299.99

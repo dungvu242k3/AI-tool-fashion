@@ -1,0 +1,149 @@
+{
+  "run_id": "f74ac24a823f44ddb660edeade4a63f7",
+  "data_policy": "live-only-v4",
+  "purpose": "inspect_failed_pages_and_verify_observed_product",
+  "request_metadata": {
+    "4eac13d528584cc1a1a63fc378612074": {
+      "request_id": "4eac13d528584cc1a1a63fc378612074",
+      "operation_id": "59b4877cac08453791db1514de89b163",
+      "source": "amazon",
+      "operation": "search_diagnostic",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "purpose": "phase04_diagnostic"
+      },
+      "started_at": "2026-10-21T03:37:11.812+00:00",
+      "completed_at": "2026-10-21T03:37:12.227+00:00",
+      "elapsed_ms": 406.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 503,
+      "error_code": "http_503",
+      "error_message": "HTTP 503 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.7394509781243712,
+      "cache_reused": false
+    },
+    "8bc26e74565948f0a63fea765e1410a5": {
+      "request_id": "8bc26e74565948f0a63fea765e1410a5",
+      "operation_id": "59b4877cac08453791db1514de89b163",
+      "source": "amazon",
+      "operation": "search_diagnostic",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "purpose": "phase04_diagnostic"
+      },
+      "started_at": "2026-10-21T03:37:12.974+00:00",
+      "completed_at": "2026-10-21T03:37:13.259+00:00",
+      "elapsed_ms": 297.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": 503,
+      "error_code": "http_503",
+      "error_message": "HTTP 503 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.8278332010036941,
+      "cache_reused": false
+    },
+    "1516a44a81c44ec4913eb555964c30af": {
+      "request_id": "1516a44a81c44ec4913eb555964c30af",
+      "operation_id": "59b4877cac08453791db1514de89b163",
+      "source": "amazon",
+      "operation": "search_diagnostic",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "purpose": "phase04_diagnostic"
+      },
+      "started_at": "2026-10-21T03:37:14.097+00:00",
+      "completed_at": "2026-10-21T03:37:14.372+00:00",
+      "elapsed_ms": 281.0,
+      "attempt": 3,
+      "redirect_hop": 0,
+      "status_code": 503,
+      "error_code": "http_503",
+      "error_message": "HTTP 503 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "eb3db00250a24db28727f397e2cb4029": {
+      "request_id": "eb3db00250a24db28727f397e2cb4029",
+      "operation_id": "655775f1eec84b03beff4a09db4388bc",
+      "source": "amazon",
+      "operation": "movers_diagnostic",
+      "method": "GET",
+      "url": "https://www.amazon.com/gp/movers-and-shakers",
+      "query": {
+        "purpose": "phase04_diagnostic"
+      },
+      "started_at": "2026-10-21T03:37:14.373+00:00",
+      "completed_at": "2026-10-21T03:37:14.823+00:00",
+      "elapsed_ms": 453.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "42471763773e4ec59900908e0d6e8128": {
+      "request_id": "42471763773e4ec59900908e0d6e8128",
+      "operation_id": "53ce01880474409797abe2484d38a0e1",
+      "source": "amazon",
+      "operation": "observed_product_verification",
+      "method": "GET",
+      "url": "https://www.amazon.com/dp/B07BGLT25K",
+      "query": {
+        "purpose": "phase04_diagnostic"
+      },
+      "started_at": "2026-10-21T03:37:14.899+00:00",
+      "completed_at": "2026-10-21T03:37:17.120+00:00",
+      "elapsed_ms": 2218.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "pages": [
+    {
+      "operation": "search_diagnostic",
+      "warning": {
+        "code": "http_503",
+        "message": "Nguồn không khả dụng (http_503); đã thử 3 lần.",
+        "request_id": "1516a44a81c44ec4913eb555964c30af",
+        "operation": "search_diagnostic",
+        "retryable": true
+      }
+    },
+    {
+      "operation": "movers_diagnostic",
+      "request_id": "eb3db00250a24db28727f397e2cb4029",
+      "title": "Amazon.com Movers & Shakers: The biggest gainers in Amazon sales rank over the past 24 hours",
+      "visible_excerpt": "Amazon.com Movers & Shakers: The biggest gainers in Amazon sales rank over the past 24 hours Skip to Main content Keyboard shortcuts Search alt + / Cart shift + alt + C Home shift + alt + H Orders shift + alt + O Show/Hide shortcuts shift + alt + Z To move between items, use your keyboard's up or down arrows. .us Deliver to Vietnam All Select the department you want to search in All Departments Alexa Skills Amazon Devices Amazon Global Store Amazon Haul Amazon One Medical Amazon Pharmacy Amazon ",
+      "search_cards": 0,
+      "legacy_search_cards": 0,
+      "ranking_cards": 0,
+      "product_title": null
+    },
+    {
+      "operation": "observed_product_verification",
+      "request_id": "42471763773e4ec59900908e0d6e8128",
+      "title": "Amazon.com: Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue",
+      "visible_excerpt": "Amazon.com: Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue Skip to Main content About this item About this item About this item Buying options Compare with similar items Videos Reviews Keyboard shortcuts Search alt + / Cart shift + alt + C Home shift + alt + H Orders shift + alt + O Add to cart shift + alt + K Product summary shift + alt + D Show/Hide shortcuts shift + alt + Z To move between items, use your keyboard's up or down arrows. .u",
+      "search_cards": 0,
+      "legacy_search_cards": 0,
+      "ranking_cards": 6,
+      "product_title": "Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "run_id": "c1d491b84ed44a42adc846128b22b202",
+  "audit_kind": "explicit_real_provider_probe",
+  "source": "reddit",
+  "started_at": "2026-10-22T03:59:33.425954+00:00",
+  "query_input": {
+    "name": "Christmas Gift Ideas",
+    "seed_keywords": [
+      "christmas gift ideas"
+    ],
+    "subreddits": [
+      "giftideas"
+    ],
+    "amazon_search_terms": [
+      "christmas gifts"
+    ]
+  },
+  "transport_policy": {
+    "connect_timeout": 3,
+    "read_timeout": 8,
+    "max_attempts": 1,
+    "backoff_base": 0.75,
+    "backoff_cap": 8.0,
+    "retry_wait_budget": 1,
+    "max_redirects": 2,
+    "max_response_bytes": 2097152
+  },
+  "cache_enabled": false,
+  "model_calls": 0,
+  "not_a_complete_market_report": true,
+  "provider": "public_json",
+  "status": "failed",
+  "collection": {
+    "source": "reddit",
+    "records": [],
+    "status": "failed",
+    "warnings": [
+      {
+        "code": "http_403",
+        "message": "Nguồn không khả dụng (http_403); đã thử 1 lần.",
+        "request_id": "c2dce6cf037f47e59856b82674c059a4",
+        "operation": "search",
+        "retryable": false
+      }
+    ],
+    "request_metadata": [
+      {
+        "request_id": "c2dce6cf037f47e59856b82674c059a4",
+        "operation_id": "e851832e772649f2a59b9174c708fe04",
+        "source": "reddit",
+        "operation": "search",
+        "method": "GET",
+        "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+        "query": {
+          "provider": "public_json",
+          "subreddit": "giftideas",
+          "search_term": "christmas gift ideas",
+          "time_filter": "month",
+          "sort": "top",
+          "window_start_utc": 1790049573.425954,
+          "window_end_utc": 1792641573.425954
+        },
+        "started_at": "2026-10-22T03:59:33.426+00:00",
+        "completed_at": "2026-10-22T03:59:33.938+00:00",
+        "elapsed_ms": 500.0,
+        "attempt": 1,
+        "redirect_hop": 0,
+        "status_code": 403,
+        "error_code": "http_403",
+        "error_message": "HTTP 403 từ nguồn dữ liệu.",
+        "retry_after_seconds": 0.0,
+        "retry_delay_seconds": 0.0,
+        "cache_reused": false
+      }
+    ],
+    "started_at": "2026-10-22T03:59:33.425+00:00",
+    "completed_at": "2026-10-22T03:59:33.938+00:00",
+    "validation": {
+      "candidate_count": 0,
+      "valid_count": 0,
+      "rejected_count": 0,
+      "duplicate_count": 0,
+      "retained_count": 0,
+      "rejection_counts": []
+    }
+  },
+  "warning_codes": [
+    "http_403"
+  ],
+  "record_count": 0,
+  "network_attempts": 1,
+  "scope": "accepted_real_records_present_not_complete_provider_accuracy",
+  "completed_at": "2026-10-22T03:59:33.939259+00:00"
+}

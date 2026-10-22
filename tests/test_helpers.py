@@ -8,6 +8,8 @@ from src.utils.helpers import (
     truncate_text,
     safe_float,
     safe_int,
+    optional_float,
+    optional_int,
 )
 
 
@@ -47,3 +49,15 @@ def test_safe_conversions():
     assert safe_float("invalid", 4.5) == 4.5
     assert safe_int("1200") == 1200
     assert safe_int("bad_int", 10) == 10
+
+
+@pytest.mark.parametrize("value", [None, "", "invalid", True, float("nan"), float("inf"), 10**1000])
+def test_optional_float_does_not_manufacture_a_measurement(value):
+    assert optional_float(value) is None
+
+
+def test_optional_int_preserves_zero_and_integer_precision():
+    assert optional_int(0) == 0
+    assert optional_int(9007199254740993) == 9007199254740993
+    assert optional_int(1.5) is None
+    assert optional_int(None) is None

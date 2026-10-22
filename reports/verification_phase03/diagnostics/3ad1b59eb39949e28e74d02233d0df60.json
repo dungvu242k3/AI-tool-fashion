@@ -1,0 +1,325 @@
+{
+  "run_id": "3ad1b59eb39949e28e74d02233d0df60",
+  "data_policy": "live-only-v3",
+  "source_status": {
+    "source": "google_trends",
+    "status": "failed",
+    "record_count": 0,
+    "started_at": "2026-10-21T03:05:14.436+00:00",
+    "completed_at": "2026-10-21T03:05:21.929+00:00",
+    "fetched_at": "2026-10-21T03:05:21.928+00:00",
+    "request_url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=unique+christmas+gifts",
+    "live_attempted": true,
+    "is_live": false,
+    "request_count": 10,
+    "cached_request_count": 0,
+    "cached_record_count": 0,
+    "warnings": [
+      {
+        "code": "http_429",
+        "message": "Nguồn không khả dụng (http_429); đã thử 3 lần.",
+        "request_id": "68aa6400b3454e6584859f016a4acd79",
+        "operation": "related_queries",
+        "retryable": true
+      },
+      {
+        "code": "insufficient_series",
+        "message": "Không đủ bốn điểm đo hoàn tất để so sánh hai cửa sổ.",
+        "request_id": "64487829673647c5a64bd6ea1cd3e368",
+        "operation": "interest",
+        "retryable": false
+      },
+      {
+        "code": "insufficient_series",
+        "message": "Không đủ bốn điểm đo hoàn tất để so sánh hai cửa sổ.",
+        "request_id": "64487829673647c5a64bd6ea1cd3e368",
+        "operation": "interest",
+        "retryable": false
+      }
+    ],
+    "request_ids": [
+      "4cfb8fb607e543d689a06c62ca3af142",
+      "6751d38498fe41c7be304daa32b730da",
+      "c390ce51fc524a8e976a061d353bb784",
+      "d27da9800a8f4df2b7bf8f34883c8869",
+      "64487829673647c5a64bd6ea1cd3e368",
+      "88d2196f0f934f718cb6c116237e3389",
+      "b3ec74c8d85748cabbf57ba777c4fd79",
+      "68aa6400b3454e6584859f016a4acd79",
+      "1b20f47efc514e2d990ee0cbfa9a7fed",
+      "fc26bc3a636d4b2493050479f23b660d"
+    ]
+  },
+  "request_metadata": {
+    "4cfb8fb607e543d689a06c62ca3af142": {
+      "request_id": "4cfb8fb607e543d689a06c62ca3af142",
+      "operation_id": "b2670873bc1043178be8456eb9ab0cb2",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T03:05:14.437+00:00",
+      "completed_at": "2026-10-21T03:05:14.879+00:00",
+      "elapsed_ms": 437.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.42299450033674757,
+      "cache_reused": false
+    },
+    "6751d38498fe41c7be304daa32b730da": {
+      "request_id": "6751d38498fe41c7be304daa32b730da",
+      "operation_id": "b2670873bc1043178be8456eb9ab0cb2",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T03:05:15.312+00:00",
+      "completed_at": "2026-10-21T03:05:15.493+00:00",
+      "elapsed_ms": 187.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "c390ce51fc524a8e976a061d353bb784": {
+      "request_id": "c390ce51fc524a8e976a061d353bb784",
+      "operation_id": "220e136471b14627ab33d8f041f58e78",
+      "source": "google_trends",
+      "operation": "explore",
+      "method": "POST",
+      "url": "https://trends.google.com/trends/api/explore?hl=en-US&tz=0&req=%7B%22comparisonItem%22%3A+%5B%7B%22keyword%22%3A+%22christmas+gift+ideas%22%2C+%22time%22%3A+%22today+3-m%22%2C+%22geo%22%3A+%22US%22%7D%2C+%7B%22keyword%22%3A+%22unique+christmas+gifts%22%2C+%22time%22%3A+%22today+3-m%22%2C+%22geo%22%3A+%22US%22%7D%5D%2C+%22category%22%3A+0%2C+%22property%22%3A+%22%22%7D",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "started_at": "2026-10-21T03:05:15.493+00:00",
+      "completed_at": "2026-10-21T03:05:15.693+00:00",
+      "elapsed_ms": 188.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "d27da9800a8f4df2b7bf8f34883c8869": {
+      "request_id": "d27da9800a8f4df2b7bf8f34883c8869",
+      "operation_id": "ba94b6e2a8c24df18f1ce4a5f100f940",
+      "source": "google_trends",
+      "operation": "interest",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/multiline?req=%7B%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22resolution%22%3A+%22DAY%22%2C+%22locale%22%3A+%22en-US%22%2C+%22comparisonItem%22%3A+%5B%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%5D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "started_at": "2026-10-21T03:05:15.693+00:00",
+      "completed_at": "2026-10-21T03:05:15.882+00:00",
+      "elapsed_ms": 187.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.3823094043937417,
+      "cache_reused": false
+    },
+    "64487829673647c5a64bd6ea1cd3e368": {
+      "request_id": "64487829673647c5a64bd6ea1cd3e368",
+      "operation_id": "ba94b6e2a8c24df18f1ce4a5f100f940",
+      "source": "google_trends",
+      "operation": "interest",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/multiline?req=%7B%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22resolution%22%3A+%22DAY%22%2C+%22locale%22%3A+%22en-US%22%2C+%22comparisonItem%22%3A+%5B%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%5D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "started_at": "2026-10-21T03:05:16.275+00:00",
+      "completed_at": "2026-10-21T03:05:16.562+00:00",
+      "elapsed_ms": 281.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "88d2196f0f934f718cb6c116237e3389": {
+      "request_id": "88d2196f0f934f718cb6c116237e3389",
+      "operation_id": "c3039b6786de411096e9bccdc9b461cf",
+      "source": "google_trends",
+      "operation": "related_queries",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "related_keyword": "christmas gift ideas"
+      },
+      "started_at": "2026-10-21T03:05:16.563+00:00",
+      "completed_at": "2026-10-21T03:05:17.848+00:00",
+      "elapsed_ms": 1281.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.6366938032253111,
+      "cache_reused": false
+    },
+    "b3ec74c8d85748cabbf57ba777c4fd79": {
+      "request_id": "b3ec74c8d85748cabbf57ba777c4fd79",
+      "operation_id": "c3039b6786de411096e9bccdc9b461cf",
+      "source": "google_trends",
+      "operation": "related_queries",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "related_keyword": "christmas gift ideas"
+      },
+      "started_at": "2026-10-21T03:05:18.488+00:00",
+      "completed_at": "2026-10-21T03:05:19.325+00:00",
+      "elapsed_ms": 843.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 1.4552088222633213,
+      "cache_reused": false
+    },
+    "68aa6400b3454e6584859f016a4acd79": {
+      "request_id": "68aa6400b3454e6584859f016a4acd79",
+      "operation_id": "c3039b6786de411096e9bccdc9b461cf",
+      "source": "google_trends",
+      "operation": "related_queries",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "related_keyword": "christmas gift ideas"
+      },
+      "started_at": "2026-10-21T03:05:20.792+00:00",
+      "completed_at": "2026-10-21T03:05:21.656+00:00",
+      "elapsed_ms": 860.0,
+      "attempt": 3,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "1b20f47efc514e2d990ee0cbfa9a7fed": {
+      "request_id": "1b20f47efc514e2d990ee0cbfa9a7fed",
+      "operation_id": "8ce36424193e4666b05a23cfbe0735e9",
+      "source": "google_trends",
+      "operation": "suggestions",
+      "method": "GET",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=christmas+gift+ideas",
+      "query": {
+        "keyword": "christmas gift ideas",
+        "language": "en",
+        "kind": "autocomplete_not_trend"
+      },
+      "started_at": "2026-10-21T03:05:21.656+00:00",
+      "completed_at": "2026-10-21T03:05:21.860+00:00",
+      "elapsed_ms": 203.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "fc26bc3a636d4b2493050479f23b660d": {
+      "request_id": "fc26bc3a636d4b2493050479f23b660d",
+      "operation_id": "e086690ed37b4745ae63420c8d1bc2b1",
+      "source": "google_trends",
+      "operation": "suggestions",
+      "method": "GET",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=unique+christmas+gifts",
+      "query": {
+        "keyword": "unique christmas gifts",
+        "language": "en",
+        "kind": "autocomplete_not_trend"
+      },
+      "started_at": "2026-10-21T03:05:21.860+00:00",
+      "completed_at": "2026-10-21T03:05:21.928+00:00",
+      "elapsed_ms": 62.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "records": []
+}

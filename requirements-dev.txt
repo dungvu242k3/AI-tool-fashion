@@ -1,0 +1,3 @@
+-r requirements.txt
+# Measured phase-12 tooling; not a runtime collector dependency.
+coverage==7.16.2

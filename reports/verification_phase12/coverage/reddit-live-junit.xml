@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.386" timestamp="2026-10-22T10:59:33.279850+07:00" hostname="MSI"><testcase classname="tests.live.test_providers_live" name="test_real_provider_returns_traced_records[reddit]" time="0.524"><failure message="AssertionError: Real reddit probe failed; no fallback. codes=['http_403']; diagnostics=diagnostics/c1d491b84ed44a42adc846128b22b202.json&#10;assert 'failed' == 'observed'&#10;  &#10;  - observed&#10;  + failed">tests\live\test_providers_live.py:13: in test_real_provider_returns_traced_records
+    assert result["status"] == "observed", (
+E   AssertionError: Real reddit probe failed; no fallback. codes=['http_403']; diagnostics=diagnostics/c1d491b84ed44a42adc846128b22b202.json
+E   assert 'failed' == 'observed'
+E     
+E     - observed
+E     + failed</failure></testcase></testsuite></testsuites>

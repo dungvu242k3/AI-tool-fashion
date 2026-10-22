@@ -1,0 +1,136 @@
+{
+  "run_id": "5b83164ff7214ddfba9b3dcf460007e2",
+  "audit_kind": "offline_snapshot_roundtrip_on_archived_real_evidence",
+  "not_a_fresh_live_run": true,
+  "network_requests": 0,
+  "model_calls": 0,
+  "previous_audit": "reports/verification_phase06/diagnostics/ba0da4abf898429b9f4816722e73dd0a.json",
+  "origin_snapshots": {
+    "google_trends": {
+      "snapshot": "reports/verification_phase03/diagnostics/fb7b49420fdd40c599abe64bfb35d8f4.json",
+      "policy_at_collection": "live-only-v3",
+      "run_id_at_collection": "fb7b49420fdd40c599abe64bfb35d8f4",
+      "original_request_ids": [
+        "5a0c48777a4f4cfa80c9ba98b296d4fb",
+        "ab486a90b4514e32b4b13894c3425774",
+        "a3ed6f94ab8945589c9cf992e2258878",
+        "ddb39ae4f94749c8b7be2a2e0424103a",
+        "9c16537296634d3bae72646f247db00f",
+        "3918f8d06f6b4d20bb7cf8b7eceb0739"
+      ],
+      "original_fetched_at": "2026-10-21T03:08:04.352+00:00"
+    },
+    "amazon": {
+      "snapshot": "reports/verification_phase04/diagnostics/cf2eb6447ebf4f6caefc724d1f7d70f7.json",
+      "policy_at_collection": "live-only-v4",
+      "run_id_at_collection": "cf2eb6447ebf4f6caefc724d1f7d70f7",
+      "original_request_ids": [
+        "696cb0c20f2e488c98c235c010a49e31",
+        "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "34e003b40354460abd24d10c94c9988a"
+      ],
+      "original_fetched_at": "2026-10-21T03:35:34.280+00:00"
+    },
+    "reddit": {
+      "snapshot": "reports/verification_phase05/diagnostics/9f35f55a6a3445f993abbd279e797a47.json",
+      "policy_at_collection": "live-only-v5",
+      "run_id_at_collection": "9f35f55a6a3445f993abbd279e797a47",
+      "original_request_ids": [
+        "a2a0b6a1ba6a401e958616df65772163",
+        "b7a46a315cc446ea9a73900efe59e03b"
+      ],
+      "original_fetched_at": "2026-10-21T04:04:27.869+00:00"
+    }
+  },
+  "snapshot_manifest": "snapshots/5b83164ff7214ddfba9b3dcf460007e2/manifest.json",
+  "snapshot_boundary": "validated_collector_output_before_processing",
+  "not_http_html_or_oauth_body": true,
+  "roundtrip_exact": true,
+  "original_ids_and_timestamps_preserved": true,
+  "archive_accepted_as_fresh_cache": {
+    "google_trends": false,
+    "amazon": false,
+    "reddit": false
+  },
+  "record_counts": {
+    "google_trends": 2,
+    "amazon": 20,
+    "reddit": 0
+  },
+  "original_quality_assessment": {
+    "status": "insufficient",
+    "gate_passed": false,
+    "method": "validated_series_and_support_v1",
+    "qualifying_keyword_count": 2,
+    "supporting_record_count": 0,
+    "configured_source_count": 3,
+    "observed_source_count": 2,
+    "source_coverage": 0.6666666666666666,
+    "candidate_count": 22,
+    "valid_count": 22,
+    "rejected_count": 0,
+    "duplicate_count": 0,
+    "retained_count": 22,
+    "valid_ratio": 1.0,
+    "validation_counts_complete": true,
+    "sources": {
+      "google_trends": {
+        "status": "success",
+        "validation": {
+          "candidate_count": 2,
+          "valid_count": 2,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 2,
+          "rejection_counts": {},
+          "valid_ratio": 1.0
+        }
+      },
+      "amazon": {
+        "status": "partial",
+        "validation": {
+          "candidate_count": 20,
+          "valid_count": 20,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 20,
+          "rejection_counts": {},
+          "valid_ratio": 1.0
+        }
+      },
+      "reddit": {
+        "status": "failed",
+        "validation": {
+          "candidate_count": 0,
+          "valid_count": 0,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 0,
+          "rejection_counts": {},
+          "valid_ratio": null
+        }
+      }
+    },
+    "issues": [
+      {
+        "code": "source_incomplete",
+        "message": "Nguồn amazon chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+      },
+      {
+        "code": "source_incomplete",
+        "message": "Nguồn reddit chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+      },
+      {
+        "code": "missing_supporting_evidence",
+        "message": "Cần ít nhất một sản phẩm Amazon có phạm vi cụ thể hoặc post Reddit đã validation; hub tổng không đủ evidence cho niche."
+      }
+    ],
+    "data_digest": "6f6b1195b4df451f92404f70d9f0fe2c3cf14a05f150b5ab5a8a7ba32dd44692"
+  },
+  "limitations": [
+    "No live concurrency/speed/accuracy certification",
+    "No positive Reddit OAuth or Ollama recheck",
+    "Checksum is not authentication; protect output directory",
+    "No latest_data.json publication in this audit"
+  ]
+}

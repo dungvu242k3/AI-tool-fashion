@@ -1,0 +1,490 @@
+{
+  "success": false,
+  "status": "failed",
+  "message": "Đã xuất báo cáo dữ liệu chưa đầy đủ; xem tình trạng nguồn.",
+  "report_filepath": "C:\\Users\\dungv\\AI-tool-fashion\\reports\\verification_phase02\\report_trend_20261021_093543_befdc1b0.md",
+  "report_filename": "report_trend_20261021_093543_befdc1b0.md",
+  "markdown_content": "# BÁO CÁO NGHIÊN CỨU XU HƯỚNG SẢN PHẨM\n<!-- data-policy: live-only-v2 -->\n\n> **Thời gian tạo:** 2026-10-21T09:35:42+07:00  \n> **Danh mục:** Quà tặng theo mùa (Seasonal Gifts)  \n> **Trạng thái:** failed  \n> **Chất lượng dữ liệu:** insufficient  \n> **Chế độ thực tế:** deterministic  \n> **Chi phí API:** $0.00 (không gồm chi phí máy và điện)  \n> **Model có đầu ra được sử dụng:** không có; chỉ tổng hợp dữ liệu thu thập.  \n> **Nhật ký thu thập:** [c013f47ae031475a88701904d2294ad2](diagnostics/c013f47ae031475a88701904d2294ad2.json)  \n\n> Lưu ý: Báo cáo chưa đầy đủ; không đủ cơ sở xác nhận toàn bộ khuyến nghị.\n> Lưu ý: Christmas Gift Ideas / google_trends: [http_404] Nguồn không khả dụng (http_404); đã thử 1 lần.\n> Lưu ý: Christmas Gift Ideas / amazon: [no_product_cards] Amazon không trả card sản phẩm hợp lệ.\n> Lưu ý: Christmas Gift Ideas / reddit: [connection_error] Nguồn không khả dụng (connection_error); đã thử 3 lần.\n> Lưu ý: Christmas Gift Ideas: Cần ít nhất hai keyword có số đo và một nguồn Amazon/Reddit có URL.\n> Lưu ý: Chưa cung cấp điểm xếp hạng và Top 3 khi chưa có phương pháp chấm điểm được kiểm định.\n\n## Tình trạng nguồn dữ liệu\n\n| Niche | Nguồn | Trạng thái | Bản ghi |\n|---|---|---|---|\n| Christmas Gift Ideas | google_trends | failed | 0 |\n| Christmas Gift Ideas | amazon | failed | 0 |\n| Christmas Gift Ideas | reddit | failed | 0 |\n\n### Tình trạng nguồn toàn lần chạy\n\n| Nguồn | Trạng thái | Request | Retry | Bản ghi thu thập |\n|---|---|---|---|---|\n| google_trends | failed | 1 | 0 | 0 |\n| amazon | failed | 2 | 0 | 0 |\n| reddit | failed | 3 | 2 | 0 |\n\n---\n\n## 1. Niche: Christmas Gift Ideas\n\n> Phân tích: insufficient_data; chế độ: deterministic.\n\n### 1. Keyword\nKhông thu thập được dữ liệu Google Trends hợp lệ.\n\n### 2. Phân tích\n- Xu hướng thị trường: chưa đủ dữ liệu để kết luận.\n- Khoảng giá từ mẫu Amazon Search: Chưa có mẫu giá USD hợp lệ.\n- Chưa xác minh chân dung khách hàng, nguyên nhân xu hướng và mức cạnh tranh.\n\n### 3. Idea sản phẩm\nKhông đủ dữ liệu để khuyến nghị hoặc tạo ý tưởng sản phẩm.\n\n---\n\n## TỔNG KẾT\n\n### 1. Bảng xếp hạng\nChưa cung cấp điểm xếp hạng có thể kiểm chứng trong phiên bản này.\n\n### 2. Top 3 Idea\nChưa chọn Top 3 khi chưa có bảng xếp hạng đã kiểm định.\n- Christmas Gift Ideas: chế độ deterministic; phân tích insufficient_data.\n",
+  "metadata": {
+    "run_id": "c013f47ae031475a88701904d2294ad2",
+    "data_policy": "live-only-v2",
+    "category": "Quà tặng theo mùa (Seasonal Gifts)",
+    "timestamp": "2026-10-21T09:35:42+07:00",
+    "status": "failed",
+    "data_quality": "insufficient",
+    "mode": "deterministic",
+    "requested_mode": "deterministic",
+    "model_name": null,
+    "model_attempted": null,
+    "cost": "$0.00 API (không gồm chi phí máy và điện)",
+    "elapsed_seconds": 15.34,
+    "total_niches": 1,
+    "total_keywords": 0,
+    "total_products": 0,
+    "total_discussions": 0,
+    "ranking_status": "unavailable",
+    "warnings": [
+      "Báo cáo chưa đầy đủ; không đủ cơ sở xác nhận toàn bộ khuyến nghị.",
+      "Christmas Gift Ideas / google_trends: [http_404] Nguồn không khả dụng (http_404); đã thử 1 lần.",
+      "Christmas Gift Ideas / amazon: [no_product_cards] Amazon không trả card sản phẩm hợp lệ.",
+      "Christmas Gift Ideas / reddit: [connection_error] Nguồn không khả dụng (connection_error); đã thử 3 lần.",
+      "Christmas Gift Ideas: Cần ít nhất hai keyword có số đo và một nguồn Amazon/Reddit có URL.",
+      "Chưa cung cấp điểm xếp hạng và Top 3 khi chưa có phương pháp chấm điểm được kiểm định."
+    ],
+    "source_health": {
+      "google_trends": {
+        "source": "google_trends",
+        "status": "failed",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 0,
+          "partial": 0,
+          "failed": 1,
+          "not_configured": 0
+        },
+        "record_count": 0,
+        "request_count": 1,
+        "retry_count": 0,
+        "request_error_counts": {
+          "http_404": 1
+        },
+        "warning_counts": {
+          "http_404": 1
+        }
+      },
+      "amazon": {
+        "source": "amazon",
+        "status": "failed",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 0,
+          "partial": 0,
+          "failed": 1,
+          "not_configured": 0
+        },
+        "record_count": 0,
+        "request_count": 2,
+        "retry_count": 0,
+        "request_error_counts": {},
+        "warning_counts": {
+          "no_product_cards": 2
+        }
+      },
+      "reddit": {
+        "source": "reddit",
+        "status": "failed",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 0,
+          "partial": 0,
+          "failed": 1,
+          "not_configured": 0
+        },
+        "record_count": 0,
+        "request_count": 3,
+        "retry_count": 2,
+        "request_error_counts": {
+          "connection_error": 3
+        },
+        "warning_counts": {
+          "connection_error": 1
+        }
+      }
+    },
+    "diagnostics_file": "diagnostics/c013f47ae031475a88701904d2294ad2.json"
+  },
+  "source_statuses": {
+    "Christmas Gift Ideas": {
+      "google_trends": {
+        "source": "google_trends",
+        "status": "failed",
+        "record_count": 0,
+        "started_at": "2026-10-21T02:35:27.662+00:00",
+        "completed_at": "2026-10-21T02:35:28.183+00:00",
+        "fetched_at": "2026-10-21T02:35:28.183+00:00",
+        "request_url": "https://trends.google.com/trends/explore/?geo=US",
+        "live_attempted": true,
+        "is_live": false,
+        "request_count": 1,
+        "warnings": [
+          {
+            "code": "http_404",
+            "message": "Nguồn không khả dụng (http_404); đã thử 1 lần.",
+            "request_id": "671f23d42bc04407a51f756e53f3a345",
+            "operation": "bootstrap",
+            "retryable": false
+          }
+        ],
+        "request_ids": [
+          "671f23d42bc04407a51f756e53f3a345"
+        ]
+      },
+      "amazon": {
+        "source": "amazon",
+        "status": "failed",
+        "record_count": 0,
+        "started_at": "2026-10-21T02:35:28.183+00:00",
+        "completed_at": "2026-10-21T02:35:28.910+00:00",
+        "fetched_at": "2026-10-21T02:35:28.909+00:00",
+        "request_url": "https://www.amazon.com/s?k=christmas+gift+ideas",
+        "live_attempted": true,
+        "is_live": false,
+        "request_count": 2,
+        "warnings": [
+          {
+            "code": "no_product_cards",
+            "message": "Amazon không trả card sản phẩm hợp lệ.",
+            "request_id": "c2571a902ff4474da127e3e77f06dd2c",
+            "operation": "search",
+            "retryable": false
+          },
+          {
+            "code": "no_product_cards",
+            "message": "Amazon không trả card sản phẩm hợp lệ.",
+            "request_id": "27553beeb5004e19a5fc0c5e10b32596",
+            "operation": "search",
+            "retryable": false
+          }
+        ],
+        "request_ids": [
+          "c2571a902ff4474da127e3e77f06dd2c",
+          "27553beeb5004e19a5fc0c5e10b32596"
+        ]
+      },
+      "reddit": {
+        "source": "reddit",
+        "status": "failed",
+        "record_count": 0,
+        "started_at": "2026-10-21T02:35:28.910+00:00",
+        "completed_at": "2026-10-21T02:35:42.995+00:00",
+        "fetched_at": "2026-10-21T02:35:42.995+00:00",
+        "request_url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=1&sort=top&t=month&limit=6",
+        "live_attempted": true,
+        "is_live": false,
+        "request_count": 3,
+        "warnings": [
+          {
+            "code": "connection_error",
+            "message": "Nguồn không khả dụng (connection_error); đã thử 3 lần.",
+            "request_id": "96cb111a338448388ecc1ca38ff7c972",
+            "operation": "search",
+            "retryable": true
+          }
+        ],
+        "request_ids": [
+          "73c19f33d88b48ea82ad5678f7f100c6",
+          "80478e1bed21414587be0f085e421a91",
+          "96cb111a338448388ecc1ca38ff7c972"
+        ]
+      }
+    }
+  },
+  "source_health": {
+    "google_trends": {
+      "source": "google_trends",
+      "status": "failed",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 0,
+        "partial": 0,
+        "failed": 1,
+        "not_configured": 0
+      },
+      "record_count": 0,
+      "request_count": 1,
+      "retry_count": 0,
+      "request_error_counts": {
+        "http_404": 1
+      },
+      "warning_counts": {
+        "http_404": 1
+      }
+    },
+    "amazon": {
+      "source": "amazon",
+      "status": "failed",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 0,
+        "partial": 0,
+        "failed": 1,
+        "not_configured": 0
+      },
+      "record_count": 0,
+      "request_count": 2,
+      "retry_count": 0,
+      "request_error_counts": {},
+      "warning_counts": {
+        "no_product_cards": 2
+      }
+    },
+    "reddit": {
+      "source": "reddit",
+      "status": "failed",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 0,
+        "partial": 0,
+        "failed": 1,
+        "not_configured": 0
+      },
+      "record_count": 0,
+      "request_count": 3,
+      "retry_count": 2,
+      "request_error_counts": {
+        "connection_error": 3
+      },
+      "warning_counts": {
+        "connection_error": 1
+      }
+    }
+  },
+  "request_metadata": {
+    "671f23d42bc04407a51f756e53f3a345": {
+      "request_id": "671f23d42bc04407a51f756e53f3a345",
+      "operation_id": "e95616486e2448d8995edd23300c5f6b",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore/?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "christmas gift ideas 2026",
+          "best christmas gifts",
+          "unique christmas gifts",
+          "christmas gift for family"
+        ],
+        "geo": "",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T02:35:27.662+00:00",
+      "completed_at": "2026-10-21T02:35:28.183+00:00",
+      "elapsed_ms": 531.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 404,
+      "error_code": "http_404",
+      "error_message": "HTTP 404 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0
+    },
+    "c2571a902ff4474da127e3e77f06dd2c": {
+      "request_id": "c2571a902ff4474da127e3e77f06dd2c",
+      "operation_id": "83288791f49544398fc9c5a5a8c10a16",
+      "source": "amazon",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "search_term": "christmas gifts",
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T02:35:28.183+00:00",
+      "completed_at": "2026-10-21T02:35:28.507+00:00",
+      "elapsed_ms": 312.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0
+    },
+    "27553beeb5004e19a5fc0c5e10b32596": {
+      "request_id": "27553beeb5004e19a5fc0c5e10b32596",
+      "operation_id": "b624bb3953924ca39375499e45fa05d0",
+      "source": "amazon",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gift+ideas",
+      "query": {
+        "search_term": "christmas gift ideas",
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T02:35:28.539+00:00",
+      "completed_at": "2026-10-21T02:35:28.909+00:00",
+      "elapsed_ms": 375.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0
+    },
+    "73c19f33d88b48ea82ad5678f7f100c6": {
+      "request_id": "73c19f33d88b48ea82ad5678f7f100c6",
+      "operation_id": "5274881f94c34d90a3229869d07dc68e",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=1&sort=top&t=month&limit=6",
+      "query": {
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month"
+      },
+      "started_at": "2026-10-21T02:35:28.910+00:00",
+      "completed_at": "2026-10-21T02:35:33.002+00:00",
+      "elapsed_ms": 4093.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.5822015005045702
+    },
+    "80478e1bed21414587be0f085e421a91": {
+      "request_id": "80478e1bed21414587be0f085e421a91",
+      "operation_id": "5274881f94c34d90a3229869d07dc68e",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=1&sort=top&t=month&limit=6",
+      "query": {
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month"
+      },
+      "started_at": "2026-10-21T02:35:33.597+00:00",
+      "completed_at": "2026-10-21T02:35:37.708+00:00",
+      "elapsed_ms": 4109.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 1.1697479302705585
+    },
+    "96cb111a338448388ecc1ca38ff7c972": {
+      "request_id": "96cb111a338448388ecc1ca38ff7c972",
+      "operation_id": "5274881f94c34d90a3229869d07dc68e",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=1&sort=top&t=month&limit=6",
+      "query": {
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month"
+      },
+      "started_at": "2026-10-21T02:35:38.887+00:00",
+      "completed_at": "2026-10-21T02:35:42.995+00:00",
+      "elapsed_ms": 4109.0,
+      "attempt": 3,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0
+    }
+  },
+  "ranking": [],
+  "top_ideas": [],
+  "niches": {
+    "Christmas Gift Ideas": {
+      "niche_name": "Christmas Gift Ideas",
+      "collected_at": "2026-10-21T09:35:42+07:00",
+      "keywords": [],
+      "products": [],
+      "discussions": [],
+      "name": "Christmas Gift Ideas",
+      "data_quality": "insufficient",
+      "source_statuses": {
+        "google_trends": {
+          "source": "google_trends",
+          "status": "failed",
+          "record_count": 0,
+          "started_at": "2026-10-21T02:35:27.662+00:00",
+          "completed_at": "2026-10-21T02:35:28.183+00:00",
+          "fetched_at": "2026-10-21T02:35:28.183+00:00",
+          "request_url": "https://trends.google.com/trends/explore/?geo=US",
+          "live_attempted": true,
+          "is_live": false,
+          "request_count": 1,
+          "warnings": [
+            {
+              "code": "http_404",
+              "message": "Nguồn không khả dụng (http_404); đã thử 1 lần.",
+              "request_id": "671f23d42bc04407a51f756e53f3a345",
+              "operation": "bootstrap",
+              "retryable": false
+            }
+          ],
+          "request_ids": [
+            "671f23d42bc04407a51f756e53f3a345"
+          ]
+        },
+        "amazon": {
+          "source": "amazon",
+          "status": "failed",
+          "record_count": 0,
+          "started_at": "2026-10-21T02:35:28.183+00:00",
+          "completed_at": "2026-10-21T02:35:28.910+00:00",
+          "fetched_at": "2026-10-21T02:35:28.909+00:00",
+          "request_url": "https://www.amazon.com/s?k=christmas+gift+ideas",
+          "live_attempted": true,
+          "is_live": false,
+          "request_count": 2,
+          "warnings": [
+            {
+              "code": "no_product_cards",
+              "message": "Amazon không trả card sản phẩm hợp lệ.",
+              "request_id": "c2571a902ff4474da127e3e77f06dd2c",
+              "operation": "search",
+              "retryable": false
+            },
+            {
+              "code": "no_product_cards",
+              "message": "Amazon không trả card sản phẩm hợp lệ.",
+              "request_id": "27553beeb5004e19a5fc0c5e10b32596",
+              "operation": "search",
+              "retryable": false
+            }
+          ],
+          "request_ids": [
+            "c2571a902ff4474da127e3e77f06dd2c",
+            "27553beeb5004e19a5fc0c5e10b32596"
+          ]
+        },
+        "reddit": {
+          "source": "reddit",
+          "status": "failed",
+          "record_count": 0,
+          "started_at": "2026-10-21T02:35:28.910+00:00",
+          "completed_at": "2026-10-21T02:35:42.995+00:00",
+          "fetched_at": "2026-10-21T02:35:42.995+00:00",
+          "request_url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=1&sort=top&t=month&limit=6",
+          "live_attempted": true,
+          "is_live": false,
+          "request_count": 3,
+          "warnings": [
+            {
+              "code": "connection_error",
+              "message": "Nguồn không khả dụng (connection_error); đã thử 3 lần.",
+              "request_id": "96cb111a338448388ecc1ca38ff7c972",
+              "operation": "search",
+              "retryable": true
+            }
+          ],
+          "request_ids": [
+            "73c19f33d88b48ea82ad5678f7f100c6",
+            "80478e1bed21414587be0f085e421a91",
+            "96cb111a338448388ecc1ca38ff7c972"
+          ]
+        }
+      },
+      "price_range": "Chưa có mẫu giá USD hợp lệ.",
+      "analysis_text": "- Xu hướng thị trường: chưa đủ dữ liệu để kết luận.\n- Khoảng giá từ mẫu Amazon Search: Chưa có mẫu giá USD hợp lệ.\n- Chưa xác minh chân dung khách hàng, nguyên nhân xu hướng và mức cạnh tranh.",
+      "ideas_content": "Không đủ dữ liệu để khuyến nghị hoặc tạo ý tưởng sản phẩm.",
+      "ideas": [],
+      "analysis_status": "insufficient_data",
+      "generation_mode": "deterministic"
+    }
+  }
+}

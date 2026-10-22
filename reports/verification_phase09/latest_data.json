@@ -1,0 +1,4068 @@
+{
+  "schema_version": "research-result-v1",
+  "success": false,
+  "status": "partial",
+  "message": "Đã xuất báo cáo dữ liệu chưa đầy đủ; xem tình trạng nguồn.",
+  "metadata": {
+    "run_id": "9e8b13a46039476a9584131f1933745a",
+    "data_policy": "live-only-v9",
+    "execution_kind": "offline_publication_audit",
+    "category": "Quà tặng theo mùa (Seasonal Gifts)",
+    "timestamp": "2026-10-22T02:19:49.750003+00:00",
+    "status": "partial",
+    "data_quality": "insufficient",
+    "mode": "deterministic",
+    "requested_mode": "ollama",
+    "quality_assessments": {
+      "Christmas Gift Ideas": {
+        "status": "insufficient",
+        "gate_passed": false,
+        "method": "validated_series_and_support_v1",
+        "qualifying_keyword_count": 2,
+        "supporting_record_count": 0,
+        "configured_source_count": 3,
+        "observed_source_count": 2,
+        "source_coverage": 0.6666666666666666,
+        "candidate_count": 22,
+        "valid_count": 22,
+        "rejected_count": 0,
+        "duplicate_count": 0,
+        "retained_count": 22,
+        "valid_ratio": 1.0,
+        "validation_counts_complete": true,
+        "sources": {
+          "google_trends": {
+            "status": "success",
+            "validation": {
+              "candidate_count": 2,
+              "valid_count": 2,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 2,
+              "rejection_counts": {},
+              "valid_ratio": 1.0
+            }
+          },
+          "amazon": {
+            "status": "partial",
+            "validation": {
+              "candidate_count": 20,
+              "valid_count": 20,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 20,
+              "rejection_counts": {},
+              "valid_ratio": 1.0
+            }
+          },
+          "reddit": {
+            "status": "failed",
+            "validation": {
+              "candidate_count": 0,
+              "valid_count": 0,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 0,
+              "rejection_counts": {},
+              "valid_ratio": null
+            }
+          }
+        },
+        "issues": [
+          {
+            "code": "source_incomplete",
+            "message": "Nguồn amazon chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+          },
+          {
+            "code": "source_incomplete",
+            "message": "Nguồn reddit chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+          },
+          {
+            "code": "missing_supporting_evidence",
+            "message": "Cần ít nhất một sản phẩm Amazon có phạm vi cụ thể hoặc post Reddit đã validation; hub tổng không đủ evidence cho niche."
+          }
+        ],
+        "data_digest": "6f6b1195b4df451f92404f70d9f0fe2c3cf14a05f150b5ab5a8a7ba32dd44692"
+      }
+    },
+    "model_name": null,
+    "model_attempted": null,
+    "cost": "$0.00 API (không gồm chi phí máy và điện)",
+    "elapsed_seconds": 0.03,
+    "total_niches": 1,
+    "total_keywords": 2,
+    "total_products": 20,
+    "total_discussions": 0,
+    "ranking_status": "unavailable",
+    "ranking_method": "fixed_weight_observed_evidence_v1",
+    "ranking_policy_id": "82e1613a38c7d513",
+    "top_ideas_status": "unavailable_no_grounded_ranked_ideas",
+    "ai_validation": {
+      "Christmas Gift Ideas": {
+        "schema_version": "grounded-analysis-v1",
+        "policy": {
+          "max_prompt_bytes": 24000,
+          "max_response_bytes": 65536,
+          "max_evidence_records": 100,
+          "max_context_keywords": 5,
+          "max_context_products": 6,
+          "max_context_posts": 4,
+          "max_quote_context_chars": 800,
+          "max_output_tokens": 4096,
+          "context_tokens": 32768
+        },
+        "attempts": [],
+        "outcome": "quality_gate_not_passed_or_evidence_changed"
+      }
+    },
+    "warnings": [
+      "Báo cáo chưa đầy đủ; không đủ cơ sở xác nhận toàn bộ khuyến nghị.",
+      "KIỂM TRA OFFLINE TRÊN SNAPSHOT THẬT ĐÃ LƯU — KHÔNG PHẢI LẦN THU THẬP LIVE MỚI.",
+      "Giữ nguyên thời điểm/request gốc; không xác minh lại provider hoặc positive Ollama end-to-end."
+    ],
+    "source_health": {
+      "google_trends": {
+        "source": "google_trends",
+        "status": "success",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 1,
+          "partial": 0,
+          "failed": 0,
+          "not_configured": 0
+        },
+        "record_count": 2,
+        "request_count": 6,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "retry_count": 1,
+        "request_error_counts": {
+          "http_429": 1
+        },
+        "warning_counts": {}
+      },
+      "amazon": {
+        "source": "amazon",
+        "status": "partial",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 0,
+          "partial": 1,
+          "failed": 0,
+          "not_configured": 0
+        },
+        "record_count": 20,
+        "request_count": 3,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "retry_count": 0,
+        "request_error_counts": {},
+        "warning_counts": {
+          "no_product_cards": 2
+        }
+      },
+      "reddit": {
+        "source": "reddit",
+        "status": "failed",
+        "niche_count": 1,
+        "status_counts": {
+          "success": 0,
+          "partial": 0,
+          "failed": 1,
+          "not_configured": 0
+        },
+        "record_count": 0,
+        "request_count": 2,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "retry_count": 1,
+        "request_error_counts": {
+          "connection_error": 2
+        },
+        "warning_counts": {
+          "connection_error": 1
+        }
+      }
+    },
+    "diagnostics_file": "diagnostics/9e8b13a46039476a9584131f1933745a.json"
+  },
+  "niches": {
+    "Christmas Gift Ideas": {
+      "niche_name": "Christmas Gift Ideas",
+      "collected_at": "2026-10-21T04:47:03.612833+00:00",
+      "keywords": [
+        {
+          "keyword": "christmas gift ideas",
+          "trend": "rising",
+          "score": 94.0,
+          "signal_summary": "Interest cuối kỳ hoàn tất: 94/100; thay đổi trung bình hai cửa sổ: 18.47%.",
+          "source": "Google Trends",
+          "source_url": "https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US",
+          "related_queries": [
+            "christmas gift ideas for adult children",
+            "teenage girl christmas gift ideas",
+            "christmas gift ideas under $10",
+            "christmas gift ideas for 8 year old girl",
+            "christmas gift ideas for teen boys",
+            "gift ideas for christmas",
+            "christmas gifts",
+            "christmas 2026 gift ideas",
+            "best christmas gift ideas",
+            "christmas gift ideas girl"
+          ],
+          "provenance": {
+            "evidence_id": "2b108c6bcca84af9b9049cf1d8b71dc1",
+            "source": "google_trends",
+            "source_url": "https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US",
+            "query": {
+              "keywords": [
+                "christmas gift ideas",
+                "unique christmas gifts"
+              ],
+              "keyword": "christmas gift ideas",
+              "geo": "US",
+              "timeframe": "today 3-m"
+            },
+            "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+            "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+            "request_ids": [
+              "ddb39ae4f94749c8b7be2a2e0424103a",
+              "ab486a90b4514e32b4b13894c3425774",
+              "a3ed6f94ab8945589c9cf992e2258878",
+              "9c16537296634d3bae72646f247db00f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "time_series": [
+            {
+              "timestamp": "2026-07-21T00:00:00+00:00",
+              "value": 14.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-22T00:00:00+00:00",
+              "value": 15.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-23T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-24T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-25T00:00:00+00:00",
+              "value": 13.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-26T00:00:00+00:00",
+              "value": 15.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-27T00:00:00+00:00",
+              "value": 21.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-28T00:00:00+00:00",
+              "value": 25.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-29T00:00:00+00:00",
+              "value": 17.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-30T00:00:00+00:00",
+              "value": 15.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-31T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-01T00:00:00+00:00",
+              "value": 23.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-02T00:00:00+00:00",
+              "value": 26.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-03T00:00:00+00:00",
+              "value": 29.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-04T00:00:00+00:00",
+              "value": 16.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-05T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-06T00:00:00+00:00",
+              "value": 17.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-07T00:00:00+00:00",
+              "value": 14.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-08T00:00:00+00:00",
+              "value": 18.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-09T00:00:00+00:00",
+              "value": 21.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-10T00:00:00+00:00",
+              "value": 13.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-11T00:00:00+00:00",
+              "value": 17.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-12T00:00:00+00:00",
+              "value": 22.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-13T00:00:00+00:00",
+              "value": 14.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-14T00:00:00+00:00",
+              "value": 18.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-15T00:00:00+00:00",
+              "value": 16.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-16T00:00:00+00:00",
+              "value": 17.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-17T00:00:00+00:00",
+              "value": 15.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-18T00:00:00+00:00",
+              "value": 24.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-19T00:00:00+00:00",
+              "value": 29.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-20T00:00:00+00:00",
+              "value": 18.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-21T00:00:00+00:00",
+              "value": 20.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-22T00:00:00+00:00",
+              "value": 18.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-23T00:00:00+00:00",
+              "value": 20.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-24T00:00:00+00:00",
+              "value": 14.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-25T00:00:00+00:00",
+              "value": 18.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-26T00:00:00+00:00",
+              "value": 17.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-27T00:00:00+00:00",
+              "value": 25.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-28T00:00:00+00:00",
+              "value": 14.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-29T00:00:00+00:00",
+              "value": 30.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-30T00:00:00+00:00",
+              "value": 27.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-31T00:00:00+00:00",
+              "value": 30.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-01T00:00:00+00:00",
+              "value": 24.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-02T00:00:00+00:00",
+              "value": 21.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-03T00:00:00+00:00",
+              "value": 19.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-04T00:00:00+00:00",
+              "value": 26.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-05T00:00:00+00:00",
+              "value": 21.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-06T00:00:00+00:00",
+              "value": 40.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-07T00:00:00+00:00",
+              "value": 42.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-08T00:00:00+00:00",
+              "value": 28.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-09T00:00:00+00:00",
+              "value": 28.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-10T00:00:00+00:00",
+              "value": 40.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-11T00:00:00+00:00",
+              "value": 28.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-12T00:00:00+00:00",
+              "value": 34.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-13T00:00:00+00:00",
+              "value": 56.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-14T00:00:00+00:00",
+              "value": 39.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-15T00:00:00+00:00",
+              "value": 44.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-16T00:00:00+00:00",
+              "value": 31.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-17T00:00:00+00:00",
+              "value": 29.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-18T00:00:00+00:00",
+              "value": 45.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-19T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-20T00:00:00+00:00",
+              "value": 72.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-21T00:00:00+00:00",
+              "value": 69.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-22T00:00:00+00:00",
+              "value": 58.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-23T00:00:00+00:00",
+              "value": 44.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-24T00:00:00+00:00",
+              "value": 44.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-25T00:00:00+00:00",
+              "value": 38.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-26T00:00:00+00:00",
+              "value": 41.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-27T00:00:00+00:00",
+              "value": 57.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-28T00:00:00+00:00",
+              "value": 53.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-29T00:00:00+00:00",
+              "value": 72.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-30T00:00:00+00:00",
+              "value": 42.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "value": 48.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-02T00:00:00+00:00",
+              "value": 45.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-03T00:00:00+00:00",
+              "value": 69.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-04T00:00:00+00:00",
+              "value": 74.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-05T00:00:00+00:00",
+              "value": 66.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-06T00:00:00+00:00",
+              "value": 77.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-07T00:00:00+00:00",
+              "value": 67.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-08T00:00:00+00:00",
+              "value": 65.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-09T00:00:00+00:00",
+              "value": 60.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-10T00:00:00+00:00",
+              "value": 71.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-11T00:00:00+00:00",
+              "value": 86.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-12T00:00:00+00:00",
+              "value": 80.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-13T00:00:00+00:00",
+              "value": 80.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-14T00:00:00+00:00",
+              "value": 77.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-15T00:00:00+00:00",
+              "value": 82.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-16T00:00:00+00:00",
+              "value": 69.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-17T00:00:00+00:00",
+              "value": 84.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-18T00:00:00+00:00",
+              "value": 100.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-19T00:00:00+00:00",
+              "value": 97.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-20T00:00:00+00:00",
+              "value": 94.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-21T00:00:00+00:00",
+              "value": 95.0,
+              "is_partial": true
+            }
+          ],
+          "metrics": {
+            "latest_value": 94.0,
+            "recent_mean": 86.14285714285714,
+            "previous_mean": 72.71428571428571,
+            "growth_percent": 18.46758349705305,
+            "slope": 2.3560439560439557,
+            "volatility": 11.775969997743502,
+            "trend": "rising",
+            "valid_points": 92,
+            "excluded_points": 1,
+            "window_points_used": 7,
+            "previous_start": "2026-10-07T00:00:00+00:00",
+            "previous_end": "2026-10-13T00:00:00+00:00",
+            "recent_start": "2026-10-14T00:00:00+00:00",
+            "recent_end": "2026-10-20T00:00:00+00:00",
+            "rising_threshold_percent": 15.0,
+            "declining_threshold_percent": -15.0,
+            "classification_reason": "threshold_comparison",
+            "method": "adjacent_equal_windows_ols_per_day_v1"
+          },
+          "suggestions": [],
+          "geo": "US",
+          "timeframe": "today 3-m",
+          "comparison_keywords": [
+            "christmas gift ideas",
+            "unique christmas gifts"
+          ],
+          "raw_metric": {
+            "score": 94.0
+          },
+          "derived_metric": {
+            "latest_value": 94.0,
+            "recent_mean": 86.14285714285714,
+            "previous_mean": 72.71428571428571,
+            "growth_percent": 18.46758349705305,
+            "slope": 2.3560439560439557,
+            "volatility": 11.775969997743502,
+            "trend": "rising",
+            "valid_points": 92,
+            "excluded_points": 1,
+            "window_points_used": 7,
+            "previous_start": "2026-10-07T00:00:00+00:00",
+            "previous_end": "2026-10-13T00:00:00+00:00",
+            "recent_start": "2026-10-14T00:00:00+00:00",
+            "recent_end": "2026-10-20T00:00:00+00:00",
+            "rising_threshold_percent": 15.0,
+            "declining_threshold_percent": -15.0,
+            "classification_reason": "threshold_comparison",
+            "method": "adjacent_equal_windows_ols_per_day_v1"
+          }
+        },
+        {
+          "keyword": "unique christmas gifts",
+          "trend": "stable",
+          "score": 8.0,
+          "signal_summary": "Interest cuối kỳ hoàn tất: 8/100; thay đổi trung bình hai cửa sổ: 3.92%.",
+          "source": "Google Trends",
+          "source_url": "https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US",
+          "related_queries": [
+            "unique gift for 10 year old boy",
+            "unique christmas gifts for adults",
+            "unique christmas gifts for her",
+            "unique christmas gifts for mom",
+            "unique christmas gifts for women",
+            "unique christmas gifts for men"
+          ],
+          "provenance": {
+            "evidence_id": "bb785bf1ded24510a090fd544c9eabdb",
+            "source": "google_trends",
+            "source_url": "https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US",
+            "query": {
+              "keywords": [
+                "christmas gift ideas",
+                "unique christmas gifts"
+              ],
+              "keyword": "unique christmas gifts",
+              "geo": "US",
+              "timeframe": "today 3-m"
+            },
+            "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+            "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+            "request_ids": [
+              "ddb39ae4f94749c8b7be2a2e0424103a",
+              "ab486a90b4514e32b4b13894c3425774",
+              "a3ed6f94ab8945589c9cf992e2258878",
+              "3918f8d06f6b4d20bb7cf8b7eceb0739"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "time_series": [
+            {
+              "timestamp": "2026-07-21T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-22T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-23T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-24T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-25T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-26T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-27T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-28T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-29T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-30T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-07-31T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-01T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-02T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-03T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-04T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-05T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-06T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-07T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-08T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-09T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-10T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-11T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-12T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-13T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-14T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-15T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-16T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-17T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-18T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-19T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-20T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-21T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-22T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-23T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-24T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-25T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-26T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-27T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-28T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-29T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-30T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-08-31T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-01T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-02T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-03T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-04T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-05T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-06T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-07T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-08T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-09T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-10T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-11T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-12T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-13T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-14T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-15T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-16T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-17T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-18T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-19T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-20T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-21T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-22T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-23T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-24T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-25T00:00:00+00:00",
+              "value": 13.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-26T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-27T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-28T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-29T00:00:00+00:00",
+              "value": 12.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-09-30T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-01T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-02T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-03T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-04T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-05T00:00:00+00:00",
+              "value": 0.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-06T00:00:00+00:00",
+              "value": 12.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-07T00:00:00+00:00",
+              "value": 6.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-08T00:00:00+00:00",
+              "value": 6.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-09T00:00:00+00:00",
+              "value": 6.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-10T00:00:00+00:00",
+              "value": 10.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-11T00:00:00+00:00",
+              "value": 9.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-12T00:00:00+00:00",
+              "value": 7.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-13T00:00:00+00:00",
+              "value": 7.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-14T00:00:00+00:00",
+              "value": 7.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-15T00:00:00+00:00",
+              "value": 7.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-16T00:00:00+00:00",
+              "value": 6.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-17T00:00:00+00:00",
+              "value": 8.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-18T00:00:00+00:00",
+              "value": 9.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-19T00:00:00+00:00",
+              "value": 8.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-20T00:00:00+00:00",
+              "value": 8.0,
+              "is_partial": false
+            },
+            {
+              "timestamp": "2026-10-21T00:00:00+00:00",
+              "value": 7.0,
+              "is_partial": true
+            }
+          ],
+          "metrics": {
+            "latest_value": 8.0,
+            "recent_mean": 7.571428571428571,
+            "previous_mean": 7.285714285714286,
+            "growth_percent": 3.921568627450979,
+            "slope": 0.1010989010989011,
+            "volatility": 1.2371791482634837,
+            "trend": "stable",
+            "valid_points": 92,
+            "excluded_points": 1,
+            "window_points_used": 7,
+            "previous_start": "2026-10-07T00:00:00+00:00",
+            "previous_end": "2026-10-13T00:00:00+00:00",
+            "recent_start": "2026-10-14T00:00:00+00:00",
+            "recent_end": "2026-10-20T00:00:00+00:00",
+            "rising_threshold_percent": 15.0,
+            "declining_threshold_percent": -15.0,
+            "classification_reason": "threshold_comparison",
+            "method": "adjacent_equal_windows_ols_per_day_v1"
+          },
+          "suggestions": [],
+          "geo": "US",
+          "timeframe": "today 3-m",
+          "comparison_keywords": [
+            "christmas gift ideas",
+            "unique christmas gifts"
+          ],
+          "raw_metric": {
+            "score": 8.0
+          },
+          "derived_metric": {
+            "latest_value": 8.0,
+            "recent_mean": 7.571428571428571,
+            "previous_mean": 7.285714285714286,
+            "growth_percent": 3.921568627450979,
+            "slope": 0.1010989010989011,
+            "volatility": 1.2371791482634837,
+            "trend": "stable",
+            "valid_points": 92,
+            "excluded_points": 1,
+            "window_points_used": 7,
+            "previous_start": "2026-10-07T00:00:00+00:00",
+            "previous_end": "2026-10-13T00:00:00+00:00",
+            "recent_start": "2026-10-14T00:00:00+00:00",
+            "recent_end": "2026-10-20T00:00:00+00:00",
+            "rising_threshold_percent": 15.0,
+            "declining_threshold_percent": -15.0,
+            "classification_reason": "threshold_comparison",
+            "method": "adjacent_equal_windows_ols_per_day_v1"
+          }
+        }
+      ],
+      "products": [
+        {
+          "title": "Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue",
+          "price": null,
+          "rating": 4.5,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B07BGLT25K",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B07BGLT25K",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 1,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 1,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.5,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 1,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Bounty Paper Towels Quick Size, White, 16 Family Rolls = 40 Regular Rolls",
+          "price": null,
+          "rating": 4.8,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B079VP6DH5",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B079VP6DH5",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 2,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 2,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.8,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 2,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Amazon Basics 48-Pack AA Alkaline High-Performance Batteries, 1.5 Volt, 10-Year Shelf Life, Long-lasting, No Leakage",
+          "price": "VND 395,644",
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B00MNV8E0C",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B00MNV8E0C",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 3,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "395644",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 3,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 395,644",
+            "price_amount": "395644",
+            "price_currency": "VND",
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 3,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Bounty Select-A-Size Paper Towels, White, 2 Triple Rolls = 6 Regular Rolls",
+          "price": null,
+          "rating": 4.8,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0DQYR6X8R",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0DQYR6X8R",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 4,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 4,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.8,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 4,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Amazon Basics AAA Long-Lasting Alkaline Batteries, 12 Count, 1.5 Volt, 10-Year Shelf Life, for Home and Office",
+          "price": null,
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B07KX2N355",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07KX2N355",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B07KX2N355",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 5,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 5,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B07KX2N355",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 5,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Angel Soft Toilet Paper, 18 Mega Rolls = 72 Regular Rolls, Soft and Strong | Toilet Tissue",
+          "price": "VND 330,437",
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0FN4NH4K8",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "f89585a826e1449c85f5be642d011c48",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0FN4NH4K8",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 6,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "330437",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 6,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "f89585a826e1449c85f5be642d011c48",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 330,437",
+            "price_amount": "330437",
+            "price_currency": "VND",
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 6,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "blink plus plan with monthly auto-renewal",
+          "price": null,
+          "rating": 4.4,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B08JHCVHTY",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B08JHCVHTY",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 7,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 7,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.4,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 7,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Apple EarPods Headphones with USB-C Plug, Wired Ear Buds with Built-in Remote to Control Music, Phone Calls, and Volume",
+          "price": "VND 462,404",
+          "rating": 4.5,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0DCH8VDXF",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0DCH8VDXF",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 8,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "462404",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 8,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 462,404",
+            "price_amount": "462404",
+            "price_currency": "VND",
+            "rating": 4.5,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 8,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Apple AirTag (2nd Generation): Tracker for Keychain, Wallet, and More; Locator with Sound; Simple One-Tap Setup with iPhone or iPad; Key Finder with up to 1.5X Precision Finding Range",
+          "price": "VND 571,342",
+          "rating": 4.6,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0GJTFXNRX",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0GJTFXNRX",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 9,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "571342",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 9,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 571,342",
+            "price_amount": "571342",
+            "price_currency": "VND",
+            "rating": 4.6,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 9,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation | Live Translation, Heart Rate Sensing, Hearing Aid Feature, Bluetooth Headphones, Spatial Audio, USB-C Charging",
+          "price": "VND 4,746,693",
+          "rating": 4.4,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0FQFB8FMG",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0FQFB8FMG",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 10,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "4746693",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 10,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 4,746,693",
+            "price_amount": "4746693",
+            "price_currency": "VND",
+            "rating": 4.4,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 10,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Apple AirPods 5 Wireless Earbuds with Active Noise Cancellation | Bluetooth Headphones, Personalized Spatial Audio, Live Translation, USB-C Charging Case, H2 Chip",
+          "price": "VND 3,076,915",
+          "rating": 4.3,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0HJB69GJL",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0HJB69GJL",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 11,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "3076915",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 11,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 3,076,915",
+            "price_amount": "3076915",
+            "price_currency": "VND",
+            "rating": 4.3,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 11,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Silver",
+          "price": "VND 10,813,580",
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B0DZ77D5HL",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B0DZ77D5HL",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 12,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "10813580",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 12,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 10,813,580",
+            "price_amount": "10813580",
+            "price_currency": "VND",
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 12,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "eos Shea Better Body Lotion- Vanilla Cashmere,  24-Hour Moisture, 16 fl oz | Natural Shea Butter & Oil, Whipped Vanilla & Caramel, Lasting Hydration, 100% Vegan & Cruelty-Free, Apply to Dry Skin",
+          "price": null,
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B08KT2Z93D",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B08KT2Z93D",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 13,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 13,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 13,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Mighty Patch Hero Cosmetics Original Nighttime Acne Pimple Patches, 36 Ct | #1 Hydrocolloid Acne Patches, Shrinking Zits & Whiteheads in 1 Use, Spot Treatment, Pimple Stickers for Face",
+          "price": null,
+          "rating": 4.6,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B074PVTPBW",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "6babc3f07006421396e717355e88297b",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B074PVTPBW",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 14,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 14,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "6babc3f07006421396e717355e88297b",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.6,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 14,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.45% BHA Salicylic Acid - For All, Korean Skin Care, 70 Pads, 1 Pack",
+          "price": null,
+          "rating": 4.6,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B09V7Z4TJG",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B09V7Z4TJG",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 15,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 15,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.6,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 15,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Makeup Remover Dry Wipes, Ultra Soft, 1 Pack, 50 Ct",
+          "price": null,
+          "rating": 4.8,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B07PBXXNCY",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B07PBXXNCY",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 16,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 16,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.8,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 16,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Amazon Essentials Cotton Swabs, 500 Count (Previously Amazon Basics)",
+          "price": null,
+          "rating": 4.7,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B09541P9WH",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B09541P9WH",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B09541P9WH",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 17,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 17,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B09541P9WH",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.7,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 17,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "Neutrogena Makeup Remover Micellar Wipes, 2 Pack of 25 Ct | Plant-Based Micellar Water Cleansing Cloths, Gently Removes Oil, Dirt & Waterproof Makeup, No Heavy Residue, Alcohol-Free",
+          "price": null,
+          "rating": 4.8,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B00U2VQZDS",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "767b66695d2d482284eb9c37fed91913",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B00U2VQZDS",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 18,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": null,
+          "price_currency": null,
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 18,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "767b66695d2d482284eb9c37fed91913",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": null,
+            "price_amount": null,
+            "price_currency": null,
+            "rating": 4.8,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 18,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "SZIVYSHI 14-Bone Overbust Corset Top",
+          "price": "VND 646,641",
+          "rating": 4.4,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B00HB6MCSO",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B00HB6MCSO",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 19,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "646641",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 19,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 646,641",
+            "price_amount": "646641",
+            "price_currency": "VND",
+            "rating": 4.4,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 19,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        },
+        {
+          "title": "EVERSWE Women's 80 Den Soft Opaque Tights, Women's Tights",
+          "price": "VND 194,070",
+          "rating": 4.5,
+          "reviews_count": null,
+          "rank": null,
+          "url": "https://www.amazon.com/dp/B07ZTD3JZH",
+          "source": "Amazon Best Sellers",
+          "search_position": null,
+          "provenance": {
+            "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          },
+          "asin": "B07ZTD3JZH",
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 20,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "price_amount": "194070",
+          "price_currency": "VND",
+          "listings": [
+            {
+              "source_type": "best_sellers",
+              "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+              "listing_position": 20,
+              "search_position": null,
+              "listing_rank": null,
+              "is_sponsored": null,
+              "provenance": {
+                "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+                "source": "amazon",
+                "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+                "query": {
+                  "source_type": "best_sellers",
+                  "search_term": null,
+                  "niche": "Christmas Gift Ideas"
+                },
+                "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+                "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+                "request_ids": [
+                  "4b64d4a7ab4a4a1e8c39112495d7545f"
+                ],
+                "is_live": true,
+                "from_cache": false
+              }
+            }
+          ],
+          "raw_metric": {
+            "price": "VND 194,070",
+            "price_amount": "194070",
+            "price_currency": "VND",
+            "rating": 4.5,
+            "reviews_count": null,
+            "rank": null,
+            "search_position": null,
+            "listing_position": 20,
+            "listing_rank": null
+          },
+          "derived_metric": {}
+        }
+      ],
+      "discussions": [],
+      "quality_assessment": {
+        "status": "insufficient",
+        "gate_passed": false,
+        "method": "validated_series_and_support_v1",
+        "qualifying_keyword_count": 2,
+        "supporting_record_count": 0,
+        "configured_source_count": 3,
+        "observed_source_count": 2,
+        "source_coverage": 0.6666666666666666,
+        "candidate_count": 22,
+        "valid_count": 22,
+        "rejected_count": 0,
+        "duplicate_count": 0,
+        "retained_count": 22,
+        "valid_ratio": 1.0,
+        "validation_counts_complete": true,
+        "sources": {
+          "google_trends": {
+            "status": "success",
+            "validation": {
+              "candidate_count": 2,
+              "valid_count": 2,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 2,
+              "rejection_counts": {},
+              "valid_ratio": 1.0
+            }
+          },
+          "amazon": {
+            "status": "partial",
+            "validation": {
+              "candidate_count": 20,
+              "valid_count": 20,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 20,
+              "rejection_counts": {},
+              "valid_ratio": 1.0
+            }
+          },
+          "reddit": {
+            "status": "failed",
+            "validation": {
+              "candidate_count": 0,
+              "valid_count": 0,
+              "rejected_count": 0,
+              "duplicate_count": 0,
+              "retained_count": 0,
+              "rejection_counts": {},
+              "valid_ratio": null
+            }
+          }
+        },
+        "issues": [
+          {
+            "code": "source_incomplete",
+            "message": "Nguồn amazon chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+          },
+          {
+            "code": "source_incomplete",
+            "message": "Nguồn reddit chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác."
+          },
+          {
+            "code": "missing_supporting_evidence",
+            "message": "Cần ít nhất một sản phẩm Amazon có phạm vi cụ thể hoặc post Reddit đã validation; hub tổng không đủ evidence cho niche."
+          }
+        ],
+        "data_digest": "6f6b1195b4df451f92404f70d9f0fe2c3cf14a05f150b5ab5a8a7ba32dd44692"
+      },
+      "name": "Christmas Gift Ideas",
+      "data_quality": "insufficient",
+      "source_statuses": {
+        "google_trends": {
+          "source": "google_trends",
+          "status": "success",
+          "record_count": 2,
+          "started_at": "2026-10-21T03:08:00.713+00:00",
+          "completed_at": "2026-10-21T03:08:04.359+00:00",
+          "fetched_at": "2026-10-21T03:08:04.352+00:00",
+          "request_url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+          "live_attempted": true,
+          "is_live": true,
+          "request_count": 6,
+          "cached_request_count": 0,
+          "cached_record_count": 0,
+          "warnings": [],
+          "request_ids": [
+            "5a0c48777a4f4cfa80c9ba98b296d4fb",
+            "ab486a90b4514e32b4b13894c3425774",
+            "a3ed6f94ab8945589c9cf992e2258878",
+            "ddb39ae4f94749c8b7be2a2e0424103a",
+            "9c16537296634d3bae72646f247db00f",
+            "3918f8d06f6b4d20bb7cf8b7eceb0739"
+          ],
+          "validation": {
+            "candidate_count": 2,
+            "valid_count": 2,
+            "rejected_count": 0,
+            "duplicate_count": 0,
+            "retained_count": 2,
+            "rejection_counts": {},
+            "valid_ratio": 1.0
+          }
+        },
+        "amazon": {
+          "source": "amazon",
+          "status": "partial",
+          "record_count": 20,
+          "started_at": "2026-10-21T03:35:32.235+00:00",
+          "completed_at": "2026-10-21T03:35:34.328+00:00",
+          "fetched_at": "2026-10-21T03:35:34.280+00:00",
+          "request_url": "https://www.amazon.com/gp/movers-and-shakers",
+          "live_attempted": true,
+          "is_live": true,
+          "request_count": 3,
+          "cached_request_count": 0,
+          "cached_record_count": 0,
+          "warnings": [
+            {
+              "code": "no_product_cards",
+              "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+              "request_id": "696cb0c20f2e488c98c235c010a49e31",
+              "operation": "search",
+              "retryable": false
+            },
+            {
+              "code": "no_product_cards",
+              "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+              "request_id": "34e003b40354460abd24d10c94c9988a",
+              "operation": "movers_shakers",
+              "retryable": false
+            }
+          ],
+          "request_ids": [
+            "696cb0c20f2e488c98c235c010a49e31",
+            "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "34e003b40354460abd24d10c94c9988a"
+          ],
+          "validation": {
+            "candidate_count": 20,
+            "valid_count": 20,
+            "rejected_count": 0,
+            "duplicate_count": 0,
+            "retained_count": 20,
+            "rejection_counts": {},
+            "valid_ratio": 1.0
+          }
+        },
+        "reddit": {
+          "source": "reddit",
+          "status": "failed",
+          "record_count": 0,
+          "started_at": "2026-10-21T04:04:19.008+00:00",
+          "completed_at": "2026-10-21T04:04:27.869+00:00",
+          "fetched_at": "2026-10-21T04:04:27.869+00:00",
+          "request_url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+          "live_attempted": true,
+          "is_live": false,
+          "request_count": 2,
+          "cached_request_count": 0,
+          "cached_record_count": 0,
+          "warnings": [
+            {
+              "code": "connection_error",
+              "message": "Nguồn không khả dụng (connection_error); đã thử 2 lần.",
+              "request_id": "b7a46a315cc446ea9a73900efe59e03b",
+              "operation": "search",
+              "retryable": true
+            }
+          ],
+          "request_ids": [
+            "a2a0b6a1ba6a401e958616df65772163",
+            "b7a46a315cc446ea9a73900efe59e03b"
+          ],
+          "validation": {
+            "candidate_count": 0,
+            "valid_count": 0,
+            "rejected_count": 0,
+            "duplicate_count": 0,
+            "retained_count": 0,
+            "rejection_counts": {},
+            "valid_ratio": null
+          }
+        }
+      },
+      "price_range": "VND 194070 – 10813580 (trung bình mẫu: 2359747.33; n=9)",
+      "price_ranges": [
+        {
+          "currency": "VND",
+          "min": "194070",
+          "max": "10813580",
+          "avg": "2359747.33",
+          "sample_size": 9,
+          "formatted": "VND 194070 – 10813580 (trung bình mẫu: 2359747.33; n=9)"
+        }
+      ],
+      "keywords_content": "- **christmas gift ideas**: 94/100; rising. Interest cuối kỳ hoàn tất: 94/100; thay đổi trung bình hai cửa sổ: 18.47%. [Google Trends](https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US)\n  - Interest trung bình kỳ trước/gần đây: 72.71/86.14; thay đổi: 18.47%; slope: 2.356 điểm/ngày; volatility: 11.776 điểm; 7 điểm/cửa sổ.\n  - Cửa sổ: 2026-10-07T00:00:00+00:00 → 2026-10-13T00:00:00+00:00; 2026-10-14T00:00:00+00:00 → 2026-10-20T00:00:00+00:00.\n  - Truy vấn liên quan: christmas gift ideas for adult children, teenage girl christmas gift ideas, christmas gift ideas under $10, christmas gift ideas for 8 year old girl, christmas gift ideas for teen boys, gift ideas for christmas, christmas gifts, christmas 2026 gift ideas, best christmas gift ideas, christmas gift ideas girl\n- **unique christmas gifts**: 8/100; stable. Interest cuối kỳ hoàn tất: 8/100; thay đổi trung bình hai cửa sổ: 3.92%. [Google Trends](https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US)\n  - Interest trung bình kỳ trước/gần đây: 7.29/7.57; thay đổi: 3.92%; slope: 0.101 điểm/ngày; volatility: 1.237 điểm; 7 điểm/cửa sổ.\n  - Cửa sổ: 2026-10-07T00:00:00+00:00 → 2026-10-13T00:00:00+00:00; 2026-10-14T00:00:00+00:00 → 2026-10-20T00:00:00+00:00.\n  - Truy vấn liên quan: unique gift for 10 year old boy, unique christmas gifts for adults, unique christmas gifts for her, unique christmas gifts for mom, unique christmas gifts for women, unique christmas gifts for men",
+      "analysis_text": "- Nhãn xu hướng của các keyword đã đo: rising: 1, stable: 1. Chưa kết luận nguyên nhân hoặc xu hướng chung của niche.\n- Khoảng giá theo currency từ mẫu Amazon: VND 194070 – 10813580 (trung bình mẫu: 2359747.33; n=9)\n- [Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue](https://www.amazon.com/dp/B07BGLT25K) (Amazon Best Sellers) — rating 4.5/5.\n  - ASIN: B07BGLT25K.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence dd936822f6344d4ba5642bd0e8cfd165.\n- [Bounty Paper Towels Quick Size, White, 16 Family Rolls = 40 Regular Rolls](https://www.amazon.com/dp/B079VP6DH5) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B079VP6DH5.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1c47921c1b17414aaabd5bc7d86cdec1.\n- [Amazon Basics 48-Pack AA Alkaline High-Performance Batteries, 1.5 Volt, 10-Year Shelf Life, Long-lasting, No Leakage](https://www.amazon.com/dp/B00MNV8E0C) (Amazon Best Sellers) — giá VND 395,644, rating 4.7/5.\n  - ASIN: B00MNV8E0C.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1f2209dc4fba4712a39e6e8959f713a1.\n- [Bounty Select-A-Size Paper Towels, White, 2 Triple Rolls = 6 Regular Rolls](https://www.amazon.com/dp/B0DQYR6X8R) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B0DQYR6X8R.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence f199f04bf9554733b07f8f177c4ac33f.\n- [Amazon Basics AAA Long-Lasting Alkaline Batteries, 12 Count, 1.5 Volt, 10-Year Shelf Life, for Home and Office](https://www.amazon.com/dp/B07KX2N355) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B07KX2N355.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 2371268a56cb46969dd313732d4a9eda.\n- [Angel Soft Toilet Paper, 18 Mega Rolls = 72 Regular Rolls, Soft and Strong \\| Toilet Tissue](https://www.amazon.com/dp/B0FN4NH4K8) (Amazon Best Sellers) — giá VND 330,437, rating 4.7/5.\n  - ASIN: B0FN4NH4K8.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence f89585a826e1449c85f5be642d011c48.\n- [blink plus plan with monthly auto-renewal](https://www.amazon.com/dp/B08JHCVHTY) (Amazon Best Sellers) — rating 4.4/5.\n  - ASIN: B08JHCVHTY.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 78703438ac6a4b58b5706c29c9da0f6a.\n- [Apple EarPods Headphones with USB-C Plug, Wired Ear Buds with Built-in Remote to Control Music, Phone Calls, and Volume](https://www.amazon.com/dp/B0DCH8VDXF) (Amazon Best Sellers) — giá VND 462,404, rating 4.5/5.\n  - ASIN: B0DCH8VDXF.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1ebfa68e9a4540bd88067b6c9c68a1ad.\n- [Apple AirTag \\(2nd Generation\\): Tracker for Keychain, Wallet, and More; Locator with Sound; Simple One-Tap Setup with iPhone or iPad; Key Finder with up to 1.5X Precision Finding Range](https://www.amazon.com/dp/B0GJTFXNRX) (Amazon Best Sellers) — giá VND 571,342, rating 4.6/5.\n  - ASIN: B0GJTFXNRX.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence e0e6e375c20f45718918a8dfcc77d726.\n- [Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation \\| Live Translation, Heart Rate Sensing, Hearing Aid Feature, Bluetooth Headphones, Spatial Audio, USB-C Charging](https://www.amazon.com/dp/B0FQFB8FMG) (Amazon Best Sellers) — giá VND 4,746,693, rating 4.4/5.\n  - ASIN: B0FQFB8FMG.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 95eaf7f4ad5746b2838785f1f9937b48.\n- [Apple AirPods 5 Wireless Earbuds with Active Noise Cancellation \\| Bluetooth Headphones, Personalized Spatial Audio, Live Translation, USB-C Charging Case, H2 Chip](https://www.amazon.com/dp/B0HJB69GJL) (Amazon Best Sellers) — giá VND 3,076,915, rating 4.3/5.\n  - ASIN: B0HJB69GJL.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence dc9fe5bde35943608d7a5eed56286317.\n- [Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Silver](https://www.amazon.com/dp/B0DZ77D5HL) (Amazon Best Sellers) — giá VND 10,813,580, rating 4.7/5.\n  - ASIN: B0DZ77D5HL.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence eadd10e70f1048f9b547d57e7e1f83c9.\n- [eos Shea Better Body Lotion- Vanilla Cashmere, 24-Hour Moisture, 16 fl oz \\| Natural Shea Butter &amp; Oil, Whipped Vanilla &amp; Caramel, Lasting Hydration, 100% Vegan &amp; Cruelty-Free, Apply to Dry Skin](https://www.amazon.com/dp/B08KT2Z93D) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B08KT2Z93D.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 63e46cf03bee4ac9b21cc4168f45d3eb.\n- [Mighty Patch Hero Cosmetics Original Nighttime Acne Pimple Patches, 36 Ct \\| \\#1 Hydrocolloid Acne Patches, Shrinking Zits &amp; Whiteheads in 1 Use, Spot Treatment, Pimple Stickers for Face](https://www.amazon.com/dp/B074PVTPBW) (Amazon Best Sellers) — rating 4.6/5.\n  - ASIN: B074PVTPBW.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 6babc3f07006421396e717355e88297b.\n- [medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care \\| Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.45% BHA Salicylic Acid - For All, Korean Skin Care, 70 Pads, 1 Pack](https://www.amazon.com/dp/B09V7Z4TJG) (Amazon Best Sellers) — rating 4.6/5.\n  - ASIN: B09V7Z4TJG.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 86ac18f0e60e4f4f93a189c81954a438.\n- [Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Makeup Remover Dry Wipes, Ultra Soft, 1 Pack, 50 Ct](https://www.amazon.com/dp/B07PBXXNCY) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B07PBXXNCY.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence bdd0227f3d5343fca3b5651b79f43471.\n- [Amazon Essentials Cotton Swabs, 500 Count \\(Previously Amazon Basics\\)](https://www.amazon.com/dp/B09541P9WH) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B09541P9WH.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 5a542e7077e4402bad8ce16f4fb2818f.\n- [Neutrogena Makeup Remover Micellar Wipes, 2 Pack of 25 Ct \\| Plant-Based Micellar Water Cleansing Cloths, Gently Removes Oil, Dirt &amp; Waterproof Makeup, No Heavy Residue, Alcohol-Free](https://www.amazon.com/dp/B00U2VQZDS) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B00U2VQZDS.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 767b66695d2d482284eb9c37fed91913.\n- [SZIVYSHI 14-Bone Overbust Corset Top](https://www.amazon.com/dp/B00HB6MCSO) (Amazon Best Sellers) — giá VND 646,641, rating 4.4/5.\n  - ASIN: B00HB6MCSO.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 3a5ebe75d2124ddc95793ac4c3b0d3d8.\n- [EVERSWE Women's 80 Den Soft Opaque Tights, Women's Tights](https://www.amazon.com/dp/B07ZTD3JZH) (Amazon Best Sellers) — giá VND 194,070, rating 4.5/5.\n  - ASIN: B07ZTD3JZH.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 55a9091f460841f28f5153d8de9600c4.\n- Pain point: chưa xác minh; không tạo tóm tắt nhu cầu từ bài thiếu nội dung hoặc suy rộng thành nhu cầu thị trường.\n- Chưa xác minh chân dung khách hàng, nguyên nhân xu hướng và mức cạnh tranh.",
+      "ideas_content": "Không đủ dữ liệu để khuyến nghị hoặc tạo ý tưởng sản phẩm.",
+      "ideas": [],
+      "reddit_pain_points": [],
+      "analysis_status": "insufficient_data",
+      "generation_mode": "deterministic",
+      "grounded_analysis": null,
+      "ai_validation": {
+        "schema_version": "grounded-analysis-v1",
+        "policy": {
+          "max_prompt_bytes": 24000,
+          "max_response_bytes": 65536,
+          "max_evidence_records": 100,
+          "max_context_keywords": 5,
+          "max_context_products": 6,
+          "max_context_posts": 4,
+          "max_quote_context_chars": 800,
+          "max_output_tokens": 4096,
+          "context_tokens": 32768
+        },
+        "attempts": [],
+        "outcome": "quality_gate_not_passed_or_evidence_changed"
+      }
+    }
+  },
+  "source_statuses": {
+    "Christmas Gift Ideas": {
+      "google_trends": {
+        "source": "google_trends",
+        "status": "success",
+        "record_count": 2,
+        "started_at": "2026-10-21T03:08:00.713+00:00",
+        "completed_at": "2026-10-21T03:08:04.359+00:00",
+        "fetched_at": "2026-10-21T03:08:04.352+00:00",
+        "request_url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+        "live_attempted": true,
+        "is_live": true,
+        "request_count": 6,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "warnings": [],
+        "request_ids": [
+          "5a0c48777a4f4cfa80c9ba98b296d4fb",
+          "ab486a90b4514e32b4b13894c3425774",
+          "a3ed6f94ab8945589c9cf992e2258878",
+          "ddb39ae4f94749c8b7be2a2e0424103a",
+          "9c16537296634d3bae72646f247db00f",
+          "3918f8d06f6b4d20bb7cf8b7eceb0739"
+        ],
+        "validation": {
+          "candidate_count": 2,
+          "valid_count": 2,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 2,
+          "rejection_counts": {},
+          "valid_ratio": 1.0
+        }
+      },
+      "amazon": {
+        "source": "amazon",
+        "status": "partial",
+        "record_count": 20,
+        "started_at": "2026-10-21T03:35:32.235+00:00",
+        "completed_at": "2026-10-21T03:35:34.328+00:00",
+        "fetched_at": "2026-10-21T03:35:34.280+00:00",
+        "request_url": "https://www.amazon.com/gp/movers-and-shakers",
+        "live_attempted": true,
+        "is_live": true,
+        "request_count": 3,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "warnings": [
+          {
+            "code": "no_product_cards",
+            "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+            "request_id": "696cb0c20f2e488c98c235c010a49e31",
+            "operation": "search",
+            "retryable": false
+          },
+          {
+            "code": "no_product_cards",
+            "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+            "request_id": "34e003b40354460abd24d10c94c9988a",
+            "operation": "movers_shakers",
+            "retryable": false
+          }
+        ],
+        "request_ids": [
+          "696cb0c20f2e488c98c235c010a49e31",
+          "4b64d4a7ab4a4a1e8c39112495d7545f",
+          "34e003b40354460abd24d10c94c9988a"
+        ],
+        "validation": {
+          "candidate_count": 20,
+          "valid_count": 20,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 20,
+          "rejection_counts": {},
+          "valid_ratio": 1.0
+        }
+      },
+      "reddit": {
+        "source": "reddit",
+        "status": "failed",
+        "record_count": 0,
+        "started_at": "2026-10-21T04:04:19.008+00:00",
+        "completed_at": "2026-10-21T04:04:27.869+00:00",
+        "fetched_at": "2026-10-21T04:04:27.869+00:00",
+        "request_url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+        "live_attempted": true,
+        "is_live": false,
+        "request_count": 2,
+        "cached_request_count": 0,
+        "cached_record_count": 0,
+        "warnings": [
+          {
+            "code": "connection_error",
+            "message": "Nguồn không khả dụng (connection_error); đã thử 2 lần.",
+            "request_id": "b7a46a315cc446ea9a73900efe59e03b",
+            "operation": "search",
+            "retryable": true
+          }
+        ],
+        "request_ids": [
+          "a2a0b6a1ba6a401e958616df65772163",
+          "b7a46a315cc446ea9a73900efe59e03b"
+        ],
+        "validation": {
+          "candidate_count": 0,
+          "valid_count": 0,
+          "rejected_count": 0,
+          "duplicate_count": 0,
+          "retained_count": 0,
+          "rejection_counts": {},
+          "valid_ratio": null
+        }
+      }
+    }
+  },
+  "request_metadata": {
+    "5a0c48777a4f4cfa80c9ba98b296d4fb": {
+      "request_id": "5a0c48777a4f4cfa80c9ba98b296d4fb",
+      "operation_id": "09d246dde25e49d7ae9067006c79fc35",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T03:08:00.714+00:00",
+      "completed_at": "2026-10-21T03:08:01.186+00:00",
+      "elapsed_ms": 469.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 429,
+      "error_code": "http_429",
+      "error_message": "HTTP 429 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.7410424367781656,
+      "cache_reused": false
+    },
+    "ab486a90b4514e32b4b13894c3425774": {
+      "request_id": "ab486a90b4514e32b4b13894c3425774",
+      "operation_id": "09d246dde25e49d7ae9067006c79fc35",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T03:08:01.943+00:00",
+      "completed_at": "2026-10-21T03:08:02.146+00:00",
+      "elapsed_ms": 203.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "a3ed6f94ab8945589c9cf992e2258878": {
+      "request_id": "a3ed6f94ab8945589c9cf992e2258878",
+      "operation_id": "e3a4866f6d874aa49d208c8724c358b9",
+      "source": "google_trends",
+      "operation": "explore",
+      "method": "POST",
+      "url": "https://trends.google.com/trends/api/explore?hl=en-US&tz=0&req=%7B%22comparisonItem%22%3A+%5B%7B%22keyword%22%3A+%22christmas+gift+ideas%22%2C+%22time%22%3A+%22today+3-m%22%2C+%22geo%22%3A+%22US%22%7D%2C+%7B%22keyword%22%3A+%22unique+christmas+gifts%22%2C+%22time%22%3A+%22today+3-m%22%2C+%22geo%22%3A+%22US%22%7D%5D%2C+%22category%22%3A+0%2C+%22property%22%3A+%22%22%7D",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "started_at": "2026-10-21T03:08:02.147+00:00",
+      "completed_at": "2026-10-21T03:08:02.249+00:00",
+      "elapsed_ms": 109.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "ddb39ae4f94749c8b7be2a2e0424103a": {
+      "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+      "operation_id": "8c2010e08d0347e4b1a9882083957793",
+      "source": "google_trends",
+      "operation": "interest",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/multiline?req=%7B%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22resolution%22%3A+%22DAY%22%2C+%22locale%22%3A+%22en-US%22%2C+%22comparisonItem%22%3A+%5B%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%5D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "started_at": "2026-10-21T03:08:02.250+00:00",
+      "completed_at": "2026-10-21T03:08:02.615+00:00",
+      "elapsed_ms": 360.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "9c16537296634d3bae72646f247db00f": {
+      "request_id": "9c16537296634d3bae72646f247db00f",
+      "operation_id": "5ee815315c754a35acfc31dcb97f4190",
+      "source": "google_trends",
+      "operation": "related_queries",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22christmas+gift+ideas%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "related_keyword": "christmas gift ideas"
+      },
+      "started_at": "2026-10-21T03:08:02.616+00:00",
+      "completed_at": "2026-10-21T03:08:03.542+00:00",
+      "elapsed_ms": 937.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "3918f8d06f6b4d20bb7cf8b7eceb0739": {
+      "request_id": "3918f8d06f6b4d20bb7cf8b7eceb0739",
+      "operation_id": "948e4d1b5371489c9b126bbe9014551d",
+      "source": "google_trends",
+      "operation": "related_queries",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/api/widgetdata/relatedsearches?req=%7B%22restriction%22%3A+%7B%22geo%22%3A+%7B%22country%22%3A+%22US%22%7D%2C+%22time%22%3A+%222026-07-21+2026-10-21%22%2C+%22originalTimeRangeForExploreUrl%22%3A+%22today+3-m%22%2C+%22complexKeywordsRestriction%22%3A+%7B%22keyword%22%3A+%5B%7B%22type%22%3A+%22BROAD%22%2C+%22value%22%3A+%22unique+christmas+gifts%22%7D%5D%7D%7D%2C+%22keywordType%22%3A+%22QUERY%22%2C+%22metric%22%3A+%5B%22TOP%22%2C+%22RISING%22%5D%2C+%22trendinessSettings%22%3A+%7B%22compareTime%22%3A+%222026-04-19+2026-07-20%22%7D%2C+%22requestOptions%22%3A+%7B%22property%22%3A+%22%22%2C+%22backend%22%3A+%22IZG%22%2C+%22category%22%3A+0%7D%2C+%22language%22%3A+%22en%22%2C+%22userCountryCode%22%3A+%22VN%22%2C+%22userConfig%22%3A+%7B%22userType%22%3A+%22USER_TYPE_SCRAPER%22%7D%7D&token=%5BREDACTED%5D&tz=0",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "related_keyword": "unique christmas gifts"
+      },
+      "started_at": "2026-10-21T03:08:03.550+00:00",
+      "completed_at": "2026-10-21T03:08:04.352+00:00",
+      "elapsed_ms": 813.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "696cb0c20f2e488c98c235c010a49e31": {
+      "request_id": "696cb0c20f2e488c98c235c010a49e31",
+      "operation_id": "6038c3f4aed44a72bf573d60bb49d452",
+      "source": "amazon",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "source_type": "search",
+        "search_term": "christmas gifts",
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:32.235+00:00",
+      "completed_at": "2026-10-21T03:35:32.611+00:00",
+      "elapsed_ms": 375.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "4b64d4a7ab4a4a1e8c39112495d7545f": {
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "operation_id": "20815d8cb6bd40478a03ed979935da11",
+      "source": "amazon",
+      "operation": "best_sellers",
+      "method": "GET",
+      "url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:32.638+00:00",
+      "completed_at": "2026-10-21T03:35:33.528+00:00",
+      "elapsed_ms": 891.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "34e003b40354460abd24d10c94c9988a": {
+      "request_id": "34e003b40354460abd24d10c94c9988a",
+      "operation_id": "925a3b7377064b709f8358a64afa37a6",
+      "source": "amazon",
+      "operation": "movers_shakers",
+      "method": "GET",
+      "url": "https://www.amazon.com/gp/movers-and-shakers",
+      "query": {
+        "source_type": "movers_shakers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:33.732+00:00",
+      "completed_at": "2026-10-21T03:35:34.280+00:00",
+      "elapsed_ms": 547.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "a2a0b6a1ba6a401e958616df65772163": {
+      "request_id": "a2a0b6a1ba6a401e958616df65772163",
+      "operation_id": "4a97b3af73054d3bb3eb2568bcc668d9",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+      "query": {
+        "provider": "public_json",
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month",
+        "sort": "top",
+        "window_start_utc": 1789963459.008289,
+        "window_end_utc": 1792555459.008289
+      },
+      "started_at": "2026-10-21T04:04:19.009+00:00",
+      "completed_at": "2026-10-21T04:04:23.119+00:00",
+      "elapsed_ms": 4109.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.6609538270590323,
+      "cache_reused": false
+    },
+    "b7a46a315cc446ea9a73900efe59e03b": {
+      "request_id": "b7a46a315cc446ea9a73900efe59e03b",
+      "operation_id": "4a97b3af73054d3bb3eb2568bcc668d9",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+      "query": {
+        "provider": "public_json",
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month",
+        "sort": "top",
+        "window_start_utc": 1789963459.008289,
+        "window_end_utc": 1792555459.008289
+      },
+      "started_at": "2026-10-21T04:04:23.789+00:00",
+      "completed_at": "2026-10-21T04:04:27.869+00:00",
+      "elapsed_ms": 4093.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "ranking_assessment": {
+    "method": "fixed_weight_observed_evidence_v1",
+    "policy_id": "82e1613a38c7d513",
+    "policy": {
+      "weights": {
+        "momentum": 0.3,
+        "recent_interest": 0.2,
+        "commerce": 0.2,
+        "community": 0.2,
+        "competition": 0.1
+      },
+      "review_reference": 100.0,
+      "community_reference": 100.0,
+      "min_trend_keywords": 2,
+      "min_commerce_products": 3,
+      "min_community_posts": 3,
+      "min_competition_products": 5,
+      "method": "fixed_weight_observed_evidence_v1",
+      "precision": 6
+    },
+    "status": "unavailable",
+    "ranking": [],
+    "unranked": [
+      {
+        "niche": "Christmas Gift Ideas",
+        "rank": null,
+        "status": "unranked",
+        "observed_score": null,
+        "total_score": null,
+        "score_upper_bound": null,
+        "component_coverage": 0.0,
+        "confidence": null,
+        "quality_status": "insufficient",
+        "evidence_digest": null,
+        "explanation": "Chưa xếp hạng: quality_gate_not_passed_or_evidence_changed.",
+        "components": [
+          {
+            "key": "momentum",
+            "label": "Động lượng Trends",
+            "source": "google_trends",
+            "weight": 0.3,
+            "score": null,
+            "contribution": null,
+            "status": "unavailable",
+            "reason": "quality_gate_not_passed_or_evidence_changed",
+            "formula": "not_evaluated_without_validated_evidence",
+            "sample_size": 0,
+            "candidate_count": 0,
+            "tie_break_value": null,
+            "context": {},
+            "inputs": []
+          },
+          {
+            "key": "recent_interest",
+            "label": "Interest gần đây (cùng thang đo)",
+            "source": "google_trends",
+            "weight": 0.2,
+            "score": null,
+            "contribution": null,
+            "status": "unavailable",
+            "reason": "quality_gate_not_passed_or_evidence_changed",
+            "formula": "not_evaluated_without_validated_evidence",
+            "sample_size": 0,
+            "candidate_count": 0,
+            "tie_break_value": null,
+            "context": {},
+            "inputs": []
+          },
+          {
+            "key": "commerce",
+            "label": "Rating có hỗ trợ review Amazon (proxy)",
+            "source": "amazon",
+            "weight": 0.2,
+            "score": null,
+            "contribution": null,
+            "status": "unavailable",
+            "reason": "quality_gate_not_passed_or_evidence_changed",
+            "formula": "not_evaluated_without_validated_evidence",
+            "sample_size": 0,
+            "candidate_count": 0,
+            "tie_break_value": null,
+            "context": {},
+            "inputs": []
+          },
+          {
+            "key": "community",
+            "label": "Tương tác mẫu Reddit (proxy)",
+            "source": "reddit",
+            "weight": 0.2,
+            "score": null,
+            "contribution": null,
+            "status": "unavailable",
+            "reason": "quality_gate_not_passed_or_evidence_changed",
+            "formula": "not_evaluated_without_validated_evidence",
+            "sample_size": 0,
+            "candidate_count": 0,
+            "tie_break_value": null,
+            "context": {},
+            "inputs": []
+          },
+          {
+            "key": "competition",
+            "label": "Rào cản review mẫu Search (proxy, cao = thấp hơn)",
+            "source": "amazon",
+            "weight": 0.1,
+            "score": null,
+            "contribution": null,
+            "status": "unavailable",
+            "reason": "quality_gate_not_passed_or_evidence_changed",
+            "formula": "not_evaluated_without_validated_evidence",
+            "sample_size": 0,
+            "candidate_count": 0,
+            "tie_break_value": null,
+            "context": {},
+            "inputs": []
+          }
+        ],
+        "reasons": [
+          "quality_gate_not_passed_or_evidence_changed"
+        ]
+      }
+    ],
+    "warnings": [
+      "Điểm là quy tắc ưu tiên nghiên cứu từ mẫu quan sát, chưa được hiệu chỉnh bằng kết quả kinh doanh; không dự báo doanh số/lợi nhuận.",
+      "Thiếu component giữ null, không chia lại trọng số; điểm quan sát là cận dưới theo quy ước 0–100, không coi unknown là số đo 0.",
+      "Confidence chỉ đo độ đầy đủ input × valid ratio, không phải xác suất thành công hoặc chứng nhận đại diện thị trường.",
+      "Ranking niche không tự chứng nhận ý tưởng; chỉ đề xuất đã qua kiểm tra evidence mới được xét trong summary riêng."
+    ],
+    "score_basis": "conservative_observed_contribution_not_business_probability",
+    "confidence_basis": "weighted_input_completeness_times_validation_ratio_not_success_probability",
+    "tie_break_order": [
+      "observed_score",
+      "momentum_symmetric_change",
+      "comparable_recent_mean",
+      "median_amazon_rating",
+      "median_reddit_comments",
+      "lower_median_search_reviews"
+    ],
+    "tie_policy": "equal_measured_keys_share_rank_names_only_stabilise_display",
+    "top_ideas_status": "not_evaluated_by_ranking_service"
+  },
+  "analysis_summary": {
+    "method": "grounded_research_slots_round_robin_v1",
+    "status": "unavailable_no_grounded_ranked_ideas",
+    "selection_policy": "canonical_niche_order_round_robin_then_content_id_not_idea_quality_score",
+    "ranking_policy_id": "82e1613a38c7d513",
+    "ranking_reference": "ranking_assessment: canonical scores, full component metrics/breakdown and inputs",
+    "niches": [],
+    "top_ideas": [],
+    "warnings": [
+      "Tối đa ba đề xuất thử nghiệm theo thứ tự niche và phân bổ vòng; không phải ba sản phẩm đã chứng minh bán tốt nhất.",
+      "ID nội dung chỉ ổn định lựa chọn trong niche; không có điểm chất lượng/lợi nhuận giả cho ý tưởng.",
+      "Đã đối chiếu metric/citation/quote, chưa chứng minh market fit, nguyên nhân hoặc chân dung khách hàng."
+    ]
+  },
+  "source_health": {
+    "google_trends": {
+      "source": "google_trends",
+      "status": "success",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 1,
+        "partial": 0,
+        "failed": 0,
+        "not_configured": 0
+      },
+      "record_count": 2,
+      "request_count": 6,
+      "cached_request_count": 0,
+      "cached_record_count": 0,
+      "retry_count": 1,
+      "request_error_counts": {
+        "http_429": 1
+      },
+      "warning_counts": {}
+    },
+    "amazon": {
+      "source": "amazon",
+      "status": "partial",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 0,
+        "partial": 1,
+        "failed": 0,
+        "not_configured": 0
+      },
+      "record_count": 20,
+      "request_count": 3,
+      "cached_request_count": 0,
+      "cached_record_count": 0,
+      "retry_count": 0,
+      "request_error_counts": {},
+      "warning_counts": {
+        "no_product_cards": 2
+      }
+    },
+    "reddit": {
+      "source": "reddit",
+      "status": "failed",
+      "niche_count": 1,
+      "status_counts": {
+        "success": 0,
+        "partial": 0,
+        "failed": 1,
+        "not_configured": 0
+      },
+      "record_count": 0,
+      "request_count": 2,
+      "cached_request_count": 0,
+      "cached_record_count": 0,
+      "retry_count": 1,
+      "request_error_counts": {
+        "connection_error": 2
+      },
+      "warning_counts": {
+        "connection_error": 1
+      }
+    }
+  },
+  "evidence": [
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "2b108c6bcca84af9b9049cf1d8b71dc1",
+      "source": "google_trends",
+      "source_url": "https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "keyword": "christmas gift ideas",
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+      "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+      "request_ids": [
+        "ddb39ae4f94749c8b7be2a2e0424103a",
+        "ab486a90b4514e32b4b13894c3425774",
+        "a3ed6f94ab8945589c9cf992e2258878",
+        "9c16537296634d3bae72646f247db00f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "bb785bf1ded24510a090fd544c9eabdb",
+      "source": "google_trends",
+      "source_url": "https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "keyword": "unique christmas gifts",
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+      "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+      "request_ids": [
+        "ddb39ae4f94749c8b7be2a2e0424103a",
+        "ab486a90b4514e32b4b13894c3425774",
+        "a3ed6f94ab8945589c9cf992e2258878",
+        "3918f8d06f6b4d20bb7cf8b7eceb0739"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07KX2N355",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "f89585a826e1449c85f5be642d011c48",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "6babc3f07006421396e717355e88297b",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B09541P9WH",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "767b66695d2d482284eb9c37fed91913",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    }
+  ],
+  "ranking": [],
+  "top_ideas": [],
+  "report_filepath": "C:\\Users\\dungv\\AI-tool-fashion\\reports\\verification_phase09\\report_trend_9e8b13a46039476a9584131f1933745a.md",
+  "report_filename": "report_trend_9e8b13a46039476a9584131f1933745a.md",
+  "markdown_content": "# BÁO CÁO NGHIÊN CỨU XU HƯỚNG SẢN PHẨM\n<!-- data-policy: live-only-v9 -->\n<!-- result-schema: research-result-v1 -->\n\n> [!WARNING]\n> **BÁO CÁO CHƯA ĐẦY ĐỦ — không đủ cơ sở xác nhận toàn bộ khuyến nghị.**\n\n> **Run ID:** 9e8b13a46039476a9584131f1933745a  \n> **Thời gian tạo:** 2026-10-22T02:19:49.750003+00:00  \n> **Loại lần chạy:** offline\\_publication\\_audit  \n> **Danh mục:** Quà tặng theo mùa \\(Seasonal Gifts\\)  \n> **Trạng thái:** partial  \n> **Chất lượng dữ liệu:** insufficient  \n> **Chế độ yêu cầu:** ollama  \n> **Chế độ thực tế:** deterministic  \n> **Chi phí API:** $0.00 API \\(không gồm chi phí máy và điện\\)  \n> **Model có đầu ra được sử dụng:** không có; chỉ tổng hợp dữ liệu thu thập.  \n> **Nhật ký thu thập:** [9e8b13a46039476a9584131f1933745a](diagnostics/9e8b13a46039476a9584131f1933745a.json)  \n\n> Lưu ý: Báo cáo chưa đầy đủ; không đủ cơ sở xác nhận toàn bộ khuyến nghị.\n> Lưu ý: KIỂM TRA OFFLINE TRÊN SNAPSHOT THẬT ĐÃ LƯU — KHÔNG PHẢI LẦN THU THẬP LIVE MỚI.\n> Lưu ý: Giữ nguyên thời điểm/request gốc; không xác minh lại provider hoặc positive Ollama end-to-end.\n\n## Tình trạng nguồn dữ liệu\n\n| Niche | Nguồn | Trạng thái | Bản ghi |\n|---|---|---|---|\n| Christmas Gift Ideas | google\\_trends | success | 2 |\n| Christmas Gift Ideas | amazon | partial | 20 |\n| Christmas Gift Ideas | reddit | failed | 0 |\n\n### Tình trạng nguồn tại lần thu thập gốc — không phải request trong audit\n\n| Nguồn | Trạng thái | Request mới | Retry | Bản ghi từ cache | Bản ghi thu thập |\n|---|---|---|---|---|---|\n| google\\_trends | success | 6 | 1 | 0 | 2 |\n| amazon | partial | 3 | 0 | 0 | 20 |\n| reddit | failed | 2 | 1 | 0 | 0 |\n\n## Validation và điều kiện dữ liệu\n\n| Niche | Chất lượng | Keyword có series | Evidence bổ sung | Candidate hợp lệ | Phủ nguồn cấu hình |\n|---|---|---|---|---|---|\n| Christmas Gift Ideas | insufficient | 2 | 0 | 22/22 (100.0%) | 2/3 |\n> Christmas Gift Ideas: Nguồn amazon chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác.\n> Christmas Gift Ideas: Nguồn reddit chưa hoàn thành đầy đủ; không tự tăng trọng số nguồn khác.\n> Christmas Gift Ideas: Cần ít nhất một sản phẩm Amazon có phạm vi cụ thể hoặc post Reddit đã validation; hub tổng không đủ evidence cho niche.\n\n---\n\n## Dữ liệu chưa đủ\n\n> Các niche dưới đây chỉ có dữ kiện chẩn đoán; không đủ cơ sở khuyến nghị.\n\n### 1. Niche: Christmas Gift Ideas\n\n#### Keyword đã thu thập\n- **christmas gift ideas**: 94/100; rising. Interest cuối kỳ hoàn tất: 94/100; thay đổi trung bình hai cửa sổ: 18.47%. [Google Trends](https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US)\n  - Interest trung bình kỳ trước/gần đây: 72.71/86.14; thay đổi: 18.47%; slope: 2.356 điểm/ngày; volatility: 11.776 điểm; 7 điểm/cửa sổ.\n  - Cửa sổ: 2026-10-07T00:00:00+00:00 → 2026-10-13T00:00:00+00:00; 2026-10-14T00:00:00+00:00 → 2026-10-20T00:00:00+00:00.\n  - Truy vấn liên quan: christmas gift ideas for adult children, teenage girl christmas gift ideas, christmas gift ideas under $10, christmas gift ideas for 8 year old girl, christmas gift ideas for teen boys, gift ideas for christmas, christmas gifts, christmas 2026 gift ideas, best christmas gift ideas, christmas gift ideas girl\n- **unique christmas gifts**: 8/100; stable. Interest cuối kỳ hoàn tất: 8/100; thay đổi trung bình hai cửa sổ: 3.92%. [Google Trends](https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US)\n  - Interest trung bình kỳ trước/gần đây: 7.29/7.57; thay đổi: 3.92%; slope: 0.101 điểm/ngày; volatility: 1.237 điểm; 7 điểm/cửa sổ.\n  - Cửa sổ: 2026-10-07T00:00:00+00:00 → 2026-10-13T00:00:00+00:00; 2026-10-14T00:00:00+00:00 → 2026-10-20T00:00:00+00:00.\n  - Truy vấn liên quan: unique gift for 10 year old boy, unique christmas gifts for adults, unique christmas gifts for her, unique christmas gifts for mom, unique christmas gifts for women, unique christmas gifts for men\n\n#### Quan sát và giới hạn dữ liệu\n- Nhãn xu hướng của các keyword đã đo: rising: 1, stable: 1. Chưa kết luận nguyên nhân hoặc xu hướng chung của niche.\n- Khoảng giá theo currency từ mẫu Amazon: VND 194070 – 10813580 (trung bình mẫu: 2359747.33; n=9)\n- [Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue](https://www.amazon.com/dp/B07BGLT25K) (Amazon Best Sellers) — rating 4.5/5.\n  - ASIN: B07BGLT25K.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence dd936822f6344d4ba5642bd0e8cfd165.\n- [Bounty Paper Towels Quick Size, White, 16 Family Rolls = 40 Regular Rolls](https://www.amazon.com/dp/B079VP6DH5) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B079VP6DH5.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1c47921c1b17414aaabd5bc7d86cdec1.\n- [Amazon Basics 48-Pack AA Alkaline High-Performance Batteries, 1.5 Volt, 10-Year Shelf Life, Long-lasting, No Leakage](https://www.amazon.com/dp/B00MNV8E0C) (Amazon Best Sellers) — giá VND 395,644, rating 4.7/5.\n  - ASIN: B00MNV8E0C.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1f2209dc4fba4712a39e6e8959f713a1.\n- [Bounty Select-A-Size Paper Towels, White, 2 Triple Rolls = 6 Regular Rolls](https://www.amazon.com/dp/B0DQYR6X8R) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B0DQYR6X8R.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence f199f04bf9554733b07f8f177c4ac33f.\n- [Amazon Basics AAA Long-Lasting Alkaline Batteries, 12 Count, 1.5 Volt, 10-Year Shelf Life, for Home and Office](https://www.amazon.com/dp/B07KX2N355) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B07KX2N355.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 2371268a56cb46969dd313732d4a9eda.\n- [Angel Soft Toilet Paper, 18 Mega Rolls = 72 Regular Rolls, Soft and Strong \\| Toilet Tissue](https://www.amazon.com/dp/B0FN4NH4K8) (Amazon Best Sellers) — giá VND 330,437, rating 4.7/5.\n  - ASIN: B0FN4NH4K8.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence f89585a826e1449c85f5be642d011c48.\n- [blink plus plan with monthly auto-renewal](https://www.amazon.com/dp/B08JHCVHTY) (Amazon Best Sellers) — rating 4.4/5.\n  - ASIN: B08JHCVHTY.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 78703438ac6a4b58b5706c29c9da0f6a.\n- [Apple EarPods Headphones with USB-C Plug, Wired Ear Buds with Built-in Remote to Control Music, Phone Calls, and Volume](https://www.amazon.com/dp/B0DCH8VDXF) (Amazon Best Sellers) — giá VND 462,404, rating 4.5/5.\n  - ASIN: B0DCH8VDXF.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 1ebfa68e9a4540bd88067b6c9c68a1ad.\n- [Apple AirTag \\(2nd Generation\\): Tracker for Keychain, Wallet, and More; Locator with Sound; Simple One-Tap Setup with iPhone or iPad; Key Finder with up to 1.5X Precision Finding Range](https://www.amazon.com/dp/B0GJTFXNRX) (Amazon Best Sellers) — giá VND 571,342, rating 4.6/5.\n  - ASIN: B0GJTFXNRX.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence e0e6e375c20f45718918a8dfcc77d726.\n- [Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation \\| Live Translation, Heart Rate Sensing, Hearing Aid Feature, Bluetooth Headphones, Spatial Audio, USB-C Charging](https://www.amazon.com/dp/B0FQFB8FMG) (Amazon Best Sellers) — giá VND 4,746,693, rating 4.4/5.\n  - ASIN: B0FQFB8FMG.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 95eaf7f4ad5746b2838785f1f9937b48.\n- [Apple AirPods 5 Wireless Earbuds with Active Noise Cancellation \\| Bluetooth Headphones, Personalized Spatial Audio, Live Translation, USB-C Charging Case, H2 Chip](https://www.amazon.com/dp/B0HJB69GJL) (Amazon Best Sellers) — giá VND 3,076,915, rating 4.3/5.\n  - ASIN: B0HJB69GJL.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence dc9fe5bde35943608d7a5eed56286317.\n- [Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Silver](https://www.amazon.com/dp/B0DZ77D5HL) (Amazon Best Sellers) — giá VND 10,813,580, rating 4.7/5.\n  - ASIN: B0DZ77D5HL.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence eadd10e70f1048f9b547d57e7e1f83c9.\n- [eos Shea Better Body Lotion- Vanilla Cashmere, 24-Hour Moisture, 16 fl oz \\| Natural Shea Butter &amp; Oil, Whipped Vanilla &amp; Caramel, Lasting Hydration, 100% Vegan &amp; Cruelty-Free, Apply to Dry Skin](https://www.amazon.com/dp/B08KT2Z93D) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B08KT2Z93D.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 63e46cf03bee4ac9b21cc4168f45d3eb.\n- [Mighty Patch Hero Cosmetics Original Nighttime Acne Pimple Patches, 36 Ct \\| \\#1 Hydrocolloid Acne Patches, Shrinking Zits &amp; Whiteheads in 1 Use, Spot Treatment, Pimple Stickers for Face](https://www.amazon.com/dp/B074PVTPBW) (Amazon Best Sellers) — rating 4.6/5.\n  - ASIN: B074PVTPBW.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 6babc3f07006421396e717355e88297b.\n- [medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care \\| Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.45% BHA Salicylic Acid - For All, Korean Skin Care, 70 Pads, 1 Pack](https://www.amazon.com/dp/B09V7Z4TJG) (Amazon Best Sellers) — rating 4.6/5.\n  - ASIN: B09V7Z4TJG.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 86ac18f0e60e4f4f93a189c81954a438.\n- [Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Makeup Remover Dry Wipes, Ultra Soft, 1 Pack, 50 Ct](https://www.amazon.com/dp/B07PBXXNCY) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B07PBXXNCY.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence bdd0227f3d5343fca3b5651b79f43471.\n- [Amazon Essentials Cotton Swabs, 500 Count \\(Previously Amazon Basics\\)](https://www.amazon.com/dp/B09541P9WH) (Amazon Best Sellers) — rating 4.7/5.\n  - ASIN: B09541P9WH.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 5a542e7077e4402bad8ce16f4fb2818f.\n- [Neutrogena Makeup Remover Micellar Wipes, 2 Pack of 25 Ct \\| Plant-Based Micellar Water Cleansing Cloths, Gently Removes Oil, Dirt &amp; Waterproof Makeup, No Heavy Residue, Alcohol-Free](https://www.amazon.com/dp/B00U2VQZDS) (Amazon Best Sellers) — rating 4.8/5.\n  - ASIN: B00U2VQZDS.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 767b66695d2d482284eb9c37fed91913.\n- [SZIVYSHI 14-Bone Overbust Corset Top](https://www.amazon.com/dp/B00HB6MCSO) (Amazon Best Sellers) — giá VND 646,641, rating 4.4/5.\n  - ASIN: B00HB6MCSO.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 3a5ebe75d2124ddc95793ac4c3b0d3d8.\n- [EVERSWE Women's 80 Den Soft Opaque Tights, Women's Tights](https://www.amazon.com/dp/B07ZTD3JZH) (Amazon Best Sellers) — giá VND 194,070, rating 4.5/5.\n  - ASIN: B07ZTD3JZH.\n  - [Amazon Best Sellers](https://www.amazon.com/Best-Sellers/zgbs): chưa có hạng được công bố; thu thập 2026-10-21T03:35:33.528+00:00; evidence 55a9091f460841f28f5153d8de9600c4.\n- Pain point: chưa xác minh; không tạo tóm tắt nhu cầu từ bài thiếu nội dung hoặc suy rộng thành nhu cầu thị trường.\n- Chưa xác minh chân dung khách hàng, nguyên nhân xu hướng và mức cạnh tranh.\n\nKhông tạo ý tưởng/khuyến nghị cho niche chưa qua quality gate.\n\n---\n\n## TỔNG KẾT\n\n### 1. Bảng xếp hạng\n\nMethod: fixed\\_weight\\_observed\\_evidence\\_v1; policy: 82e1613a38c7d513; trạng thái: unavailable.\n\n> Điểm là quy tắc ưu tiên nghiên cứu từ mẫu quan sát, chưa được hiệu chỉnh bằng kết quả kinh doanh; không dự báo doanh số/lợi nhuận.\n> Thiếu component giữ null, không chia lại trọng số; điểm quan sát là cận dưới theo quy ước 0–100, không coi unknown là số đo 0.\n> Confidence chỉ đo độ đầy đủ input × valid ratio, không phải xác suất thành công hoặc chứng nhận đại diện thị trường.\n> Ranking niche không tự chứng nhận ý tưởng; chỉ đề xuất đã qua kiểm tra evidence mới được xét trong summary riêng.\n\nChưa có niche đủ điều kiện xếp hạng; xem lý do và breakdown bên dưới.\n\n#### Christmas Gift Ideas — unranked\n\nChưa xếp hạng: quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed.\n\n| Component | Trọng số cố định | Điểm /100 | Contribution | Mẫu dùng/candidate | Trạng thái / lý do |\n|---|---|---|---|---|---|\n| Động lượng Trends | 30.0% | chưa có dữ liệu | chưa có dữ liệu | 0/0 | unavailable / quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed |\n| Interest gần đây \\(cùng thang đo\\) | 20.0% | chưa có dữ liệu | chưa có dữ liệu | 0/0 | unavailable / quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed |\n| Rating có hỗ trợ review Amazon \\(proxy\\) | 20.0% | chưa có dữ liệu | chưa có dữ liệu | 0/0 | unavailable / quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed |\n| Tương tác mẫu Reddit \\(proxy\\) | 20.0% | chưa có dữ liệu | chưa có dữ liệu | 0/0 | unavailable / quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed |\n| Rào cản review mẫu Search \\(proxy, cao = thấp hơn\\) | 10.0% | chưa có dữ liệu | chưa có dữ liệu | 0/0 | unavailable / quality\\_gate\\_not\\_passed\\_or\\_evidence\\_changed |\n\n- momentum: not\\_evaluated\\_without\\_validated\\_evidence.\n\n- recent\\_interest: not\\_evaluated\\_without\\_validated\\_evidence.\n\n- commerce: not\\_evaluated\\_without\\_validated\\_evidence.\n\n- community: not\\_evaluated\\_without\\_validated\\_evidence.\n\n- competition: not\\_evaluated\\_without\\_validated\\_evidence.\n\n### 2. Top 3 Idea\n\n> Tối đa ba đề xuất thử nghiệm theo thứ tự niche và phân bổ vòng; không phải ba sản phẩm đã chứng minh bán tốt nhất.\n> ID nội dung chỉ ổn định lựa chọn trong niche; không có điểm chất lượng/lợi nhuận giả cho ý tưởng.\n> Đã đối chiếu metric/citation/quote, chưa chứng minh market fit, nguyên nhân hoặc chân dung khách hàng.\nChưa có đề xuất đã kiểm tra evidence từ niche đủ điều kiện xếp hạng; không tự tạo Top 3.\n- Christmas Gift Ideas: Dữ liệu chưa đủ; không xếp hạng hoặc khuyến nghị.\n\n## Phụ lục evidence\n\nTimestamp dưới đây là thời điểm thu thập gốc, không phải thời điểm mở báo cáo. Cache không làm mới timestamp.\nURL/ID xác định nguồn quan sát, không chứng minh nội dung nguồn đúng hoặc sản phẩm phù hợp thị trường.\n\n| Niche | Evidence | Nguồn | URL | Thu thập lúc | Request gốc | Dependencies | Từ cache |\n|---|---|---|---|---|---|---|---|\n| Christmas Gift Ideas | 2b108c6bcca84af9b9049cf1d8b71dc1 | google\\_trends | [Nguồn](https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US) | 2026-10-21T03:08:02.615+00:00 | ddb39ae4f94749c8b7be2a2e0424103a | ddb39ae4f94749c8b7be2a2e0424103a, ab486a90b4514e32b4b13894c3425774, a3ed6f94ab8945589c9cf992e2258878, 9c16537296634d3bae72646f247db00f | không |\n| Christmas Gift Ideas | bb785bf1ded24510a090fd544c9eabdb | google\\_trends | [Nguồn](https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US) | 2026-10-21T03:08:02.615+00:00 | ddb39ae4f94749c8b7be2a2e0424103a | ddb39ae4f94749c8b7be2a2e0424103a, ab486a90b4514e32b4b13894c3425774, a3ed6f94ab8945589c9cf992e2258878, 3918f8d06f6b4d20bb7cf8b7eceb0739 | không |\n| Christmas Gift Ideas | dd936822f6344d4ba5642bd0e8cfd165 | amazon | [Nguồn](https://www.amazon.com/dp/B07BGLT25K) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 1c47921c1b17414aaabd5bc7d86cdec1 | amazon | [Nguồn](https://www.amazon.com/dp/B079VP6DH5) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 1f2209dc4fba4712a39e6e8959f713a1 | amazon | [Nguồn](https://www.amazon.com/dp/B00MNV8E0C) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | f199f04bf9554733b07f8f177c4ac33f | amazon | [Nguồn](https://www.amazon.com/dp/B0DQYR6X8R) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 2371268a56cb46969dd313732d4a9eda | amazon | [Nguồn](https://www.amazon.com/dp/B07KX2N355) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | f89585a826e1449c85f5be642d011c48 | amazon | [Nguồn](https://www.amazon.com/dp/B0FN4NH4K8) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 78703438ac6a4b58b5706c29c9da0f6a | amazon | [Nguồn](https://www.amazon.com/dp/B08JHCVHTY) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 1ebfa68e9a4540bd88067b6c9c68a1ad | amazon | [Nguồn](https://www.amazon.com/dp/B0DCH8VDXF) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | e0e6e375c20f45718918a8dfcc77d726 | amazon | [Nguồn](https://www.amazon.com/dp/B0GJTFXNRX) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 95eaf7f4ad5746b2838785f1f9937b48 | amazon | [Nguồn](https://www.amazon.com/dp/B0FQFB8FMG) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | dc9fe5bde35943608d7a5eed56286317 | amazon | [Nguồn](https://www.amazon.com/dp/B0HJB69GJL) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | eadd10e70f1048f9b547d57e7e1f83c9 | amazon | [Nguồn](https://www.amazon.com/dp/B0DZ77D5HL) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 63e46cf03bee4ac9b21cc4168f45d3eb | amazon | [Nguồn](https://www.amazon.com/dp/B08KT2Z93D) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 6babc3f07006421396e717355e88297b | amazon | [Nguồn](https://www.amazon.com/dp/B074PVTPBW) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 86ac18f0e60e4f4f93a189c81954a438 | amazon | [Nguồn](https://www.amazon.com/dp/B09V7Z4TJG) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | bdd0227f3d5343fca3b5651b79f43471 | amazon | [Nguồn](https://www.amazon.com/dp/B07PBXXNCY) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 5a542e7077e4402bad8ce16f4fb2818f | amazon | [Nguồn](https://www.amazon.com/dp/B09541P9WH) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 767b66695d2d482284eb9c37fed91913 | amazon | [Nguồn](https://www.amazon.com/dp/B00U2VQZDS) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 3a5ebe75d2124ddc95793ac4c3b0d3d8 | amazon | [Nguồn](https://www.amazon.com/dp/B00HB6MCSO) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n| Christmas Gift Ideas | 55a9091f460841f28f5153d8de9600c4 | amazon | [Nguồn](https://www.amazon.com/dp/B07ZTD3JZH) | 2026-10-21T03:35:33.528+00:00 | 4b64d4a7ab4a4a1e8c39112495d7545f | 4b64d4a7ab4a4a1e8c39112495d7545f | không |\n",
+  "document_sha256": "72b1e3e66815df4e518bf4af1280abb00d664a4678882363d5590231278a2d86"
+}

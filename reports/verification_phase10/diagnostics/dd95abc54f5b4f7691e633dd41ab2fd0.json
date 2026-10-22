@@ -1,0 +1,463 @@
+{
+  "run_id": "dd95abc54f5b4f7691e633dd41ab2fd0",
+  "data_policy": "live-only-v9",
+  "audit_kind": "offline_local_web_reads_on_archived_real_publication",
+  "audited_at": "2026-10-22T02:40:28.292910+00:00",
+  "input": {
+    "cache": "reports/verification_phase09/latest_data.json",
+    "run_id": "9e8b13a46039476a9584131f1933745a",
+    "document_sha256": "72b1e3e66815df4e518bf4af1280abb00d664a4678882363d5590231278a2d86",
+    "file_sha256_before_and_after": "962f619937bb47ca370736939f103aed858748b712646056be2f6b45e72670dd"
+  },
+  "http_reads": {
+    "/api/config": {
+      "status": 200,
+      "cache_control": "no-store",
+      "mode_default": "ollama",
+      "niche_limit": 5
+    },
+    "/api/latest": {
+      "status": 200,
+      "cache_control": "no-store"
+    },
+    "/api/jobs/active": {
+      "status": 200,
+      "cache_control": "no-store"
+    }
+  },
+  "loopback_http_requests": 3,
+  "provider_requests": 0,
+  "model_generation_requests": 0,
+  "research_jobs_started": 0,
+  "fixture_or_mock_data": false,
+  "api_preserves_canonical_publication": true,
+  "source_collection_validation_reexecuted": false,
+  "provider_records_refetched": false,
+  "status": "partial",
+  "data_quality": "insufficient",
+  "source_record_counts": {
+    "google_trends": 2,
+    "amazon": 20,
+    "reddit": 0
+  },
+  "evidence": [
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "2b108c6bcca84af9b9049cf1d8b71dc1",
+      "source": "google_trends",
+      "source_url": "https://trends.google.com/trends/explore?q=christmas+gift+ideas&date=today+3-m&geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "keyword": "christmas gift ideas",
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+      "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+      "request_ids": [
+        "ddb39ae4f94749c8b7be2a2e0424103a",
+        "ab486a90b4514e32b4b13894c3425774",
+        "a3ed6f94ab8945589c9cf992e2258878",
+        "9c16537296634d3bae72646f247db00f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "bb785bf1ded24510a090fd544c9eabdb",
+      "source": "google_trends",
+      "source_url": "https://trends.google.com/trends/explore?q=unique+christmas+gifts&date=today+3-m&geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "keyword": "unique christmas gifts",
+        "geo": "US",
+        "timeframe": "today 3-m"
+      },
+      "retrieved_at": "2026-10-21T03:08:02.615+00:00",
+      "request_id": "ddb39ae4f94749c8b7be2a2e0424103a",
+      "request_ids": [
+        "ddb39ae4f94749c8b7be2a2e0424103a",
+        "ab486a90b4514e32b4b13894c3425774",
+        "a3ed6f94ab8945589c9cf992e2258878",
+        "3918f8d06f6b4d20bb7cf8b7eceb0739"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07KX2N355",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "f89585a826e1449c85f5be642d011c48",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "6babc3f07006421396e717355e88297b",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B09541P9WH",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "767b66695d2d482284eb9c37fed91913",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    },
+    {
+      "niche": "Christmas Gift Ideas",
+      "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+      "source": "amazon",
+      "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "request_ids": [
+        "4b64d4a7ab4a4a1e8c39112495d7545f"
+      ],
+      "is_live": true,
+      "from_cache": false
+    }
+  ],
+  "ranking": [],
+  "top_ideas": [],
+  "browser_visual_qa_or_positive_live_research_job_verified": false,
+  "limitations": [
+    "Read-only local HTTP compatibility, not new live research.",
+    "The three default input niches are query configuration, not three observed market samples.",
+    "Archived source timestamps, failures, insufficient gate and empty ideas remain unchanged."
+  ]
+}

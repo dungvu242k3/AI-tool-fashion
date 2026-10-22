@@ -1,0 +1,200 @@
+{
+  "schema": "phase12-verification-manifest-v1",
+  "measured_at": "2026-10-22T04:08:42.109432+00:00",
+  "implementation_scope": "phase12_only_not_phase13",
+  "acceptance_status": "pending_real_reddit_access_and_positive_live_end_to_end",
+  "unit_unique_outcomes": {
+    "passed": 67
+  },
+  "live_unique_outcomes": {
+    "skipped": 2,
+    "failed": 1
+  },
+  "unit_results": {
+    "tests.test_audit_phase12::test_complete_audit_reconstructs_all_views_across_quality_states[complete]": "passed",
+    "tests.test_audit_phase12::test_complete_audit_reconstructs_all_views_across_quality_states[partial]": "passed",
+    "tests.test_audit_phase12::test_complete_audit_reconstructs_all_views_across_quality_states[failed]": "passed",
+    "tests.test_audit_phase12::test_complete_audit_reconstructs_all_views_across_quality_states[insufficient]": "passed",
+    "tests.test_audit_phase12::test_cached_and_multi_niche_sources_preserve_original_context": "passed",
+    "tests.test_audit_phase12::test_rehashed_fabricated_prose_is_rejected_even_if_number_exists_elsewhere[9999% growth]": "passed",
+    "tests.test_audit_phase12::test_rehashed_fabricated_prose_is_rejected_even_if_number_exists_elsewhere[one million buyers]": "passed",
+    "tests.test_audit_phase12::test_rehashed_fabricated_prose_is_rejected_even_if_number_exists_elsewhere[\\uff19\\uff19\\uff05]": "passed",
+    "tests.test_audit_phase12::test_rehashed_fabricated_prose_is_rejected_even_if_number_exists_elsewhere[\\xbd market share]": "passed",
+    "tests.test_audit_phase12::test_rehashed_fabricated_prose_is_rejected_even_if_number_exists_elsewhere[60/100]": "passed",
+    "tests.test_audit_phase12::test_other_rendered_sections_cannot_smuggle_metrics[keywords_content]": "passed",
+    "tests.test_audit_phase12::test_other_rendered_sections_cannot_smuggle_metrics[ideas_content]": "passed",
+    "tests.test_audit_phase12::test_rehashed_wrong_ranking_is_not_just_compared_with_its_own_markdown": "passed",
+    "tests.test_audit_phase12::test_unknown_ranking_policy_fields_fail_closed": "passed",
+    "tests.test_audit_phase12::test_rehashed_metadata_and_price_views_still_require_snapshot_correspondence[price-table]": "passed",
+    "tests.test_audit_phase12::test_rehashed_metadata_and_price_views_still_require_snapshot_correspondence[price-text]": "passed",
+    "tests.test_audit_phase12::test_rehashed_metadata_and_price_views_still_require_snapshot_correspondence[request-elapsed]": "passed",
+    "tests.test_audit_phase12::test_actual_markdown_file_is_audited_not_only_embedded_text": "passed",
+    "tests.test_audit_phase12::test_invalid_cache_is_never_repaired_or_replaced_by_audit": "passed",
+    "tests.test_audit_phase12::test_snapshot_run_mismatch_is_not_silently_accepted_for_live_publication": "passed",
+    "tests.test_audit_phase12::test_metadata_warning_numbers_are_not_certified_as_market_metrics": "passed",
+    "tests.test_audit_phase12::test_numeric_ledger_keeps_exact_unicode_spelling_offsets_and_not_bool_values": "passed",
+    "tests.test_audit_phase12::test_numeric_inventory_budget_is_enforced_before_unbounded_output": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[unknown-field]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[missing-field]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[raw-secret]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[bad-source]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[bad-asin]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[bool-count]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[wrong-retained]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[duplicate-trace]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[unsafe-url]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[oversize-records]": "passed",
+    "tests.test_audit_phase12::test_closed_snapshot_codec_rejects_schema_provenance_and_count_abuse[unbalanced-rejections]": "passed",
+    "tests.test_audit_phase12::test_codec_retains_rejected_candidate_counts_without_inventing_rejected_records": "passed",
+    "tests.test_audit_phase12::test_codec_owns_nested_data_and_does_not_mutate_snapshot": "passed",
+    "tests.test_audit_phase12::test_grounded_ollama_publication_is_revalidated_without_another_generation": "passed",
+    "tests.test_audit_phase12::test_audit_cli_failure_is_persisted_without_claiming_pass": "passed",
+    "tests.test_verification_phase12::test_failure_to_pipeline_to_snapshot_to_audit_is_consistent[rate-limited]": "passed",
+    "tests.test_verification_phase12::test_failure_to_pipeline_to_snapshot_to_audit_is_consistent[timeout]": "passed",
+    "tests.test_verification_phase12::test_failure_to_pipeline_to_snapshot_to_audit_is_consistent[selector-changed]": "passed",
+    "tests.test_verification_phase12::test_failure_to_pipeline_to_snapshot_to_audit_is_consistent[json-field-missing]": "passed",
+    "tests.test_verification_phase12::test_ollama_offline_pipeline_is_auditable_without_fictional_ideas": "passed",
+    "tests.test_verification_phase12::test_probe_constructor_has_small_explicit_budgets_and_borrowed_transport[google_trends]": "passed",
+    "tests.test_verification_phase12::test_probe_constructor_has_small_explicit_budgets_and_borrowed_transport[amazon]": "passed",
+    "tests.test_verification_phase12::test_probe_constructor_has_small_explicit_budgets_and_borrowed_transport[reddit]": "passed",
+    "tests.test_verification_phase12::test_unknown_probe_cannot_start_a_transport_or_choose_arbitrary_url": "passed",
+    "tests.test_verification_phase12::test_probe_diagnostics_are_unique_honest_and_do_not_publish_latest[records]": "passed",
+    "tests.test_verification_phase12::test_probe_diagnostics_are_unique_honest_and_do_not_publish_latest[empty]": "passed",
+    "tests.test_verification_phase12::test_probe_diagnostics_are_unique_honest_and_do_not_publish_latest[exception]": "passed",
+    "tests.test_verification_phase12::test_custom_ranking_policy_and_escaped_niche_names_are_reproducible": "passed",
+    "tests.test_verification_phase12::test_offline_audit_can_pair_another_manifest_only_for_exact_same_archived_evidence": "passed",
+    "tests.test_audit_security_phase12::test_reauditing_grounded_text_rejects_tampering_without_new_generation[fact-value]": "passed",
+    "tests.test_audit_security_phase12::test_reauditing_grounded_text_rejects_tampering_without_new_generation[quote]": "passed",
+    "tests.test_audit_security_phase12::test_reauditing_grounded_text_rejects_tampering_without_new_generation[proposal]": "passed",
+    "tests.test_audit_security_phase12::test_reauditing_grounded_text_rejects_tampering_without_new_generation[context]": "passed",
+    "tests.test_audit_security_phase12::test_extra_snapshot_header_fields_are_not_silently_trusted": "passed",
+    "tests.test_audit_security_phase12::test_oversize_audit_artifact_fails_before_unreadable_report_is_written": "passed",
+    "tests.test_audit_security_phase12::test_repeated_block_match_work_is_bounded_before_token_scanning": "passed",
+    "tests.test_audit_security_phase12::test_signed_and_trailing_unicode_numbers_remain_exact": "passed",
+    "tests.test_audit_final_phase12::test_valid_but_different_source_measurement_cannot_match_a_rehashed_snapshot": "passed",
+    "tests.test_audit_final_phase12::test_forged_quality_issue_is_not_accepted_as_a_numeric_source_statement": "passed",
+    "tests.test_audit_final_phase12::test_currency_separated_audit_has_an_independent_exact_mean_oracle": "passed",
+    "tests.test_audit_final_phase12::test_unbounded_saved_ai_policy_is_not_trusted_during_offline_verification": "passed",
+    "tests.test_audit_final_phase12::test_actual_markdown_symlink_cannot_escape_the_publication_directory": "passed",
+    "tests.test_audit_final_phase12::test_unknown_validation_counts_after_collector_crash_stay_unknown": "passed",
+    "tests.test_audit_final_phase12::test_retry_count_is_recomputed_from_request_journal_not_operator_metadata": "passed"
+  },
+  "live_results": {
+    "tests.live.test_providers_live::test_real_provider_returns_traced_records[google_trends]": "skipped",
+    "tests.live.test_providers_live::test_real_provider_returns_traced_records[amazon]": "skipped",
+    "tests.live.test_providers_live::test_real_provider_returns_traced_records[reddit]": "failed"
+  },
+  "junit_reports": {
+    "audit-junit.xml": {
+      "tests": 38,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "8d5d5bf49ce6fa988753706dd770a4a6e30b18c34496509568ce726ce1295f40"
+    },
+    "audit-retry-junit.xml": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "dd72b0b50e6793ed553df0586010ef70a10ae82a816601a55efff086ae8bcaf4"
+    },
+    "integration-junit.xml": {
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3,
+      "sha256": "830673943e2cd3af18077c8a289f41babbb08c77615db5f8bba720ffdfe19a6e"
+    },
+    "security-junit.xml": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "48774803ae63a4ec105404f107923a6cd188a18d51674720fb287eb018e81c4b"
+    },
+    "final-source-junit.xml": {
+      "tests": 7,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "3a364d7f899a9c69c690971f028e78c308aefa8801f608eed4ef898d79ba4dc3"
+    },
+    "final-source-retry-junit.xml": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "763bf218bf703757e1b7c36730f44983d91b2f7bdf00d544af437df84d8778cc"
+    },
+    "reddit-live-junit.xml": {
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "8be862c76d0f7e455870eb97f0fb2312db8ed3bd23057606c0d5e50bb9d41354"
+    }
+  },
+  "coverage": {
+    "tool_version": "7.16.2",
+    "scope": "src measured ONLY by seven NEW final-source tests plus exact failed-case retry; not full suite or all 67 tests",
+    "data_file": "coverage/.coverage-current",
+    "report": "coverage/coverage.json",
+    "report_sha256": "74b2da7b1e7f044893d448b492c25121635a4e6275a55e317f0e388df962ed47",
+    "totals": {
+      "covered_lines": 3096,
+      "num_statements": 4715,
+      "percent_covered": 60.3009444533376,
+      "percent_covered_display": "60.30",
+      "missing_lines": 1619,
+      "excluded_lines": 16,
+      "percent_statements_covered": 65.66277836691411,
+      "percent_statements_covered_display": "65.66",
+      "num_branches": 1532,
+      "num_partial_branches": 275,
+      "covered_branches": 671,
+      "missing_branches": 861,
+      "percent_branches_covered": 43.79895561357702,
+      "percent_branches_covered_display": "43.80"
+    },
+    "excluded_from_percentages": "coverage/.coverage-audit contains mixed source versions; retained only as execution history"
+  },
+  "real_data_audit": {
+    "artifact": "diagnostics/5e6305a72429435f8b8e7086fe418d9d.json",
+    "sha256": "553e863e213c6756df60aba1d0ecacc3f78a74e47aa51f4cd9dba76d73981cbc",
+    "status": "consistent_with_collector_snapshots",
+    "numeric_occurrences": 1219,
+    "structured_numeric_fields": 625,
+    "network_requests": 0,
+    "model_calls": 0,
+    "record_counts": {
+      "google_trends": 2,
+      "amazon": 20,
+      "reddit": 0
+    }
+  },
+  "real_reddit_probe": {
+    "artifact": "live/diagnostics/c1d491b84ed44a42adc846128b22b202.json",
+    "status": "failed",
+    "provider": "public_json",
+    "http_status": 403,
+    "network_attempts": 1,
+    "records": 0,
+    "oauth_configured": false,
+    "no_automatic_retry_or_fallback": true
+  },
+  "prior_live_checks_not_repeated": {
+    "google_trends": "reports/verification_phase03/diagnostics/fb7b49420fdd40c599abe64bfb35d8f4.json",
+    "amazon": "reports/verification_phase04/diagnostics/cf2eb6447ebf4f6caefc724d1f7d70f7.json"
+  },
+  "verification_source_sha256": {
+    "src/verification/collection_codec.py": "f04e0f5319c3e094cd30b4481e2ce75e4f102d7b2283307ffae8f08e3021c184",
+    "src/verification/contracts.py": "21a309effd3eade3095014ca7b75dcd933a309b46c70e38a5d627ebde79bd428",
+    "src/verification/live_probe.py": "a0b100be2541405ae0814b12857fe8ad2cbfad42348793ae3a4a53d42fdc037b",
+    "src/verification/numeric_inventory.py": "0e593b7e1b45dfa9f41c92d019e01944c9792bb76782dddf9d9534b5fe293dcc",
+    "src/verification/publication_audit.py": "1b2e916181626b0428c1d5fa79501f1eb42f22aadeabc550854521d2edaf5a75",
+    "src/verification/section_audit.py": "f29a0c9569092e5f904429da116f48dab74e82891ae315688eef3a685d668bba",
+    "src/verification/__init__.py": "623da9972c88a6eceadf50fd781f6af7d3c828ff47a0f7da92c92567b42d7ff8"
+  },
+  "no_full_suite_or_old_passed_tests_rerun": true
+}

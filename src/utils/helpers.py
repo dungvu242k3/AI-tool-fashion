@@ -2,7 +2,8 @@
 Helper utility functions for data sanitization, formatting, and text processing.
 """
 import re
-from typing import Any
+import math
+from typing import Any, Optional
 
 
 def strip_thinking_tags(text: str) -> str:
@@ -58,3 +59,22 @@ def safe_int(val: Any, default: int = 0) -> int:
         return int(val)
     except (ValueError, TypeError):
         return default
+
+
+def optional_float(value: Any) -> Optional[float]:
+    """Parse a finite measurement without substituting a default value."""
+    if isinstance(value, bool):
+        return None
+    try:
+        parsed = float(value)
+    except (ValueError, TypeError, OverflowError):
+        return None
+    return parsed if parsed is not None and math.isfinite(parsed) else None
+
+
+def optional_int(value: Any) -> Optional[int]:
+    """Preserve zero while rejecting missing, fractional and invalid counts."""
+    if isinstance(value, int) and not isinstance(value, bool):
+        return value
+    parsed = optional_float(value)
+    return int(parsed) if parsed is not None and parsed.is_integer() else None

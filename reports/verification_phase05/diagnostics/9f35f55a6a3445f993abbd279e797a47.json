@@ -1,0 +1,104 @@
+{
+  "run_id": "9f35f55a6a3445f993abbd279e797a47",
+  "data_policy": "live-only-v5",
+  "verification_scope": "Single configured subreddit/seed live probe; not a market report",
+  "niche": {
+    "name": "Christmas Gift Ideas",
+    "subreddits": [
+      "giftideas"
+    ],
+    "seed_keywords": [
+      "christmas gift ideas"
+    ]
+  },
+  "provider": "public_json",
+  "source_status": {
+    "source": "reddit",
+    "status": "failed",
+    "record_count": 0,
+    "started_at": "2026-10-21T04:04:19.008+00:00",
+    "completed_at": "2026-10-21T04:04:27.869+00:00",
+    "fetched_at": "2026-10-21T04:04:27.869+00:00",
+    "request_url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+    "live_attempted": true,
+    "is_live": false,
+    "request_count": 2,
+    "cached_request_count": 0,
+    "cached_record_count": 0,
+    "warnings": [
+      {
+        "code": "connection_error",
+        "message": "Nguồn không khả dụng (connection_error); đã thử 2 lần.",
+        "request_id": "b7a46a315cc446ea9a73900efe59e03b",
+        "operation": "search",
+        "retryable": true
+      }
+    ],
+    "request_ids": [
+      "a2a0b6a1ba6a401e958616df65772163",
+      "b7a46a315cc446ea9a73900efe59e03b"
+    ]
+  },
+  "records": [],
+  "request_metadata": [
+    {
+      "request_id": "a2a0b6a1ba6a401e958616df65772163",
+      "operation_id": "4a97b3af73054d3bb3eb2568bcc668d9",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+      "query": {
+        "provider": "public_json",
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month",
+        "sort": "top",
+        "window_start_utc": 1789963459.008289,
+        "window_end_utc": 1792555459.008289
+      },
+      "started_at": "2026-10-21T04:04:19.009+00:00",
+      "completed_at": "2026-10-21T04:04:23.119+00:00",
+      "elapsed_ms": 4109.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.6609538270590323,
+      "cache_reused": false
+    },
+    {
+      "request_id": "b7a46a315cc446ea9a73900efe59e03b",
+      "operation_id": "4a97b3af73054d3bb3eb2568bcc668d9",
+      "source": "reddit",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.reddit.com/r/giftideas/search.json?q=christmas+gift+ideas&restrict_sr=on&sort=top&t=month&limit=5&raw_json=1&type=link",
+      "query": {
+        "provider": "public_json",
+        "subreddit": "giftideas",
+        "search_term": "christmas gift ideas",
+        "time_filter": "month",
+        "sort": "top",
+        "window_start_utc": 1789963459.008289,
+        "window_end_utc": 1792555459.008289
+      },
+      "started_at": "2026-10-21T04:04:23.789+00:00",
+      "completed_at": "2026-10-21T04:04:27.869+00:00",
+      "elapsed_ms": 4093.0,
+      "attempt": 2,
+      "redirect_hop": 0,
+      "status_code": null,
+      "error_code": "connection_error",
+      "error_message": "Lỗi kết nối nguồn: connection_error.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  ],
+  "permalink_checks": [],
+  "verification_requests": [],
+  "verification_warnings": []
+}

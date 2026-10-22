@@ -1,0 +1,121 @@
+{
+  "run_id": "213bd739f5e04891b4c64a16a4c5080a",
+  "data_policy": "live-only-v4",
+  "purpose": "movers_layout_diagnostic",
+  "request_metadata": {
+    "035e6085f74c48469d4834e4508e579e": {
+      "request_id": "035e6085f74c48469d4834e4508e579e",
+      "operation_id": "178e7d8bc14640419688aef1712e672e",
+      "source": "amazon",
+      "operation": "movers_layout_diagnostic",
+      "method": "GET",
+      "url": "https://www.amazon.com/gp/movers-and-shakers",
+      "query": {
+        "purpose": "inspect_missing_cards"
+      },
+      "started_at": "2026-10-21T03:38:38.675+00:00",
+      "completed_at": "2026-10-21T03:38:39.368+00:00",
+      "elapsed_ms": 703.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "details": {
+    "product_links": [
+      {
+        "text": "Amazon Secured Card",
+        "path": "/dp/product/B084KP3NG6",
+        "ancestors": [
+          {
+            "tag": "li",
+            "class": [],
+            "id": null
+          },
+          {
+            "tag": "ul",
+            "class": [],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterLinkCol",
+              "navAccessibility"
+            ],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterVerticalRow",
+              "navAccessibility"
+            ],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterVerticalColumn",
+              "navAccessibility"
+            ],
+            "id": null
+          }
+        ]
+      },
+      {
+        "text": "Amazon Business Card",
+        "path": "/dp/B0DVBL912R",
+        "ancestors": [
+          {
+            "tag": "li",
+            "class": [],
+            "id": null
+          },
+          {
+            "tag": "ul",
+            "class": [],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterLinkCol",
+              "navAccessibility"
+            ],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterVerticalRow",
+              "navAccessibility"
+            ],
+            "id": null
+          },
+          {
+            "tag": "div",
+            "class": [
+              "navFooterVerticalColumn",
+              "navAccessibility"
+            ],
+            "id": null
+          }
+        ]
+      }
+    ],
+    "category_paths": [],
+    "headings": [
+      "Skip to",
+      "Keyboard shortcuts",
+      "Amazon Movers & Shakers",
+      "Movers & Shakers",
+      "About Movers & Shakers"
+    ]
+  }
+}

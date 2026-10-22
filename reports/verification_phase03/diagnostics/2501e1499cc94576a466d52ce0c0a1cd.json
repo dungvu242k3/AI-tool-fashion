@@ -1,0 +1,61 @@
+{
+  "run_id": "2501e1499cc94576a466d52ce0c0a1cd",
+  "data_policy": "live-only-v3",
+  "source_status": {
+    "source": "google_trends",
+    "status": "failed",
+    "record_count": 0,
+    "started_at": "2026-10-21T03:04:21.124+00:00",
+    "completed_at": "2026-10-21T03:04:21.588+00:00",
+    "fetched_at": "2026-10-21T03:04:21.587+00:00",
+    "request_url": "https://trends.google.com/trends/explore/?geo=US",
+    "live_attempted": true,
+    "is_live": false,
+    "request_count": 1,
+    "cached_request_count": 0,
+    "cached_record_count": 0,
+    "warnings": [
+      {
+        "code": "http_404",
+        "message": "Nguồn không khả dụng (http_404); đã thử 1 lần.",
+        "request_id": "ac6a75c07ae64fe8b0a59fef5be7e4a6",
+        "operation": "bootstrap",
+        "retryable": false
+      }
+    ],
+    "request_ids": [
+      "ac6a75c07ae64fe8b0a59fef5be7e4a6"
+    ]
+  },
+  "request_metadata": {
+    "ac6a75c07ae64fe8b0a59fef5be7e4a6": {
+      "request_id": "ac6a75c07ae64fe8b0a59fef5be7e4a6",
+      "operation_id": "8142b684521f459a8788444203283f4e",
+      "source": "google_trends",
+      "operation": "bootstrap",
+      "method": "GET",
+      "url": "https://trends.google.com/trends/explore/?geo=US",
+      "query": {
+        "keywords": [
+          "christmas gift ideas",
+          "unique christmas gifts"
+        ],
+        "geo": "US",
+        "timeframe": "today 3-m",
+        "bootstrap_geo": "US"
+      },
+      "started_at": "2026-10-21T03:04:21.125+00:00",
+      "completed_at": "2026-10-21T03:04:21.587+00:00",
+      "elapsed_ms": 469.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 404,
+      "error_code": "http_404",
+      "error_message": "HTTP 404 từ nguồn dữ liệu.",
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "records": []
+}

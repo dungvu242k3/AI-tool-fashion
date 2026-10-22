@@ -1,0 +1,1379 @@
+{
+  "run_id": "cf2eb6447ebf4f6caefc724d1f7d70f7",
+  "data_policy": "live-only-v4",
+  "input": {
+    "name": "Christmas Gift Ideas",
+    "amazon_sources": [
+      {
+        "type": "search",
+        "query": "christmas gifts"
+      },
+      {
+        "type": "best_sellers",
+        "url": "https://www.amazon.com/Best-Sellers/zgbs"
+      },
+      {
+        "type": "movers_shakers",
+        "url": "https://www.amazon.com/gp/movers-and-shakers"
+      }
+    ]
+  },
+  "settings": {
+    "max_requests": 4,
+    "max_products": 20,
+    "max_cards_per_page": 100,
+    "max_html_chars": 2000000,
+    "include_sponsored": false
+  },
+  "source_status": {
+    "source": "amazon",
+    "status": "partial",
+    "record_count": 20,
+    "started_at": "2026-10-21T03:35:32.235+00:00",
+    "completed_at": "2026-10-21T03:35:34.328+00:00",
+    "fetched_at": "2026-10-21T03:35:34.280+00:00",
+    "request_url": "https://www.amazon.com/gp/movers-and-shakers",
+    "live_attempted": true,
+    "is_live": true,
+    "request_count": 3,
+    "cached_request_count": 0,
+    "cached_record_count": 0,
+    "warnings": [
+      {
+        "code": "no_product_cards",
+        "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+        "request_id": "696cb0c20f2e488c98c235c010a49e31",
+        "operation": "search",
+        "retryable": false
+      },
+      {
+        "code": "no_product_cards",
+        "message": "Amazon không trả card sản phẩm đủ điều kiện.",
+        "request_id": "34e003b40354460abd24d10c94c9988a",
+        "operation": "movers_shakers",
+        "retryable": false
+      }
+    ],
+    "request_ids": [
+      "696cb0c20f2e488c98c235c010a49e31",
+      "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "34e003b40354460abd24d10c94c9988a"
+    ]
+  },
+  "request_metadata": {
+    "696cb0c20f2e488c98c235c010a49e31": {
+      "request_id": "696cb0c20f2e488c98c235c010a49e31",
+      "operation_id": "6038c3f4aed44a72bf573d60bb49d452",
+      "source": "amazon",
+      "operation": "search",
+      "method": "GET",
+      "url": "https://www.amazon.com/s?k=christmas+gifts",
+      "query": {
+        "source_type": "search",
+        "search_term": "christmas gifts",
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:32.235+00:00",
+      "completed_at": "2026-10-21T03:35:32.611+00:00",
+      "elapsed_ms": 375.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "4b64d4a7ab4a4a1e8c39112495d7545f": {
+      "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+      "operation_id": "20815d8cb6bd40478a03ed979935da11",
+      "source": "amazon",
+      "operation": "best_sellers",
+      "method": "GET",
+      "url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "query": {
+        "source_type": "best_sellers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:32.638+00:00",
+      "completed_at": "2026-10-21T03:35:33.528+00:00",
+      "elapsed_ms": 891.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    },
+    "34e003b40354460abd24d10c94c9988a": {
+      "request_id": "34e003b40354460abd24d10c94c9988a",
+      "operation_id": "925a3b7377064b709f8358a64afa37a6",
+      "source": "amazon",
+      "operation": "movers_shakers",
+      "method": "GET",
+      "url": "https://www.amazon.com/gp/movers-and-shakers",
+      "query": {
+        "source_type": "movers_shakers",
+        "search_term": null,
+        "niche": "Christmas Gift Ideas"
+      },
+      "started_at": "2026-10-21T03:35:33.732+00:00",
+      "completed_at": "2026-10-21T03:35:34.280+00:00",
+      "elapsed_ms": 547.0,
+      "attempt": 1,
+      "redirect_hop": 0,
+      "status_code": 200,
+      "error_code": null,
+      "error_message": null,
+      "retry_after_seconds": null,
+      "retry_delay_seconds": 0.0,
+      "cache_reused": false
+    }
+  },
+  "records": [
+    {
+      "title": "Scott ComfortPlus Toilet Paper, 12 Triple Rolls, 231 Sheets per Roll, Septic-Safe, 1-Ply Toilet Tissue",
+      "price": null,
+      "rating": 4.5,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B07BGLT25K",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B07BGLT25K",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 1,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 1,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "dd936822f6344d4ba5642bd0e8cfd165",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07BGLT25K",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bounty Paper Towels Quick Size, White, 16 Family Rolls = 40 Regular Rolls",
+      "price": null,
+      "rating": 4.8,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B079VP6DH5",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B079VP6DH5",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 2,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 2,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "1c47921c1b17414aaabd5bc7d86cdec1",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B079VP6DH5",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Amazon Basics 48-Pack AA Alkaline High-Performance Batteries, 1.5 Volt, 10-Year Shelf Life, Long-lasting, No Leakage",
+      "price": "VND 395,644",
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B00MNV8E0C",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B00MNV8E0C",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 3,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "395644",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 3,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "1f2209dc4fba4712a39e6e8959f713a1",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00MNV8E0C",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bounty Select-A-Size Paper Towels, White, 2 Triple Rolls = 6 Regular Rolls",
+      "price": null,
+      "rating": 4.8,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0DQYR6X8R",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0DQYR6X8R",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 4,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 4,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "f199f04bf9554733b07f8f177c4ac33f",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DQYR6X8R",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Amazon Basics AAA Long-Lasting Alkaline Batteries, 12 Count, 1.5 Volt, 10-Year Shelf Life, for Home and Office",
+      "price": null,
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B07KX2N355",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B07KX2N355",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B07KX2N355",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 5,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 5,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "2371268a56cb46969dd313732d4a9eda",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07KX2N355",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Angel Soft Toilet Paper, 18 Mega Rolls = 72 Regular Rolls, Soft and Strong | Toilet Tissue",
+      "price": "VND 330,437",
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0FN4NH4K8",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "f89585a826e1449c85f5be642d011c48",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0FN4NH4K8",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 6,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "330437",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 6,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "f89585a826e1449c85f5be642d011c48",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0FN4NH4K8",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "blink plus plan with monthly auto-renewal",
+      "price": null,
+      "rating": 4.4,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B08JHCVHTY",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B08JHCVHTY",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 7,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 7,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "78703438ac6a4b58b5706c29c9da0f6a",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B08JHCVHTY",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Apple EarPods Headphones with USB-C Plug, Wired Ear Buds with Built-in Remote to Control Music, Phone Calls, and Volume",
+      "price": "VND 462,404",
+      "rating": 4.5,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0DCH8VDXF",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0DCH8VDXF",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 8,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "462404",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 8,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "1ebfa68e9a4540bd88067b6c9c68a1ad",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DCH8VDXF",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Apple AirTag (2nd Generation): Tracker for Keychain, Wallet, and More; Locator with Sound; Simple One-Tap Setup with iPhone or iPad; Key Finder with up to 1.5X Precision Finding Range",
+      "price": "VND 571,342",
+      "rating": 4.6,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0GJTFXNRX",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0GJTFXNRX",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 9,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "571342",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 9,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "e0e6e375c20f45718918a8dfcc77d726",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0GJTFXNRX",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation | Live Translation, Heart Rate Sensing, Hearing Aid Feature, Bluetooth Headphones, Spatial Audio, USB-C Charging",
+      "price": "VND 4,746,693",
+      "rating": 4.4,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0FQFB8FMG",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0FQFB8FMG",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 10,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "4746693",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 10,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "95eaf7f4ad5746b2838785f1f9937b48",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0FQFB8FMG",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Apple AirPods 5 Wireless Earbuds with Active Noise Cancellation | Bluetooth Headphones, Personalized Spatial Audio, Live Translation, USB-C Charging Case, H2 Chip",
+      "price": "VND 3,076,915",
+      "rating": 4.3,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0HJB69GJL",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0HJB69GJL",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 11,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "3076915",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 11,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "dc9fe5bde35943608d7a5eed56286317",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0HJB69GJL",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Apple iPad 11-inch: A16 chip, 11-inch Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Silver",
+      "price": "VND 10,813,580",
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B0DZ77D5HL",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B0DZ77D5HL",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 12,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "10813580",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 12,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "eadd10e70f1048f9b547d57e7e1f83c9",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B0DZ77D5HL",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "eos Shea Better Body Lotion- Vanilla Cashmere,  24-Hour Moisture, 16 fl oz | Natural Shea Butter & Oil, Whipped Vanilla & Caramel, Lasting Hydration, 100% Vegan & Cruelty-Free, Apply to Dry Skin",
+      "price": null,
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B08KT2Z93D",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B08KT2Z93D",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 13,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 13,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "63e46cf03bee4ac9b21cc4168f45d3eb",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B08KT2Z93D",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Mighty Patch Hero Cosmetics Original Nighttime Acne Pimple Patches, 36 Ct | #1 Hydrocolloid Acne Patches, Shrinking Zits & Whiteheads in 1 Use, Spot Treatment, Pimple Stickers for Face",
+      "price": null,
+      "rating": 4.6,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B074PVTPBW",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "6babc3f07006421396e717355e88297b",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B074PVTPBW",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 14,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 14,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "6babc3f07006421396e717355e88297b",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B074PVTPBW",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.45% BHA Salicylic Acid - For All, Korean Skin Care, 70 Pads, 1 Pack",
+      "price": null,
+      "rating": 4.6,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B09V7Z4TJG",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B09V7Z4TJG",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 15,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 15,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "86ac18f0e60e4f4f93a189c81954a438",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Makeup Remover Dry Wipes, Ultra Soft, 1 Pack, 50 Ct",
+      "price": null,
+      "rating": 4.8,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B07PBXXNCY",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B07PBXXNCY",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 16,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 16,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "bdd0227f3d5343fca3b5651b79f43471",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07PBXXNCY",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Amazon Essentials Cotton Swabs, 500 Count (Previously Amazon Basics)",
+      "price": null,
+      "rating": 4.7,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B09541P9WH",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B09541P9WH",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B09541P9WH",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 17,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 17,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "5a542e7077e4402bad8ce16f4fb2818f",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B09541P9WH",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "Neutrogena Makeup Remover Micellar Wipes, 2 Pack of 25 Ct | Plant-Based Micellar Water Cleansing Cloths, Gently Removes Oil, Dirt & Waterproof Makeup, No Heavy Residue, Alcohol-Free",
+      "price": null,
+      "rating": 4.8,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B00U2VQZDS",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "767b66695d2d482284eb9c37fed91913",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B00U2VQZDS",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 18,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": null,
+      "price_currency": null,
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 18,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "767b66695d2d482284eb9c37fed91913",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00U2VQZDS",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "SZIVYSHI 14-Bone Overbust Corset Top",
+      "price": "VND 646,641",
+      "rating": 4.4,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B00HB6MCSO",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B00HB6MCSO",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 19,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "646641",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 19,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "3a5ebe75d2124ddc95793ac4c3b0d3d8",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B00HB6MCSO",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    },
+    {
+      "title": "EVERSWE Women's 80 Den Soft Opaque Tights, Women's Tights",
+      "price": "VND 194,070",
+      "rating": 4.5,
+      "reviews_count": null,
+      "rank": null,
+      "url": "https://www.amazon.com/dp/B07ZTD3JZH",
+      "source": "Amazon Best Sellers",
+      "search_position": null,
+      "provenance": {
+        "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+        "source": "amazon",
+        "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+        "query": {
+          "source_type": "best_sellers",
+          "search_term": null,
+          "niche": "Christmas Gift Ideas"
+        },
+        "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+        "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+        "request_ids": [
+          "4b64d4a7ab4a4a1e8c39112495d7545f"
+        ],
+        "is_live": true,
+        "from_cache": false
+      },
+      "asin": "B07ZTD3JZH",
+      "source_type": "best_sellers",
+      "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+      "listing_position": 20,
+      "listing_rank": null,
+      "is_sponsored": null,
+      "price_amount": "194070",
+      "price_currency": "VND",
+      "listings": [
+        {
+          "source_type": "best_sellers",
+          "listing_url": "https://www.amazon.com/Best-Sellers/zgbs",
+          "listing_position": 20,
+          "search_position": null,
+          "listing_rank": null,
+          "is_sponsored": null,
+          "provenance": {
+            "evidence_id": "55a9091f460841f28f5153d8de9600c4",
+            "source": "amazon",
+            "source_url": "https://www.amazon.com/dp/B07ZTD3JZH",
+            "query": {
+              "source_type": "best_sellers",
+              "search_term": null,
+              "niche": "Christmas Gift Ideas"
+            },
+            "retrieved_at": "2026-10-21T03:35:33.528+00:00",
+            "request_id": "4b64d4a7ab4a4a1e8c39112495d7545f",
+            "request_ids": [
+              "4b64d4a7ab4a4a1e8c39112495d7545f"
+            ],
+            "is_live": true,
+            "from_cache": false
+          }
+        }
+      ]
+    }
+  ]
+}
